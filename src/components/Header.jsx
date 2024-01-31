@@ -30,23 +30,18 @@ const Header = () => {
             </h1>
           </Link>
           <div className="w-full max-w-xs rounded-full bg-white flex flex-col justify-start items-start">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="11"
-                  height="11"
-                  viewBox="0 0 11 11"
-                  fill="none"
-                >
-                  <path
-                    d="M9.94886 9.97052L9.94892 9.97049L9.94886 9.97052Z"
-                    fill="#363A45"
-                    stroke="#363A45"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <input type="text" className="outline-none" />
+            <div className="flex justify-between items-center w-full">
+              <div className="flex w-full px-4 items-center gap-4">
+                <span className="w-3 aspect-square flex justify-center items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 512 512">
+                    <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  className="outline-none text-xs py-2 w-full"
+                  placeholder="Nima sotib olmoqchisiz?"
+                />
               </div>
             </div>
           </div>

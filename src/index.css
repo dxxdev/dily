@@ -1,9 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities{
-  .my-container{
-    @apply w-full max-w-7xl mx-auto px-5 py-3
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@layer utilities {
+  .my-container {
+    @apply w-full max-w-7xl mx-auto px-5 py-3;
   }
 }
