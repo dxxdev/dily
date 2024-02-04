@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-light-gray">
+    <header>
       <div className="my-container">
         <div className="flex w-full items-center justify-between">
           <Link>
@@ -33,7 +33,11 @@ const Header = () => {
             <div className="flex justify-between items-center w-full">
               <div className="flex w-full px-4 items-center gap-4">
                 <span className="w-3 aspect-square flex justify-center items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 512 512">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-full h-full"
+                    viewBox="0 0 512 512"
+                  >
                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                   </svg>
                 </span>
@@ -62,6 +66,26 @@ const Header = () => {
               />
             </svg>
           </button>
+        </div>
+        <div className="flex justify-between items-center py-3">
+          <nav>
+            <ul className="flex items-center gap-10">
+              <li>
+                <Link>Elektronika</Link>
+              </li>
+              <li>
+                <Link>Elektronika</Link>
+              </li>
+              <li>
+                <Link>Elektronika</Link>
+              </li>
+              <li>
+                <button className="flex gap-1">
+                  Yana <div className="transform rotate-180">^</div>
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>
