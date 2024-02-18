@@ -3,7 +3,7 @@ import React from "react";
 const HeroItem = () => {
   return (
     <div
-      className={`w-[512px] inline-block h-56 bg-[url(/src/assets/svg/hero-1.svg)] bg-no-repeat bg-contain relative bg-right bg-[#00B0F5] rounded-[20px] shadow-md p-8`}
+      className={`w-[512px] h-56 bg-[url(/src/assets/svg/hero-1.svg)] bg-no-repeat bg-contain relative bg-right bg-[#00B0F5] rounded-[20px] shadow-md p-8`}
     >
       <h2 className="text-2xl font-bold text-white">Dily.uzdan chegirmalar</h2>
       <h2 className="text-2xl relative top-8 left-12 font-bold text-white">
