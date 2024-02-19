@@ -16,6 +16,12 @@ export default {
       fontFamily: {
         "open-sans": ["Open Sans", "sans-serif"],
       },
+      boxShadow: {
+        "product-card-shadow": "1px 2px 16px 3px rgba(54, 58, 69, 0.08);",
+      },
+      lineHeight: {
+        152: "152%",
+      },
     },
   },
   plugins: [],
