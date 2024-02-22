@@ -8,9 +8,9 @@
 }
 
 body::-webkit-scrollbar {
-  width: 50px;
-  @apply bg-gray-400;
+  width: 5px;
+  @apply bg-transparent;
 }
 body::-webkit-scrollbar-thumb {
-  @apply bg-[#00B0F5] w-10;
-} 
+  @apply bg-gray-400;
+}

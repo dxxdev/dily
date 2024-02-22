@@ -5,6 +5,7 @@ import asusVivoBook4 from "./img/asus-vivobook-4.png";
 import asusVivoBook5 from "./img/asus-vivobook-5.png";
 import asusVivoBook6 from "./img/asus-vivobook-6.png";
 import asusVivoBook7 from "./img/asus-vivobook-7.png";
+import avatar from "./img/avatar.png"
 
 export {
   asusVivoBook1,
@@ -14,4 +15,5 @@ export {
   asusVivoBook5,
   asusVivoBook6,
   asusVivoBook7,
+  avatar
 };

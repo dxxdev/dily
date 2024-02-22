@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "light-gray": "#F7F7F7",
+        "address-gray": "#979797",
         "medium-gray-2": "#EFEFEF",
         "medium-gray": "#DADCDC",
         "dark-gray": "#363A45",
@@ -21,6 +22,9 @@ export default {
       },
       lineHeight: {
         152: "152%",
+      },
+      letterSpacing: {
+        0.5: "0.5px",
       },
     },
   },
