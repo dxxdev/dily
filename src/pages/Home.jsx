@@ -1,13 +1,16 @@
 import React from "react";
 import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
+import { products } from "../data/data";
 
 const Home = () => {
   return (
     <div>
       <Hero />
       <ul className="flex justify-center items-center">
-        <ProductCard />
+        {products.map((product) => {
+          return <ProductCard key={product?.id} product={product} />;
+        })}
       </ul>
     </div>
   );
