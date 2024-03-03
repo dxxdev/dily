@@ -42,6 +42,7 @@ export const products = [
           "Intel Core i5 13500H (8 yadro, 12 potok, 12 MB kesh, 3,8 gigagertsgacha)",
           "Intel Core i7 12400H (12 yadro, 16 potok, 18 MB kesh, 4,8 gigagertsgacha)",
         ],
+        prices: [200, 250, 180, 220],
         typeIndex: 0,
       },
       {
@@ -55,11 +56,13 @@ export const products = [
           "Nvidia Geforce MX350",
           "Nvidia Geforce GTX1050",
         ],
+        prices: [80, 120, 50, 80, 120, 150, 180],
         typeIndex: 0,
       },
       {
         name: "Operativ xotira",
         types: ["8 GB DDR5", "16 GB DDR5", "8 GB LPDDR5", "16 GB LPDDR5"],
+        prices: [10, 15, 12, 18],
         typeIndex: 0,
       },
       {
@@ -72,17 +75,25 @@ export const products = [
           "512 GB M.2 NVMe Gen 4.0 SSD",
           "1 TB M.2 NVMe Gen 4.0 SSD",
         ],
+        prices: [30, 50, 65, 32, 52, 70],
+        typeIndex: 0,
+      },
+      {
+        name: "Kamera",
+        types: ["720p HD", "1080p FHD"],
+        prices: [5, 8],
+        typeIndex: 0,
+      },
+      {
+        name: "Batereya",
+        types: ["42 Vt", "52 Vt", "90 Vt"],
+        prices: [20, 30, 50],
         typeIndex: 0,
       },
     ],
     shortly: [
-      "Protsessor - AMD Ryzen 5 7520U (4 yadro, 8 ta ip, 4 MB kesh, 4,3 gigagertsgacha)",
-      "Video karta - AMD Radeon Graphics",
-      "Operativ xotira - bortda 8 GB LPDDR5 maksimal. hajmi: 8 GB",
-      "Saqlash - 256 GB M.2 NVMe PCIe 3.0 SSD",
       "Interfeyslar - 1x USB 2.0 Type-A 1x USB 3.2 Gen1 Type-A 1x USB 3.2 Gen1 Type-C 1x HDMI 1.4 1x 3,5 mm kombinatsiyalangan audio uyasi 1x quvvat uyasi",
       "Boshqaruv elementlari - orqadan yoritilgan membranali klaviatura, 1,4 mm tugmachaning harakatlanishi, Precision sensorli panel",
-      "Kamera - 720p HD Maxfiylik paneli / Ovozli - SonicMaster o'rnatilgan karnay O'rnatilgan mikrofon majmuasi Cortana nutqni aniqlashni qo'llab-quvvatlash",
       "Simsiz interfeyslar - Wi-Fi 5 (802.11ac), 2 diapazonli 1x1 + Bluetooth 5.1",
       "Batareya - 42 Vt, 3S1P, 3 hujayra, litiy-io",
       "Displey - 15.6 FHD (1920x1080) OLED 16:9, 60Hz, yorqinligi 400 cd/m², eng yuqori yorqinligi 600 cd/m², DCI-P3: 100%, VESA5 qora displey HDR True, 1,07 milliard rang, Pantone tomonidan tasdiqlangan, 70% kamroq ko'k chiroq, TÜV Rheinland",
@@ -96,10 +107,17 @@ export const products = [
       asusVivoBook6,
       asusVivoBook7,
     ],
-    price: 650,
+    price: function () {
+      let totalPrice = 0;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
     discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
     discountPrice: function () {
-      return (this.price / 100) * this.discount;
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
     },
     avatar: avatar,
     address: "Toshkent",
@@ -110,3 +128,5 @@ export const products = [
     saved: false,
   },
 ];
+
+console.log(products[0].discountPrice());
