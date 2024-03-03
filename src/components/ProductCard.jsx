@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
     setRendered((prev) => !prev);
   };
   return (
-    <li className="rounded-lg flex flex-col relative shadow-product-card-shadow">
+    <li className="rounded-lg group flex flex-col relative shadow-product-card-shadow">
       <button
         className="absolute top-3 right-3 z-[999]"
         onClick={() => liked(product)}
@@ -34,14 +34,21 @@ const ProductCard = ({ product }) => {
         to={`/${product?.id}`}
         className="relative w-[214px] h-[166px] flex justify-center items-center"
       >
-        <img src={product?.images[0]} className="w-[calc(100%-40px)]" alt="" />
+        <img
+          src={product?.images[0]}
+          className="w-[calc(100%-40px)] group-hover:scale-110 transition-all"
+          alt=""
+        />
       </Link>
       <div className="px-4 py-2 flex flex-col items-start gap-1">
         <h3 className="text-base leading-152 text-dark-gray font-medium">
           {product?.productName}
         </h3>
         <strong className="text-bright-green font-bold leading-normal tracking-0.5">
-          {product?.price.toLocaleString("uz-UZ", options).replaceAll(",", " ")}{" "}
+          {product
+            ?.price()
+            .toLocaleString("uz-UZ", options)
+            .replaceAll(",", " ")}{" "}
           $
         </strong>
         <address className="not-italic text-address-gray font-normal text-xs">
