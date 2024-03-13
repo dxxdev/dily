@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { products } from "../data/data";
+import filteredCategory from "../functions/filteredCategory";
+import CategoryMenu from "../additions/CategoryMenu";
 
 const Header = () => {
+  const [opened, setOpened] = useState(true);
   return (
     <header>
       <div className="my-container">
@@ -49,7 +53,12 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <button className="p-1 rounded transition-all hover:bg-light-green/50">
+          <button
+            onClick={() => {
+              setOpened((prev) => !prev);
+            }}
+            className="p-1 rounded transition-all hover:bg-light-green/50"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
@@ -67,25 +76,23 @@ const Header = () => {
             </svg>
           </button>
         </div>
-        <div className="flex justify-between items-center py-3">
+        <div className="flex relative justify-between items-center py-3">
           <nav>
             <ul className="flex items-center gap-10">
-              <li>
-                <Link>Elektronika</Link>
-              </li>
-              <li>
-                <Link>Elektronika</Link>
-              </li>
-              <li>
-                <Link>Elektronika</Link>
-              </li>
-              <li>
-                <button className="flex gap-1">
-                  Yana <div className="transform rotate-180">^</div>
-                </button>
-              </li>
+              {filteredCategory(products)
+                .slice(0, 6)
+                .map((category) => {
+                  return (
+                    <li key={category.id}>
+                      <Link>{category.name}</Link>
+                    </li>
+                  );
+                })}
             </ul>
           </nav>
+          <div className="absolute z-[999] left-0 top-3">
+            <CategoryMenu opened={opened} />
+          </div>
         </div>
       </div>
     </header>
