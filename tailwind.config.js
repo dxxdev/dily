@@ -20,12 +20,19 @@ export default {
       boxShadow: {
         "product-card-shadow": "1px 2px 16px 3px rgba(54, 58, 69, 0.08);",
         "menu-shadow": "0px 4px 12px 0px rgba(54, 58, 69, 0.2)",
+        "outside-shadow": "-13px 3px 12px -3px rgba(54, 58, 69, 0.2)",
       },
       lineHeight: {
         152: "152%",
       },
       letterSpacing: {
         0.5: "0.5px",
+      },
+      width: {
+        95: "95px",
+      },
+      height: {
+        95: "95px",
       },
     },
   },

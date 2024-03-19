@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { products } from "../data/data";
 import filteredCategory from "../functions/filteredCategory";
 import CategoryMenu from "../additions/CategoryMenu";
+import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 
 const Header = () => {
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useState(false);
   return (
     <header>
       <div className="my-container">
@@ -79,12 +80,14 @@ const Header = () => {
         <div className="flex relative justify-between items-center py-3">
           <nav>
             <ul className="flex items-center gap-10">
-              {filteredCategory(products)
+              {filteredCategoryMenuItems(filteredCategory(products))
                 .slice(0, 6)
                 .map((category) => {
                   return (
                     <li key={category.id}>
-                      <Link>{category.name}</Link>
+                      <Link to={`/products/${category.name}`}>
+                        {category.name}
+                      </Link>
                     </li>
                   );
                 })}

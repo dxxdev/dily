@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
         </svg>
       </button>
       <Link
-        to={`/${product?.id}`}
+        to={`/products/${product?.category?.name}/${product?.category?.originalCategory}/${product?.id}`}
         className="relative w-[214px] h-[166px] flex justify-center items-center"
       >
         <img
