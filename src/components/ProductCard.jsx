@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
       </button>
       <Link
         to={`/products/${product?.category?.name}/${product?.category?.originalCategory}/${product?.id}`}
-        className="relative w-[214px] h-[166px] flex justify-center items-center"
+        className="relative w-full aspect-square flex justify-center items-center"
       >
         <img
           src={product?.images[0]}

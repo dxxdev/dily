@@ -8,7 +8,7 @@ import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 const Header = () => {
   const [opened, setOpened] = useState(false);
   return (
-    <header>
+    <header className="bg-light-gray">
       <div className="my-container">
         <div className="flex w-full items-center justify-between">
           <Link>

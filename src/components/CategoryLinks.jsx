@@ -52,11 +52,24 @@ const CategoryLinks = () => {
         },
       },
       {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 540,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
         },
       },
       {
@@ -70,31 +83,34 @@ const CategoryLinks = () => {
   };
   console.log(filteredCategoryMenuItems(filteredCategory(products)));
   return (
-    <div className="overflow-hidden !pb-14 my-container">
-      <Slider {...settings}>
-        {filteredCategoryMenuItems(filteredCategory(products)).map(
-          (category) => {
-            return (
-              <div
-                key={category.id}
-                className="!flex flex-col justify-center items-center"
-              >
-                <Link
-                  to={`/products/${category.name}`}
+    <div className="my-container flex justify-start flex-col items-start gap-10">
+      <h3 className="font-bold text-2xl leading-120">Siz qidiryapsiz:</h3>
+      <div className="overflow-hidden w-full !pb-14">
+        <Slider {...settings}>
+          {filteredCategoryMenuItems(filteredCategory(products)).map(
+            (category) => {
+              return (
+                <div
+                  key={category.id}
                   className="!flex flex-col justify-center items-center"
                 >
-                  <div className="w-95 h-95 rounded-full shadow-product-card-shadow p-3">
-                    <img src={category.icon} alt="" />
-                  </div>
-                  <h3 className="font-bold text-base leading-normal tracking-0.5 text-dark-gray">
-                    {category.name}
-                  </h3>
-                </Link>
-              </div>
-            );
-          }
-        )}
-      </Slider>
+                  <Link
+                    to={`/products/${category.name}`}
+                    className="!flex flex-col justify-center items-center"
+                  >
+                    <div className="w-95 h-95 rounded-full shadow-product-card-shadow p-3">
+                      <img src={category.icon} alt="" />
+                    </div>
+                    <h3 className="font-bold text-base leading-normal tracking-0.5 text-dark-gray">
+                      {category.name}
+                    </h3>
+                  </Link>
+                </div>
+              );
+            }
+          )}
+        </Slider>
+      </div>
     </div>
   );
 };

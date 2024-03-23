@@ -24,15 +24,24 @@ export default {
       },
       lineHeight: {
         152: "152%",
+        120: "120%",
       },
       letterSpacing: {
         0.5: "0.5px",
       },
       width: {
         95: "95px",
+        430: "430px",
+        90: "90px",
       },
       height: {
         95: "95px",
+        430: "430px",
+        90: "90px",
+      },
+      gap: {
+        30: "30px",
+        15: "15px",
       },
     },
   },

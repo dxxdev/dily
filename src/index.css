@@ -14,3 +14,28 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   @apply bg-gray-400;
 }
+
+.slick-dots.slick-thumb > li {
+  @apply !w-20 h-16 p-2 border border-medium-gray rounded-xl;
+}
+.slick-dots.slick-thumb > li > a > img {
+  @apply w-full h-full;
+}
+
+.slick-dots {
+  @apply !bottom-0;
+}
+
+.slick-list {
+  @apply h-[calc(100%-100px)] border border-medium-gray rounded-xl;
+}
+.slick-track {
+  @apply h-full;
+}
+
+.slick-slide > div > div {
+  @apply py-0 outline-none;
+}
+.slick-slide {
+  @apply !flex justify-center items-center;
+}
