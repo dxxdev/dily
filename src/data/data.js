@@ -88,18 +88,6 @@ export const products = [
         prices: [30, 50, 65, 32, 52, 70],
         typeIndex: 0,
       },
-      {
-        name: "Kamera",
-        types: ["720p HD", "1080p FHD"],
-        prices: [5, 8],
-        typeIndex: 0,
-      },
-      {
-        name: "Batereya",
-        types: ["42 Vt", "52 Vt", "90 Vt"],
-        prices: [20, 30, 50],
-        typeIndex: 0,
-      },
     ],
     shortly: [
       "Interfeyslar - 1x USB 2.0 Type-A 1x USB 3.2 Gen1 Type-A 1x USB 3.2 Gen1 Type-C 1x HDMI 1.4 1x 3,5 mm kombinatsiyalangan audio uyasi 1x quvvat uyasi",
@@ -118,7 +106,7 @@ export const products = [
       asusVivoBook7,
     ],
     price: function () {
-      let totalPrice = 0;
+      let totalPrice = 0 + 100;
       this.property.map((item) => {
         totalPrice += item.prices[item.typeIndex];
       });
