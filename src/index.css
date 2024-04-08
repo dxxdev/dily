@@ -27,7 +27,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .slick-list {
-  @apply h-[calc(100%-100px)] border border-medium-gray rounded-xl;
+  @apply h-[calc(100%-100px)];
 }
 .slick-track {
   @apply h-full;
