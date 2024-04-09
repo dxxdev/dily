@@ -39,3 +39,7 @@ body::-webkit-scrollbar-thumb {
 .slick-slide {
   @apply !flex justify-center items-center;
 }
+
+.btn {
+  @apply rounded-[10px] py-3 px-14 bg-bright-green flex justify-center items-center text-white;
+}
