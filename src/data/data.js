@@ -1,5 +1,7 @@
 import { computer, computers } from "../assets/icons";
 import {
+  asusCreatorQ531,
+  asusCreatorQ532,
   asusTufGamingG161,
   asusTufGamingG162,
   asusTufGamingG163,
@@ -13,11 +15,13 @@ import {
   asusVivoBook6,
   asusVivoBook7,
   avatar,
+  hpEmvyX3601,
+  hpEmvyX3602,
+  hpEmvyX3603,
 } from "../assets/images";
 import filteredCategory from "../functions/filteredCategory";
 import { v4 as randomId } from "uuid";
 import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
-import randomNumbersArr from "../functions/randomNumbersArr";
 
 let lastId = 1;
 function generateId() {
@@ -221,9 +225,172 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  {
+    id: generateId(),
+    productName: "HP ENVY x360",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Noutbuklar",
+    },
+    descriptions: [
+      "Model Full HD displey bilan jihozlangan, shuning uchun u ko'p formatli tasvirlarning ajoyib yorqinligini ta'minlaydi. O'rnatilgan Bang & Olufsen audio tizimi va ilg'or HP Audio Boost ovoz opsiyasi zerikarli shovqinsiz tiniq va chuqur ovozni ta'minlaydi.",
+      "Sizda ko'p ish, ko'p o'yin-kulgi va og'ir va keng noutbuklarni doimiy yoqtirmaysizmi? Chiroyli HP Envy noutbuki aynan shunday foydalanuvchilar uchun mo'ljallangan. Yupqa metall korpus va sig'imli batareya uni kun bo'yi ochiq havoda stresssiz ishlatish imkonini beradi.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: [
+          "AMD Ryzen 5 7500U",
+          "AMD Ryzen 7 6500U",
+          "Intel Core i5 13500U",
+          "Intel Core i7 12400U",
+        ],
+        prices: [100, 150, 80, 120],
+        typeIndex: 3,
+      },
+      {
+        name: "Video karta",
+        types: [
+          "AMD Radeon Graphics",
+          "AMD RX 230 Graphics",
+          "Intel Iris Xe Graphics",
+          "Intel Iris Graphics",
+          "Intel UHD Graphics",
+        ],
+        prices: [60, 75, 50, 40, 100],
+        typeIndex: 4,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["8 GB DDR5", "16 GB DDR5"],
+        prices: [15, 20],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: [
+          "512 GB M.2 NVMe Gen 3.0 SSD",
+          "1 TB M.2 NVMe Gen 3.0 SSD",
+          "512 GB M.2 NVMe Gen 4.0 SSD",
+          "1 TB M.2 NVMe Gen 4.0 SSD",
+        ],
+        prices: [50, 80, 60, 100],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [hpEmvyX3601, hpEmvyX3602, hpEmvyX3603],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  {
+    id: generateId(),
+    productName: "Asus Creator Q53",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Noutbuklar",
+    },
+    descriptions: [
+      "ASUS Creator Laptop Q yo‘l-yo‘lakay unumli bo‘lishingizni ta’minlash uchun 70 Vt/soat quvvatga ega uzoq muddatli akkumulyatorga ega bo‘lib, u sizni ijodingiz kabi davom ettiradi. Shunday qilib, batareyangizni zaryad qilish haqida qayg'urmasdan, sevimli qahvaxonangizda yoki tabiat qo'ynida dam oling!",
+      "Har qanday vizual ijod ajoyib FHD OLED displeyida o‘zining o‘ta aniq, jonli ranglari bilan eng yaxshi ko‘rinadi va quloqlaringiz ko‘p o‘lchovli ovozi bilan kuchli Dolby Atmos ® tovush tizimini chinakam qadrlaydi. Ijodkor bo'ling va ASUS Creator Q noutbukini oling!",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: [
+          "AMD Ryzen 5 7500HX",
+          "AMD Ryzen 7 6500HX",
+          "Intel Core i5 13500H",
+          "Intel Core i7 12400H",
+        ],
+        prices: [150, 200, 180, 220],
+        typeIndex: 3,
+      },
+      {
+        name: "Video karta",
+        types: [
+          "AMD Radeon Graphics",
+          "AMD RX 230 Graphics",
+          "Nvidia Geforce RTX3050",
+          "Nvidia Geforce RTX3060",
+          "Nvidia Geforce RTX4060",
+        ],
+        prices: [60, 75, 300, 320, 450],
+        typeIndex: 4,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["8 GB DDR5", "16 GB DDR5", "32 GB DDR5"],
+        prices: [15, 20, 40],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: [
+          "512 GB M.2 NVMe Gen 3.0 SSD",
+          "1 TB M.2 NVMe Gen 3.0 SSD",
+          "2 TB M.2 NVMe Gen 3.0 SSD",
+          "512 GB M.2 NVMe Gen 4.0 SSD",
+          "1 TB M.2 NVMe Gen 4.0 SSD",
+          "2 TB M.2 NVMe Gen 4.0 SSD",
+        ],
+        prices: [50, 80, 140, 70, 120, 180],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [asusCreatorQ531, asusCreatorQ532, asusCreatorQ531],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
 ];
-
-console.log(randomNumbersArr(products));
 
 console.log(filteredCategoryMenuItems(filteredCategory(products)));
 console.log(filteredCategory(products));
+
+export const scrollTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};

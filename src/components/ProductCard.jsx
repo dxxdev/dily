@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { options } from "../data/data";
+import { options, scrollTop } from "../data/data";
 
 const ProductCard = ({ product, widthFixed }) => {
   const [rendered, setRendered] = useState(false);
@@ -13,6 +13,7 @@ const ProductCard = ({ product, widthFixed }) => {
       className={`rounded-lg group flex flex-col relative shadow-product-card-shadow ${
         widthFixed ? "w-52" : ""
       }`}
+      onClick={scrollTop}
     >
       <button
         className="absolute top-3 right-3 z-[999]"
@@ -36,6 +37,7 @@ const ProductCard = ({ product, widthFixed }) => {
       </button>
       <Link
         to={`/products/${product?.category?.name}/${product?.category?.originalCategory}/${product?.id}`}
+        onClick={scrollTop}
         className="relative w-full aspect-square flex justify-center items-center"
       >
         <img

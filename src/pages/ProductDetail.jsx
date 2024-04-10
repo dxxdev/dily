@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { Select } from "antd";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 import ProductCard from "../components/ProductCard";
+import randomNumbersArr from "../functions/randomNumbersArr";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -316,15 +317,17 @@ const ProductDetail = () => {
                 products,
                 product.category.originalCategory
               ) &&
-                filteredOriginalCategory(
-                  products,
-                  product.category.originalCategory
+                randomNumbersArr(
+                  filteredOriginalCategory(
+                    products,
+                    product.category.originalCategory
+                  )
                 ).map((product) => {
                   return (
                     <ProductCard
                       widthFixed={true}
-                      key={product.id}
-                      product={product}
+                      key={product}
+                      product={products[product]}
                     />
                   );
                 })}
