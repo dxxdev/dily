@@ -17,7 +17,7 @@ const ProductDetail = () => {
     "Xususiyatlar",
     "Aksessuarlar",
     "Sharhlar",
-    "To'lov va kredit",
+    "To'lov",
     "Yetkazib berish",
   ];
   useEffect(() => {
@@ -50,6 +50,7 @@ const ProductDetail = () => {
       )}
       {product && (
         <div className="flex flex-col items-start p-0 gap-30">
+          {/* Product overview section */}
           <div className="flex flex-row w-full items-start p-0 gap-10">
             {/* Product image view section */}
             <div className="flex flex-col sticky top-5 w-max h-max items-center justify-center p-0 gap-5">
@@ -194,6 +195,7 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
+          {/* Tab section */}
           <div className="flex w-full shadow-product-card-shadow rounded-[10px] flex-col justify-center items-start gap-5">
             {/* Product properties tabs */}
             <ul className="flex justify-between w-full shadow-product-card-shadow items-center rounded-[10px] overflow-hidden">
@@ -215,7 +217,7 @@ const ProductDetail = () => {
               })}
             </ul>
             <div className="py-30 px-5 space-y-6">
-              {/* Product descriotion */}
+              {/* Product description */}
               {tabId == 0 && (
                 <>
                   <h3 className="text-2xl font-bold leading-normal text-dark-gray">
@@ -236,12 +238,12 @@ const ProductDetail = () => {
                   </ul>
                 </>
               )}
+              {/* Product properties */}
               {tabId == 1 && (
                 <>
                   <h3 className="text-2xl font-bold leading-normal text-dark-gray">
                     Xususiyatlar
                   </h3>
-
                   <ul className="space-y-5">
                     {product.property.map((prop, index) => {
                       return (
@@ -251,6 +253,55 @@ const ProductDetail = () => {
                       );
                     })}
                   </ul>
+                </>
+              )}
+              {tabId == 4 && (
+                <>
+                  <h3 className="text-2xl font-bold leading-normal text-dark-gray">
+                    To'lov
+                  </h3>
+                  <div className="space-y-2">
+                    <p className="text-sm leading-normal text-dark-gray">
+                      Siz buyurtma uchun to’lovni Uzcard, Humo kartalari orqali
+                      bajarishingiz mumkin.
+                    </p>
+                    <p className="text-sm leading-normal text-dark-gray">
+                      Sizga qulay bo’lgan to’lov uslubini tanlashingiz mumkin:
+                      <br />
+                      - Uzcard, Humo kartalaridan buyurtma uchun onlayn to’lov
+                      bajaring;
+                      <br />
+                      - Uzum Nasiya muddatli to’lovi orqali buyurtma
+                      rasmiylashtiring;
+                      <br />- qabul qilish vaqtida Uzcard, Humo, Visa,
+                      Mastercard kartalari va naqd pul asosida to’lovni amalga
+                      oshiring.
+                    </p>
+                  </div>
+                </>
+              )}
+              {tabId == 5 && (
+                <>
+                  <h3 className="text-2xl font-bold leading-normal text-dark-gray">
+                    Yetkazib berish
+                  </h3>
+                  <div className="space-y-2">
+                    <p className="text-sm leading-normal font-normal tracking-wide text-dark-gray">
+                      <b className="font-bold">
+                        Buyurtmani tarqatish punktlarigacha yetkazib berish:
+                      </b>{" "}
+                      Dily.uz buyurtmani tarqatish punktlariga yetkazib berish
+                      narxi mutlaqo bepul.
+                    </p>
+                    <p className="text-sm leading-normal font-normal tracking-wide text-dark-gray">
+                      <b className="font-bold">
+                        Kuryer orqali yetkazib berish:
+                      </b>{" "}
+                      Kuryer orqali yetkazib berish narxi 5$. Agar buyurtmaning
+                      narxi 300$dan yuqori bo'lsa, mamlakatning istalgan
+                      nuqtasiga bepul yetkazib beriladi.
+                    </p>
+                  </div>
                 </>
               )}
             </div>
