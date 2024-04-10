@@ -4,6 +4,8 @@ import filteredById from "../functions/filteredById";
 import { products } from "../data/data";
 import Slider from "react-slick";
 import { Select } from "antd";
+import filteredOriginalCategory from "../functions/filteredOriginalCategory";
+import ProductCard from "../components/ProductCard";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -258,10 +260,23 @@ const ProductDetail = () => {
             <h3 className="text-[22px] font-bold leading-normal tracking-wide text-dark-gray">
               O'xshash mahsulotlar
             </h3>
-            <ul>
-              {
-                
-              }
+            <ul className="flex gap-5">
+              {filteredOriginalCategory(
+                products,
+                product.category.originalCategory
+              ) &&
+                filteredOriginalCategory(
+                  products,
+                  product.category.originalCategory
+                ).map((product) => {
+                  return (
+                    <ProductCard
+                      widthFixed={true}
+                      key={product.id}
+                      product={product}
+                    />
+                  );
+                })}
             </ul>
           </div>
         </div>

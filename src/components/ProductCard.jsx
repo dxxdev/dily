@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { options } from "../data/data";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, widthFixed }) => {
   const [rendered, setRendered] = useState(false);
   const liked = (product) => {
     product.saved = !product.saved;
     setRendered((prev) => !prev);
   };
   return (
-    <li className="rounded-lg group flex flex-col relative shadow-product-card-shadow">
+    <li
+      className={`rounded-lg group flex flex-col relative shadow-product-card-shadow ${
+        widthFixed ? "w-52" : ""
+      }`}
+    >
       <button
         className="absolute top-3 right-3 z-[999]"
         onClick={() => liked(product)}
