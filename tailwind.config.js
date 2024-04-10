@@ -25,11 +25,11 @@ export default {
       lineHeight: {
         152: "152%",
         120: "120%",
-        140: "140%"
+        140: "140%",
       },
       letterSpacing: {
         0.5: "0.5px",
-        0.7: "0.7px"
+        0.7: "0.7px",
       },
       width: {
         95: "95px",
@@ -44,6 +44,9 @@ export default {
       gap: {
         30: "30px",
         15: "15px",
+      },
+      padding: {
+        30: "30px",
       },
     },
   },

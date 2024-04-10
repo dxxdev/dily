@@ -192,17 +192,18 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-          <div className="flex shadow-product-card-shadow w-full flex-col justify-center items-start gap-5">
-            <ul className="flex justify-between w-full items-center rounded-[10px] overflow-hidden">
+          <div className="flex w-full flex-col justify-center items-start gap-5">
+            {/* Product properties tabs */}
+            <ul className="flex justify-between w-full shadow-product-card-shadow items-center rounded-[10px] overflow-hidden">
               {tabs.map((tab, index) => {
                 return (
                   <li className="w-full" key={index}>
                     <button
                       onClick={() => setTabId(index)}
-                      className={`px-12 py-3 w-full text-sm leading-140 font-medium tracking-0.7 ${
+                      className={`px-12 py-3 w-full transition-all text-sm leading-140 font-medium tracking-0.7 ${
                         tabId == index
-                          ? "bg-bright-green text-white"
-                          : "bg-transparent text-dark-gray"
+                          ? "bg-bright-green text-white hover:bg-green-600"
+                          : "bg-transparent text-dark-gray hover:bg-dark-gray/10"
                       }`}
                     >
                       {tab}
@@ -211,6 +212,46 @@ const ProductDetail = () => {
                 );
               })}
             </ul>
+            <div className="p-30 space-y-6">
+              {/* Product descriotion */}
+              {tabId == 0 && (
+                <>
+                  <h3 className="text-2xl font-bold leading-normal text-dark-gray">
+                    Tavsif
+                  </h3>
+                  <ul className="space-y-4">
+                    {product?.descriptions.map((desc, index) => {
+                      return (
+                        <li
+                          className="text-sm leading-normal text-dark-gray"
+                          key={index}
+                        >
+                          {desc}
+                          <br />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              )}
+              {tabId == 1 && (
+                <>
+                  <h3 className="text-2xl font-bold leading-normal text-dark-gray">
+                    Xususiyatlar
+                  </h3>
+
+                  <ul className="space-y-5">
+                    {product.property.map((prop, index) => {
+                      return (
+                        <li key={index}>
+                          {prop.name}: {prop.types[prop.typeIndex]}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
