@@ -192,7 +192,7 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-          <div className="flex w-full flex-col justify-center items-start gap-5">
+          <div className="flex w-full shadow-product-card-shadow rounded-[10px] flex-col justify-center items-start gap-5">
             {/* Product properties tabs */}
             <ul className="flex justify-between w-full shadow-product-card-shadow items-center rounded-[10px] overflow-hidden">
               {tabs.map((tab, index) => {
@@ -212,7 +212,7 @@ const ProductDetail = () => {
                 );
               })}
             </ul>
-            <div className="p-30 space-y-6">
+            <div className="py-30 px-5 space-y-6">
               {/* Product descriotion */}
               {tabId == 0 && (
                 <>
@@ -252,6 +252,17 @@ const ProductDetail = () => {
                 </>
               )}
             </div>
+          </div>
+          {/* Smilar product section */}
+          <div className="flex justify-start items-start flex-col gap-30">
+            <h3 className="text-[22px] font-bold leading-normal tracking-wide text-dark-gray">
+              O'xshash mahsulotlar
+            </h3>
+            <ul>
+              {
+                
+              }
+            </ul>
           </div>
         </div>
       )}
