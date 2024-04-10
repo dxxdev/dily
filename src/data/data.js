@@ -12,6 +12,7 @@ import {
 import filteredCategory from "../functions/filteredCategory";
 import { v4 as randomId } from "uuid";
 import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
+import randomNumbersArr from "../functions/randomNumbersArr";
 
 let lastId = 1;
 function generateId() {
@@ -232,7 +233,7 @@ export const products = [
       name: "Elektronika",
       icon: computers,
       catalogIcon: computer,
-      originalCategory: "Noutbuklar",
+      originalCategory: "Telefonlar",
     },
     descriptions: [
       "Vivobook Go 15 OLED noutbukida har qanday kontent rang-barang ko‘rinadi, chunki u benuqson tiniq tasvirlarni ishlab chiqaradigan yuqori sifatli OLED displey bilan jihozlangan. Yupqa ramka ekrandagi narsalarga botirishni kuchaytiradi va TÜV Rheinland ergonomik sertifikati uzoq vaqt foydalanishda ko'zingiz uchun qulay ekanligini anglatadi.",
@@ -324,34 +325,6 @@ export const products = [
     saved: false,
   },
 ];
-
-const randomNumbersArr = (arr) => {
-  if (arr.length >= 5) {
-    let randomNumbersArrLength = 0;
-    let returnedArr = [];
-    while (randomNumbersArrLength < 5) {
-      let randomNumber = Math.floor(Math.random() * arr.length);
-      if (!returnedArr.includes(randomNumber)) {
-        returnedArr.push(randomNumber);
-        randomNumbersArrLength++;
-      }
-    }
-    return returnedArr;
-  } else if (arr.length < 5 && arr.length > 0) {
-    let randomNumbersArrLength = 0;
-    let returnedArr = [];
-    while (randomNumbersArrLength < arr.length) {
-      let randomNumber = Math.floor(Math.random() * arr.length);
-      if (!returnedArr.includes(randomNumber)) {
-        returnedArr.push(randomNumber);
-        randomNumbersArrLength++;
-      }
-    }
-    return returnedArr;
-  } else {
-    return;
-  }
-};
 
 console.log(randomNumbersArr(products));
 
