@@ -13,7 +13,6 @@ const ProductCard = ({ product, widthFixed }) => {
       className={`rounded-lg group flex flex-col relative shadow-product-card-shadow ${
         widthFixed ? "w-52" : ""
       }`}
-      onClick={scrollTop}
     >
       <button
         className="absolute top-3 right-3 z-[999]"
