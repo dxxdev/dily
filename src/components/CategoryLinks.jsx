@@ -101,7 +101,7 @@ const CategoryLinks = () => {
                     <div className="w-95 h-95 rounded-full shadow-product-card-shadow p-3">
                       <img src={category.icon} alt="" />
                     </div>
-                    <h3 className="font-bold text-base leading-normal tracking-0.5 text-dark-gray">
+                    <h3 className="font-bold text-base text-center leading-normal tracking-0.5 text-dark-gray">
                       {category.name}
                     </h3>
                   </Link>

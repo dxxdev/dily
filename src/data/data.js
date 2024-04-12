@@ -1,4 +1,9 @@
-import { computer, computers } from "../assets/icons";
+import {
+  computer,
+  computers,
+  telephoneAccessory,
+  telephones,
+} from "../assets/icons";
 import {
   asusCreatorQ531,
   asusCreatorQ532,
@@ -244,9 +249,9 @@ export const products = [
     productName: "Redmi Note 12 Pro",
     category: {
       id: randomId(),
-      name: "Elektronika",
-      icon: computers,
-      catalogIcon: computer,
+      name: "Telefonlar va aksessuarlar",
+      icon: telephones,
+      catalogIcon: telephoneAccessory,
       originalCategory: "Telefonlar",
     },
     descriptions: [
@@ -467,8 +472,8 @@ export const products = [
     category: {
       id: randomId(),
       name: "Elektronika",
-      icon: computers,
-      catalogIcon: computer,
+      icon: telephones,
+      catalogIcon: telephoneAccessory,
       originalCategory: "Telefonlar",
     },
     descriptions: [
