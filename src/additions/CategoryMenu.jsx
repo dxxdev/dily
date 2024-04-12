@@ -29,7 +29,7 @@ const CategoryMenu = ({ opened }) => {
               <div className="flex justify-start items-center gap-3">
                 <span className="inline-flex justify-center items-center w-[25px] h-[25px]">
                   <img
-                    className="h-5 opacity-90 group-hover:opacity-100"
+                    className="w-5 opacity-90 group-hover:opacity-100"
                     src={category.catalogIcon}
                     alt=""
                   />
