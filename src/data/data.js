@@ -34,6 +34,8 @@ import {
 import filteredCategory from "../functions/filteredCategory";
 import { v4 as randomId } from "uuid";
 import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
+import filteredOriginalCategory from "../functions/filteredOriginalCategory";
+import randomNumbersArr from "../functions/randomNumbersArr";
 
 let lastId = 1;
 function generateId() {
@@ -216,6 +218,70 @@ export const products = [
       asusTufGamingG163,
       asusTufGamingG164,
       asusTufGamingG165,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  {
+    id: generateId(),
+    productName: "Redmi Note 12 Pro",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Telefonlar",
+    },
+    descriptions: [
+      "Yangi Xiaomi Redmi Note 12 Pro - bu haqiqatan ham ajoyib imkoniyatlarga ega smartfon. U super-kuchli flagman darajasidagi 108 MP kamerani, kuchli chipni birlashtiradi",
+      "Ajoyib rang-barang 120 Gts chastotali AMOLED displey va 67 Vt ultra tez zaryadlash quvvatiga ega bo‘lib, siz har bir kuningizdan zavqlanishingiz mumkin.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: ["Gelio G96", "Snapdragon 732G"],
+        prices: [50, 60],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["6 GB", "8 GB"],
+        prices: [20, 30],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: ["64 GB", "128 GB", "256 GB"],
+        prices: [30, 45, 60],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      redmiNote12Pro1,
+      redmiNote12Pro2,
+      redmiNote12Pro3,
+      redmiNote12Pro4,
+      redmiNote12Pro5,
+      redmiNote12Pro6,
+      redmiNote12Pro7,
     ],
     price: function () {
       let totalPrice = 0 + 100;
@@ -457,74 +523,10 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
-  {
-    id: generateId(),
-    productName: "Redmi Note 12 Pro",
-    category: {
-      id: randomId(),
-      name: "Elektronika",
-      icon: computers,
-      catalogIcon: computer,
-      originalCategory: "Telefonlar",
-    },
-    descriptions: [
-      "Yangi Xiaomi Redmi Note 12 Pro - bu haqiqatan ham ajoyib imkoniyatlarga ega smartfon. U super-kuchli flagman darajasidagi 108 MP kamerani, kuchli chipni birlashtiradi",
-      "Ajoyib rang-barang 120 Gts chastotali AMOLED displey va 67 Vt ultra tez zaryadlash quvvatiga ega bo‘lib, siz har bir kuningizdan zavqlanishingiz mumkin.",
-    ],
-    property: [
-      {
-        name: "Protsessor",
-        types: ["Gelio G96", "Snapdragon 732G"],
-        prices: [50, 60],
-        typeIndex: 1,
-      },
-      {
-        name: "Operativ xotira",
-        types: ["6 GB", "8 GB"],
-        prices: [20, 30],
-        typeIndex: 0,
-      },
-      {
-        name: "Xotira",
-        types: ["64 GB", "128 GB", "256 GB"],
-        prices: [30, 45, 60],
-        typeIndex: 0,
-      },
-    ],
-    shortly: undefined,
-    images: [
-      redmiNote12Pro1,
-      redmiNote12Pro2,
-      redmiNote12Pro3,
-      redmiNote12Pro4,
-      redmiNote12Pro5,
-      redmiNote12Pro6,
-      redmiNote12Pro7,
-    ],
-    price: function () {
-      let totalPrice = 0 + 100;
-      this.property.map((item) => {
-        totalPrice += item.prices[item.typeIndex];
-      });
-      return totalPrice;
-    },
-    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
-    discountPrice: function () {
-      let lastPrices = this.price() - (this.price() / 100) * this.discount;
-      return Math.floor(lastPrices);
-    },
-    avatar: avatar,
-    address: "Toshkent",
-    rating: 5,
-    reservation: 5,
-    countProduct: 1,
-    inTheCart: false,
-    saved: false,
-  },
 ];
 
-console.log(filteredCategoryMenuItems(filteredCategory(products)));
-console.log(filteredCategory(products));
+console.log(filteredOriginalCategory(products, "Telefonlar"));
+console.log(randomNumbersArr(filteredOriginalCategory(products, "Telefonlar")));
 
 export const scrollTop = () => {
   window.scrollTo({

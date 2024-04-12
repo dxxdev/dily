@@ -1,22 +1,23 @@
 const randomNumbersArr = (arr) => {
-  if (arr.length >= 5) {
+  let idArr = arr.map((item) => item.id - 1);
+  if (idArr.length >= 5) {
     let randomNumbersArrLength = 0;
     let returnedArr = [];
     while (randomNumbersArrLength < 5) {
-      let randomNumber = Math.floor(Math.random() * arr.length);
-      if (!returnedArr.includes(randomNumber)) {
-        returnedArr.push(randomNumber);
+      let randomNumber = Math.floor(Math.random() * idArr.length)
+      if (!returnedArr.includes(idArr[randomNumber])) {
+        returnedArr.push(idArr[randomNumber]);
         randomNumbersArrLength++;
       }
     }
     return returnedArr;
-  } else if (arr.length < 5 && arr.length > 0) {
+  } else if (idArr.length < 5 && idArr.length > 0) {
     let randomNumbersArrLength = 0;
     let returnedArr = [];
-    while (randomNumbersArrLength < arr.length) {
-      let randomNumber = Math.floor(Math.random() * arr.length);
-      if (!returnedArr.includes(randomNumber)) {
-        returnedArr.push(randomNumber);
+    while (randomNumbersArrLength < idArr.length) {
+      let randomNumber = Math.floor(Math.random() * idArr.length)
+      if (!returnedArr.includes(idArr[randomNumber])) {
+        returnedArr.push(idArr[randomNumber]);
         randomNumbersArrLength++;
       }
     }
