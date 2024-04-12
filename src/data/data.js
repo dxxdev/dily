@@ -20,6 +20,11 @@ import {
   asusVivoBook6,
   asusVivoBook7,
   avatar,
+  gamingPCZalman1,
+  gamingPCZalman2,
+  gamingPCZalman3,
+  gamingPCZalman4,
+  gamingPCZalman5,
   hpEmvyX3601,
   hpEmvyX3602,
   hpEmvyX3603,
@@ -507,6 +512,93 @@ export const products = [
       iPhone15Pro3,
       iPhone15Pro4,
       iPhone15Pro5,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  {
+    id: generateId(),
+    productName: "Gaming PC Zalman",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Kompyuterlar",
+    },
+    descriptions: [
+      "Kafolat - ShK yig'ilgan kundan boshlab olti oygacha, yig'ish sanasi korpusning muhrida belgilanadi, agar muhr buzilgan bo'lsa (yirtilgan, uzilgan,, buzilgan), u holda kafolat butunlay bekor qilinadi.",
+      "Kompyuter ham kuchli o'yinlar, ham grafiklar uchun mos.",
+      "Barcha mahalliy DRIVERLAR, shuningdek, ofis ishlari uchun zarur bo'lgan dastlabki dasturlar (WORD - EXCEL) o'rnatildi.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: [
+          "Intel Core i5 12400F",
+          "Intel Core i5 13800F",
+          "Intel Core i7 11240F",
+          "Intel Core i7 12400F",
+          "Intel Core i7 14500F",
+          "Intel Core i9 11650F",
+          "Intel Core i9 12400F",
+        ],
+        prices: [300, 320, 400, 430, 480, 600, 700],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["16 GB DDR5", "32 GB DDR5", "64 GB DDR5"],
+        prices: [200, 300, 350],
+        typeIndex: 0,
+      },
+      {
+        name: "Video Karta",
+        types: [
+          "Nvidia Geforce RTX2060",
+          "Nvidia Geforce RTX3060",
+          "Nvidia Geforce RTX3070",
+          "Nvidia Geforce RTX4070",
+          "Nvidia Geforce RTX4090",
+        ],
+        prices: [300, 400, 420, 460, 490],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: [
+          "512 GB Nvme m.2 SSD Gen 4",
+          "1 TB Nvme m.2 SSD Gen 4",
+          "2 TB Nvme m.2 SSD Gen 4",
+        ],
+        prices: [100, 150, 170],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      gamingPCZalman1,
+      gamingPCZalman2,
+      gamingPCZalman3,
+      gamingPCZalman4,
+      gamingPCZalman5,
     ],
     price: function () {
       let totalPrice = 0 + 100;

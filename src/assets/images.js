@@ -28,6 +28,11 @@ import redmiNote12Pro4 from "./img/redmi-note-12-pro-4.png";
 import redmiNote12Pro5 from "./img/redmi-note-12-pro-5.png";
 import redmiNote12Pro6 from "./img/redmi-note-12-pro-6.png";
 import redmiNote12Pro7 from "./img/redmi-note-12-pro-7.png";
+import gamingPCZalman1 from "./img/gaming-pc-zalman-1.png";
+import gamingPCZalman2 from "./img/gaming-pc-zalman-2.png";
+import gamingPCZalman3 from "./img/gaming-pc-zalman-3.png";
+import gamingPCZalman4 from "./img/gaming-pc-zalman-4.png";
+import gamingPCZalman5 from "./img/gaming-pc-zalman-5.png";
 import avatar from "./img/avatar.png";
 
 export {
@@ -61,5 +66,10 @@ export {
   redmiNote12Pro5,
   redmiNote12Pro6,
   redmiNote12Pro7,
+  gamingPCZalman1,
+  gamingPCZalman2,
+  gamingPCZalman3,
+  gamingPCZalman4,
+  gamingPCZalman5,
   avatar,
 };
