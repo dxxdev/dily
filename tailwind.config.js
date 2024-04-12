@@ -39,6 +39,7 @@ export default {
       height: {
         95: "95px",
         430: "430px",
+        550: "550px",
         90: "90px",
       },
       gap: {

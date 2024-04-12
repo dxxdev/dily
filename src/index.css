@@ -16,10 +16,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .slick-dots.slick-thumb > li {
-  @apply !w-20 h-16 p-2 border border-medium-gray rounded-xl;
+  @apply !w-20 h-16 p-2 border border-medium-gray rounded-xl flex justify-center items-center;
 }
 .slick-dots.slick-thumb > li > a > img {
-  @apply w-full h-full;
+  @apply h-10;
 }
 
 .slick-dots {
@@ -34,10 +34,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .slick-slide > div > div {
-  @apply py-0 outline-none;
+  @apply py-0 outline-none h-full;
+}
+.slick-slide > div > div > img {
+  @apply w-64;
 }
 .slick-slide {
-  @apply !flex justify-center items-center;
+  @apply !flex justify-center items-center h-full;
 }
 
 .btn {

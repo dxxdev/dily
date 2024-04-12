@@ -7,11 +7,14 @@ import { Select } from "antd";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 import ProductCard from "../components/ProductCard";
 import randomNumbersArr from "../functions/randomNumbersArr";
+import ImageViewerModal from "../components/ImageViewerModal";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [rendered, setRendered] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
   const [tabId, setTabId] = useState(0);
   const tabs = [
     "Tavsifi",
@@ -25,11 +28,19 @@ const ProductDetail = () => {
     setProduct(filteredById(products, id)[0]);
   }, [id, rendered]);
 
+  const openImageViewer = () => {
+    setOpenModal((prev) => !prev);
+  };
+
   const settings = {
     customPaging: (i) =>
       product.images[i] ? (
         <a>
-          <img src={product.images[i]} alt={product.productName} />
+          <img
+            src={product.images[i]}
+            alt={product.productName}
+            className="h-full w-max"
+          />
         </a>
       ) : null,
     dots: true,
@@ -62,8 +73,15 @@ const ProductDetail = () => {
                     product.images &&
                     product.images.slice(0, 3).map((image, index) => {
                       return (
-                        <div key={index} className="py-10">
-                          <img src={image} alt="" />
+                        <div
+                          onClick={() => {
+                            openImageViewer();
+                            setImageIndex(index);
+                          }}
+                          key={index}
+                          className="py-10 cursor-pointer"
+                        >
+                          <img src={image} alt="" className="h-full" />
                         </div>
                       );
                     })}
@@ -334,6 +352,14 @@ const ProductDetail = () => {
             </ul>
           </div>
         </div>
+      )}
+      {product && product.images && openModal && (
+        <ImageViewerModal
+          setOpenModal={openImageViewer}
+          images={product.images}
+          index={imageIndex}
+          setImageIndex={setImageIndex}
+        />
       )}
     </div>
   );
