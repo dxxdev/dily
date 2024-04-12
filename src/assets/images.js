@@ -16,6 +16,18 @@ import asusCreatorQ533 from "./img/asus-creator-q53-3.png";
 import hpEmvyX3601 from "./img/hp-envy-x360-1.png";
 import hpEmvyX3602 from "./img/hp-envy-x360-2.png";
 import hpEmvyX3603 from "./img/hp-envy-x360-3.png";
+import iPhone15Pro1 from "./img/iphone-15-pro-1.png";
+import iPhone15Pro2 from "./img/iphone-15-pro-2.png";
+import iPhone15Pro3 from "./img/iphone-15-pro-3.png";
+import iPhone15Pro4 from "./img/iphone-15-pro-4.png";
+import iPhone15Pro5 from "./img/iphone-15-pro-5.png";
+import redmiNote12Pro1 from "./img/redmi-note-12-pro-1.png";
+import redmiNote12Pro2 from "./img/redmi-note-12-pro-2.png";
+import redmiNote12Pro3 from "./img/redmi-note-12-pro-3.png";
+import redmiNote12Pro4 from "./img/redmi-note-12-pro-4.png";
+import redmiNote12Pro5 from "./img/redmi-note-12-pro-5.png";
+import redmiNote12Pro6 from "./img/redmi-note-12-pro-6.png";
+import redmiNote12Pro7 from "./img/redmi-note-12-pro-7.png";
 import avatar from "./img/avatar.png";
 
 export {
@@ -37,5 +49,17 @@ export {
   hpEmvyX3601,
   hpEmvyX3602,
   hpEmvyX3603,
+  iPhone15Pro1,
+  iPhone15Pro2,
+  iPhone15Pro3,
+  iPhone15Pro4,
+  iPhone15Pro5,
+  redmiNote12Pro1,
+  redmiNote12Pro2,
+  redmiNote12Pro3,
+  redmiNote12Pro4,
+  redmiNote12Pro5,
+  redmiNote12Pro6,
+  redmiNote12Pro7,
   avatar,
 };

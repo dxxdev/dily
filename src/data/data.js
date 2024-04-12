@@ -18,6 +18,18 @@ import {
   hpEmvyX3601,
   hpEmvyX3602,
   hpEmvyX3603,
+  iPhone15Pro1,
+  iPhone15Pro2,
+  iPhone15Pro3,
+  iPhone15Pro4,
+  iPhone15Pro5,
+  redmiNote12Pro1,
+  redmiNote12Pro2,
+  redmiNote12Pro3,
+  redmiNote12Pro4,
+  redmiNote12Pro5,
+  redmiNote12Pro6,
+  redmiNote12Pro7,
 } from "../assets/images";
 import filteredCategory from "../functions/filteredCategory";
 import { v4 as randomId } from "uuid";
@@ -363,6 +375,132 @@ export const products = [
     ],
     shortly: undefined,
     images: [asusCreatorQ531, asusCreatorQ532, asusCreatorQ531],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  {
+    id: generateId(),
+    productName: "iPhone 15 Pro",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Telefonlar",
+    },
+    descriptions: [
+      "Titandan ishlangan korpus.",
+      "Batereyaning ishlash vaqti: 24 soatgacha.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: ["A17", "A17 Pro"],
+        prices: [550, 600],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["6 GB", "8 GB"],
+        prices: [250, 350],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: ["128 GB", "256 GB", "512 GB", "1 TB"],
+        prices: [300, 340, 400, 470],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      iPhone15Pro1,
+      iPhone15Pro2,
+      iPhone15Pro3,
+      iPhone15Pro4,
+      iPhone15Pro5,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  {
+    id: generateId(),
+    productName: "Redmi Note 12 Pro",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Telefonlar",
+    },
+    descriptions: [
+      "Yangi Xiaomi Redmi Note 12 Pro - bu haqiqatan ham ajoyib imkoniyatlarga ega smartfon. U super-kuchli flagman darajasidagi 108 MP kamerani, kuchli chipni birlashtiradi",
+      "Ajoyib rang-barang 120 Gts chastotali AMOLED displey va 67 Vt ultra tez zaryadlash quvvatiga ega bo‘lib, siz har bir kuningizdan zavqlanishingiz mumkin.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: ["Gelio G96", "Snapdragon 732G"],
+        prices: [50, 60],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["6 GB", "8 GB"],
+        prices: [20, 30],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: ["64 GB", "128 GB", "256 GB"],
+        prices: [30, 45, 60],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      redmiNote12Pro1,
+      redmiNote12Pro2,
+      redmiNote12Pro3,
+      redmiNote12Pro4,
+      redmiNote12Pro5,
+      redmiNote12Pro6,
+      redmiNote12Pro7,
+    ],
     price: function () {
       let totalPrice = 0 + 100;
       this.property.map((item) => {
