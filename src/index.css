@@ -46,3 +46,12 @@ body::-webkit-scrollbar-thumb {
 .btn {
   @apply rounded-[10px] py-3 px-14 bg-bright-green flex justify-center items-center text-white;
 }
+
+.gradient {
+  /* background: linear-gradient(top left, rgb(0 198 94), rgb(248 147 88)); */
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(255, 255, 255, 1) 5%,
+    rgba(0, 198, 94, 1) 40%
+  );
+}
