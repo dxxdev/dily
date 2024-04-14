@@ -43,7 +43,7 @@ const OfferedProducts = () => {
           filteredOriginalCategory(products, "Noutbuklar"),
           5
         ).map((num, index) => {
-          return <ProductCard product={products[num]} />;
+          return <ProductCard key={index} product={products[num]} />;
         })}
       </ul>
     </div>

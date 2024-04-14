@@ -85,7 +85,7 @@ const CategoryLinks = () => {
   return (
     <div className="my-container flex justify-start flex-col items-start gap-10">
       <h3 className="font-bold text-2xl leading-120">Siz qidiryapsiz:</h3>
-      <div className="overflow-hidden w-full !pb-14">
+      <div className="overflow-hidden w-full">
         <Slider {...settings}>
           {filteredCategoryMenuItems(filteredCategory(products)).map(
             (category) => {
