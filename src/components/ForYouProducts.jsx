@@ -3,6 +3,7 @@ import { products } from "../data/data";
 import ProductCard from "../components/ProductCard";
 import randomNumbersArr from "../functions/randomNumbersArr";
 import { Link } from "react-router-dom";
+import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 
 const ForYouProducts = () => {
   return (
@@ -19,7 +20,10 @@ const ForYouProducts = () => {
         </Link>
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        {randomNumbersArr(products, 5).map((num, index) => {
+        {randomNumbersArr(
+          filteredOriginalCategory(products, "Telefonlar"),
+          5
+        ).map((num, index) => {
           return <ProductCard product={products[num]} />;
         })}
       </ul>
