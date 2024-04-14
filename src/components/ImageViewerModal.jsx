@@ -8,7 +8,7 @@ const ImageViewerModal = ({ images, setOpenModal, index, setImageIndex }) => {
         onClick={setOpenModal}
         className="relative w-full h-full flex justify-center items-center"
       ></div>
-      <div className="p-5 bg-white rounded-2xl flex flex-col justify-center items-center absolute top-1/2 -translate-y-1/2 gap-4">
+      <div className="p-5 bg-white rounded-2xl flex flex-col justify-center items-center absolute top-1/2 -translate-y-1/2 w-[calc(100vw-50%)] gap-4">
         <img
           src={images[index]}
           onClick={setOpenModal}
