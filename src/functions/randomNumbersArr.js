@@ -1,6 +1,6 @@
-const randomNumbersArr = (arr) => {
+const randomNumbersArr = (arr, limit) => {
   let idArr = arr.map((item) => item.id - 1);
-  if (idArr.length >= 5) {
+  if (idArr.length >= limit) {
     let randomNumbersArrLength = 0;
     let returnedArr = [];
     while (randomNumbersArrLength < 5) {

@@ -339,7 +339,7 @@ const ProductDetail = () => {
                   filteredOriginalCategory(
                     products,
                     product.category.originalCategory
-                  )
+                  ), 5
                 ).map((product) => {
                   return (
                     <ProductCard
