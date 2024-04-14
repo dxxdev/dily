@@ -130,7 +130,7 @@ const ProductDetail = () => {
                       Naxi:
                     </p>
                     <b className="text-dark-gray text-2xl leading-normal font-bold">
-                      {product?.discountPrice()} $
+                      {product?.price()} $
                     </b>
                   </div>
                   <div className="flex justify-start items-center">
