@@ -151,6 +151,41 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Diyorbek",
+        avatar: avatar,
+        date: "16.04.2024",
+        rating: 5,
+        comment:
+          "Juda qulay va yaxshi noutbuk, va o'yinlar va ofis ishi uchun. Yomon tomoni klaviatura uchun yoritgichlar yo'q",
+      },
+      {
+        id: randomId(),
+        who: "Tohir",
+        avatar: avatar,
+        date: "12.04.2024",
+        rating: 5,
+        comment: "Ajoyib noutbuk rahmat!",
+      },
+      {
+        id: randomId(),
+        who: "Shohista",
+        avatar: avatar,
+        date: "09.04.2024",
+        rating: 5,
+        comment: "Juda ajoyib",
+      },
+      {
+        id: randomId(),
+        who: "Ilhomjon",
+        avatar: avatar,
+        date: "05.04.2024",
+        rating: 5,
+        comment: "Yaxshi zo'r",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
