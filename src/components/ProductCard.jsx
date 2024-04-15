@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { options, scrollTop } from "../data/data";
 
-const ProductCard = ({ product, widthFixed }) => {
+const ProductCard = ({ product, widthFixed, discount }) => {
   const [rendered, setRendered] = useState(false);
   const liked = (product) => {
     product.saved = !product.saved;
@@ -50,11 +50,25 @@ const ProductCard = ({ product, widthFixed }) => {
           {product?.productName}
         </h3>
         <strong className="text-bright-green font-bold leading-normal tracking-0.5">
-          {product
-            ?.price()
-            .toLocaleString("uz-UZ", options)
-            .replaceAll(",", " ")}{" "}
-          $
+          {!discount &&
+            product
+              ?.price()
+              .toLocaleString("uz-UZ", options)
+              .replaceAll(",", " ")}
+          {discount &&
+            product
+              ?.discountPrice()
+              .toLocaleString("uz-UZ", options)
+              .replaceAll(",", " ")}{" "}
+          ${" "}
+          <del className={`${discount ? "text-dark-gray-2" : ""}`}>
+            {discount &&
+              product
+                ?.price()
+                .toLocaleString("uz-UZ", options)
+                .replaceAll(",", " ")}{" "}
+            $
+          </del>
         </strong>
         <address className="not-italic text-address-gray font-normal text-xs">
           {product?.address}
