@@ -8,6 +8,7 @@ import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 import ProductCard from "../components/ProductCard";
 import randomNumbersArr from "../functions/randomNumbersArr";
 import ImageViewerModal from "../components/ImageViewerModal";
+import Comments from "../components/Comments";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -235,7 +236,7 @@ const ProductDetail = () => {
                 );
               })}
             </ul>
-            <div className="py-30 px-5 space-y-6">
+            <div className="py-30 w-full px-5 space-y-6">
               {/* Product description */}
               {tabId == 0 && (
                 <>
@@ -272,6 +273,14 @@ const ProductDetail = () => {
                       );
                     })}
                   </ul>
+                </>
+              )}
+              {tabId == 3 && (
+                <>
+                  <Comments
+                    comments={product.comments}
+                    productName={product.productName}
+                  />
                 </>
               )}
               {tabId == 4 && (
@@ -339,7 +348,8 @@ const ProductDetail = () => {
                   filteredOriginalCategory(
                     products,
                     product.category.originalCategory
-                  ), 5
+                  ),
+                  5
                 ).map((product) => {
                   return (
                     <ProductCard
