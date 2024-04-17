@@ -14,6 +14,7 @@ export default {
         "bright-orange": "#F89358",
         "light-green": "#CCEFDB",
         "dark-gray-2": "#9e9e9e",
+        "dark-gray-3": "#262626",
       },
       fontFamily: {
         "open-sans": ["Open Sans", "sans-serif"],
@@ -35,7 +36,10 @@ export default {
       width: {
         95: "95px",
         430: "430px",
+        550: "550px",
         90: "90px",
+        330: "330px",
+        30: "30px",
       },
       height: {
         95: "95px",
@@ -43,6 +47,7 @@ export default {
         550: "550px",
         90: "90px",
         330: "330px",
+        30: "30px",
       },
       gap: {
         30: "30px",
@@ -51,6 +56,7 @@ export default {
       padding: {
         30: "30px",
         60: "60px",
+        70: "70px",
       },
     },
   },

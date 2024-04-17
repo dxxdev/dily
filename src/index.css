@@ -47,6 +47,10 @@ body::-webkit-scrollbar-thumb {
   @apply rounded-[10px] py-3 px-14 bg-bright-green flex justify-center items-center text-white;
 }
 
+.icon-btn {
+  @apply rounded-full w-30 h-30 bg-white/50 flex justify-center items-center;
+}
+
 .gradient {
   /* background: linear-gradient(top left, rgb(0 198 94), rgb(248 147 88)); */
   background: radial-gradient(

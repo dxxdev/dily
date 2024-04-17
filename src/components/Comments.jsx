@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import RatingBar from "./RatingBar";
+import SendCommentModal from "./SendCommentModal";
+import SendedCommentModal from "./SendedCommentModal";
 
 const Comments = ({ comments, productName }) => {
+  const [commentModal, setCommentModal] = useState(false);
+  const [sendedModal, setSendedModal] = useState(false);
+  const openModal = () => {
+    setCommentModal((prev) => !prev);
+  };
+  const openSendedModal = () => {
+    setSendedModal((prev) => !prev);
+  };
   return (
     <div className="flex flex-col justify-start w-full items-start gap-10">
       <h4 className="font-bold text-dark-gray text-2xl leading-normal">
         {productName} uchun qoldirilgan izohlar
       </h4>
       <div className="flex justify-between w-full items-stretch">
-        <ul className="flex flex-col gap-10 w-full max-w-3xl">
+        <ul className="flex flex-col gap-10 w-full max-w-4xl">
           {comments &&
             comments.map((comment, index) => {
               return (
@@ -52,7 +62,19 @@ const Comments = ({ comments, productName }) => {
               );
             })}
         </ul>
+        <div className="flex w-max flex-col justify-start items-center">
+          <button onClick={openModal} className="btn">
+            Fikr qoldiring
+          </button>
+        </div>
       </div>
+      {commentModal && (
+        <SendCommentModal
+          openModal={openModal}
+          openSendedModal={openSendedModal}
+        />
+      )}
+      {sendedModal && <SendedCommentModal openSendedModal={openSendedModal} />}
     </div>
   );
 };
