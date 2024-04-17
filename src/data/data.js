@@ -151,6 +151,41 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Diyorbek",
+        avatar: avatar,
+        date: "16.04.2024",
+        rating: 5,
+        comment:
+          "Juda qulay va yaxshi noutbuk, va o'yinlar va ofis ishi uchun. Yomon tomoni klaviatura uchun yoritgichlar yo'q",
+      },
+      {
+        id: randomId(),
+        who: "Tohir",
+        avatar: avatar,
+        date: "12.04.2024",
+        rating: 5,
+        comment: "Ajoyib noutbuk rahmat!",
+      },
+      {
+        id: randomId(),
+        who: "Shohista",
+        avatar: avatar,
+        date: "09.04.2024",
+        rating: 5,
+        comment: "Juda ajoyib",
+      },
+      {
+        id: randomId(),
+        who: "Ilhomjon",
+        avatar: avatar,
+        date: "05.04.2024",
+        rating: 5,
+        comment: "Yaxshi zo'r",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
@@ -241,6 +276,26 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sardor",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Noutbuk uchun katta rahmat. O'g'limga ish uchun sotib oldim, o'g'lim xursand",
+      },
+      {
+        id: randomId(),
+        who: "Sardor",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Noutbuk uchun katta rahmat. O'g'limga ish uchun sotib oldim, o'g'lim xursand",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
@@ -305,6 +360,16 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Bekmurod",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment: "Telefon juda zo'r bir kunda dostavka qiberishdi.",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
@@ -383,6 +448,24 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Damir",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment: "Menga juda yoqdi, katta rahmat",
+      },
+      {
+        id: randomId(),
+        who: "Ma'rufjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment: "👍",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
@@ -463,6 +546,25 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
@@ -525,6 +627,16 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
@@ -612,6 +724,25 @@ export const products = [
       let lastPrices = this.price() - (this.price() / 100) * this.discount;
       return Math.floor(lastPrices);
     },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
     avatar: avatar,
     address: "Toshkent",
     rating: 5,
