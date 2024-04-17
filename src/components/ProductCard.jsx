@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { options, scrollTop } from "../data/data";
+import { options } from "../data/data";
 
 const ProductCard = ({ product, widthFixed, discount }) => {
   const [rendered, setRendered] = useState(false);
@@ -36,7 +36,6 @@ const ProductCard = ({ product, widthFixed, discount }) => {
       </button>
       <Link
         to={`/products/${product?.category?.name}/${product?.category?.originalCategory}/${product?.id}`}
-        onClick={scrollTop}
         className="relative w-full aspect-square flex justify-center items-center"
       >
         <img
