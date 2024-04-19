@@ -17,7 +17,7 @@ const ProductDetail = () => {
   const [rendered, setRendered] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-  const [tabId, setTabId] = useState(0);
+  const [tabId, setTabId] = useState(5);
   const tabs = [
     "Tavsifi",
     "Xususiyatlar",

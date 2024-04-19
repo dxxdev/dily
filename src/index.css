@@ -44,7 +44,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn {
-  @apply rounded-[10px] py-3 px-14 bg-bright-green shadow-product-card-shadow flex justify-center items-center;
+  @apply rounded-[10px] py-3 px-14 bg-bright-green shadow-product-card-shadow flex justify-center items-center text-white;
 }
 
 .icon-btn {
