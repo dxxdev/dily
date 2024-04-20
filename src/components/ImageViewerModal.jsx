@@ -8,79 +8,83 @@ const ImageViewerModal = ({ images, setOpenModal, index, setImageIndex }) => {
         onClick={setOpenModal}
         className="relative w-full h-full flex justify-center items-center"
       ></div>
-      <div className="p-5 bg-white rounded-2xl flex flex-col justify-center items-center absolute top-1/2 -translate-y-1/2 w-[calc(100vw-50%)] gap-4">
-        <img
-          src={images[index]}
-          onClick={setOpenModal}
-          className="h-550"
-          alt=""
-        />
-        <ul className="flex gap-2">
-          {images.map((image, id) => {
-            return (
-              <li
-                onClick={() => setImageIndex(id)}
-                key={id}
-                className="cursor-pointer p-1 rounded-xl border-2 border-medium-gray"
-              >
-                <img src={image} alt="" className="h-16" />
-              </li>
-            );
-          })}
-        </ul>
+      <div className="p-5 bg-white rounded-2xl flex justify-between items-center absolute top-1/2 -translate-y-1/2 w-[calc(100vw-30%)] gap-4">
+        <button
+          aria-label="back image button"
+          onClick={() =>
+            setImageIndex((prev) => {
+              if (prev == 0) {
+                return prev;
+              } else {
+                return prev - 1;
+              }
+            })
+          }
+        >
+          <svg
+            width="20"
+            height="35"
+            viewBox="0 0 20 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0.764468 19.2347L15.5395 34.0103C16.5596 35.0304 18.2136 35.0304 19.2337 34.0103C20.2538 32.9902 20.2537 31.3363 19.2336 30.3162L6.30537 17.388L19.2349 4.45839C20.255 3.43829 20.255 1.78435 19.2349 0.764263C18.2148 -0.255825 16.5609 -0.255863 15.5408 0.764232L0.824487 15.4805C0.803822 15.4999 0.784617 15.5204 0.764436 15.5406C-0.126842 16.4332 -0.239223 17.8117 0.429806 18.825C0.525511 18.9699 0.636916 19.1072 0.764468 19.2347Z"
+              fill="#00C65E"
+            />
+          </svg>
+        </button>
+        <div className="flex flex-col justify-center items-center gap-5">
+          <img
+            src={images[index]}
+            onClick={setOpenModal}
+            className="h-550"
+            alt=""
+          />
+          <ul className="flex gap-2">
+            {images.map((image, id) => {
+              return (
+                <li
+                  onClick={() => setImageIndex(id)}
+                  key={id}
+                  className="cursor-pointer p-1 rounded-xl border-2 border-medium-gray"
+                >
+                  <img src={image} alt="" className="h-16" />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <button
+          aria-label="next image button"
+          onClick={() =>
+            setImageIndex((prev) => {
+              if (prev == images.length - 1) {
+                return prev;
+              } else {
+                return prev + 1;
+              }
+            })
+          }
+        >
+          <svg
+            width="20"
+            height="35"
+            viewBox="0 0 20 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M19.2355 19.2347L4.46047 34.0103C3.44038 35.0304 1.78644 35.0304 0.766343 34.0103C-0.253755 32.9902 -0.253715 31.3363 0.766373 30.3162L13.6946 17.388L0.765053 4.45839C-0.255045 3.43829 -0.255005 1.78435 0.765083 0.764263C1.78517 -0.255825 3.43911 -0.255863 4.45921 0.764232L19.1755 15.4805C19.1962 15.4999 19.2154 15.5204 19.2356 15.5406C20.1268 16.4332 20.2392 17.8117 19.5702 18.825C19.4745 18.9699 19.3631 19.1072 19.2355 19.2347Z"
+              fill="#00C65E"
+            />
+          </svg>
+        </button>
       </div>
-      <button
-        aria-label="back image button"
-        onClick={() =>
-          setImageIndex((prev) => {
-            if (prev == 0) {
-              return prev;
-            } else {
-              return prev - 1;
-            }
-          })
-        }
-        className="text-white absolute left-3"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-        >
-          <path
-            d="M10 0C4.49 0 0 4.49 0 10C0 15.51 4.49 20 10 20C15.51 20 20 15.51 20 10C20 4.49 15.51 0 10 0ZM11.79 13C12.08 13.29 12.08 13.77 11.79 14.06C11.64 14.21 11.45 14.28 11.26 14.28C11.07 14.28 10.88 14.21 10.73 14.06L7.2 10.53C6.91 10.24 6.91 9.76 7.2 9.47L10.73 5.94C11.02 5.65 11.5 5.65 11.79 5.94C12.08 6.23 12.08 6.71 11.79 7L8.79 10L11.79 13Z"
-            fill="currentColor"
-          />
-        </svg>
-      </button>
-      <button
-        aria-label="next image button"
-        onClick={() =>
-          setImageIndex((prev) => {
-            if (prev == images.length - 1) {
-              return prev;
-            } else {
-              return prev + 1;
-            }
-          })
-        }
-        className="text-white absolute right-3"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM14.79 12.53L11.26 16.06C11.11 16.21 10.92 16.28 10.73 16.28C10.54 16.28 10.35 16.21 10.2 16.06C9.91 15.77 9.91 15.29 10.2 15L13.2 12L10.2 9C9.91 8.71 9.91 8.23 10.2 7.94C10.49 7.65 10.97 7.65 11.26 7.94L14.79 11.47C15.09 11.76 15.09 12.24 14.79 12.53Z"
-            fill="currentColor"
-          />
-        </svg>
-      </button>
     </div>,
     document.body
   );
