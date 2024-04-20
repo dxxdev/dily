@@ -115,6 +115,56 @@ const DeliveryAndPayment = () => {
             </div>
           </>
         )}
+        {activeTab == "delivery-points" && (
+          <>
+            <div className="flex flex-col justify-start items-stretch gap-5">
+              <h4 className="text-lg font-bold leading-normal text-dark-gray">
+                Mahsulotni olib ketish punktlari
+              </h4>
+              <div className="flex justify-between items-start gap-30">
+                <div className="flex flex-col justify-between items-start gap-5">
+                  <p className="text-sm font-medium leading-normal text-dark-gray">
+                    Bosh ofis manzili
+                  </p>
+                  <p className="text-sm font-normal leading-normal text-dark-gray">
+                    <b className="font-medium">Ish vaqti(har kuni):</b> 9.00 dan
+                    22.00 gacha
+                  </p>
+                  <a
+                    href="tel:+998998765432"
+                    className="flex gap-2.5 items-center"
+                  >
+                    <svg
+                      width="16"
+                      height="17"
+                      viewBox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.76938 9.53701C5.18738 7.95401 3.67338 6.12001 4.39838 5.39501C5.43538 4.35801 6.33938 3.71801 4.50038 1.43001C2.66238 -0.856989 1.43638 0.900011 0.432381 1.90501C-0.727619 3.06501 0.370381 7.38901 4.64338 11.663C8.91738 15.936 13.2414 17.031 14.4014 15.87C15.4074 14.865 17.1634 13.645 14.8764 11.807C12.5894 9.96801 11.9494 10.871 10.9114 11.91C10.1864 12.632 8.35238 11.119 6.76938 9.53701Z"
+                        fill="#00C65E"
+                      />
+                    </svg>
+                    <p className="font-medium text-sm leading-normal text-dark-gray">
+                      +998 99 876 54 32
+                    </p>
+                  </a>
+                </div>
+                <div className="w-[670px] h-[405px] sceleton-animation">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.2151898393695!2d69.19256677757666!3d41.282420887019306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b684b728b05%3A0x447c755a6628d746!2sAuto%20Tuning%20Centre%20service!5e0!3m2!1suz!2s!4v1703741135199!5m2!1suz!2s"
+                    width="100%"
+                    height="100%"
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

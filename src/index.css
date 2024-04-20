@@ -59,3 +59,20 @@ body::-webkit-scrollbar-thumb {
     rgba(0, 198, 94, 1) 40%
   );
 }
+
+.sceleton-animation {
+  background: #ddd;
+  animation: sceleton 500ms infinite linear;
+}
+
+@keyframes sceleton {
+  0% {
+    background: #eee;
+  }
+  50% {
+    background: #ddd;
+  }
+  100% {
+    background: #eee;
+  }
+}
