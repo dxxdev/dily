@@ -13,4 +13,4 @@ const cities = [
   },
 ];
 
-export { cities };
+export default cities;
