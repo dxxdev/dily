@@ -44,7 +44,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn {
-  @apply rounded-[10px] py-3 px-14 bg-bright-green flex justify-center items-center text-white;
+  @apply rounded-[10px] py-3 px-14 bg-bright-green shadow-product-card-shadow flex justify-center items-center text-white;
 }
 
 .icon-btn {
@@ -58,4 +58,21 @@ body::-webkit-scrollbar-thumb {
     rgba(255, 255, 255, 1) 5%,
     rgba(0, 198, 94, 1) 40%
   );
+}
+
+.sceleton-animation {
+  background: #ddd;
+  animation: sceleton 500ms infinite linear;
+}
+
+@keyframes sceleton {
+  0% {
+    background: #eee;
+  }
+  50% {
+    background: #ddd;
+  }
+  100% {
+    background: #eee;
+  }
 }

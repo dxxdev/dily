@@ -9,6 +9,7 @@ import ProductCard from "../components/ProductCard";
 import randomNumbersArr from "../functions/randomNumbersArr";
 import ImageViewerModal from "../components/ImageViewerModal";
 import Comments from "../components/Comments";
+import DeliveryAndPayment from "../components/DeliveryAndPayment";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const ProductDetail = () => {
   const [rendered, setRendered] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-  const [tabId, setTabId] = useState(0);
+  const [tabId, setTabId] = useState(5);
   const tabs = [
     "Tavsifi",
     "Xususiyatlar",
@@ -165,7 +166,9 @@ const ProductDetail = () => {
                     </button>
                   </div>
                   <div className="flex justify-between items-center gap-5">
-                    <button className="btn w-full text-sm">Sotib olish</button>
+                    <button className="btn text-white w-full text-sm">
+                      Sotib olish
+                    </button>
                     <button className="flex flex-col justify-center gap-1 items-center">
                       <svg
                         width="19.000000"
@@ -190,7 +193,7 @@ const ProductDetail = () => {
                     </button>
                   </div>
                 </div>
-                <button className="btn text-sm gap-5">
+                <button className="btn text-white text-sm gap-5">
                   <span>Yetkazish va to'lash ma'lumotlari</span>
                   <span>
                     <svg
@@ -275,6 +278,7 @@ const ProductDetail = () => {
                   </ul>
                 </>
               )}
+              {/* Product comments */}
               {tabId == 3 && (
                 <>
                   <Comments
@@ -283,6 +287,7 @@ const ProductDetail = () => {
                   />
                 </>
               )}
+              {/* Product payments */}
               {tabId == 4 && (
                 <>
                   <h3 className="text-2xl font-bold leading-normal text-dark-gray">
@@ -308,28 +313,10 @@ const ProductDetail = () => {
                   </div>
                 </>
               )}
+              {/* Product delivery and payment */}
               {tabId == 5 && (
                 <>
-                  <h3 className="text-2xl font-bold leading-normal text-dark-gray">
-                    Yetkazib berish
-                  </h3>
-                  <div className="space-y-2">
-                    <p className="text-sm leading-normal font-normal tracking-wide text-dark-gray">
-                      <b className="font-bold">
-                        Buyurtmani tarqatish punktlarigacha yetkazib berish:
-                      </b>{" "}
-                      Dily.uz buyurtmani tarqatish punktlariga yetkazib berish
-                      narxi mutlaqo bepul.
-                    </p>
-                    <p className="text-sm leading-normal font-normal tracking-wide text-dark-gray">
-                      <b className="font-bold">
-                        Kuryer orqali yetkazib berish:
-                      </b>{" "}
-                      Kuryer orqali yetkazib berish narxi 5$. Agar buyurtmaning
-                      narxi 300$dan yuqori bo'lsa, mamlakatning istalgan
-                      nuqtasiga bepul yetkazib beriladi.
-                    </p>
-                  </div>
+                  <DeliveryAndPayment />
                 </>
               )}
             </div>

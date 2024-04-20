@@ -63,7 +63,7 @@ const Comments = ({ comments, productName }) => {
             })}
         </ul>
         <div className="flex w-max flex-col justify-start items-center">
-          <button onClick={openModal} className="btn">
+          <button onClick={openModal} className="btn text-white">
             Fikr qoldiring
           </button>
         </div>

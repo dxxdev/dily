@@ -113,7 +113,7 @@ const SendCommentModal = ({ openModal, openSendedModal }) => {
                 openModal();
                 openSendedModal();
               }}
-              className="btn"
+              className="btn text-white"
             >
               Yuborish
             </button>

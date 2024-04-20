@@ -22,7 +22,7 @@ const Posters = () => {
           <p className="text-2xl leading-152 font-semibold tracking-wide">
             Uyingiz va bog'ingiz uchun <br /> eng yaxshi takliflar
           </p>
-          <button className="btn !py-2 tracking-0.7">Batafsil</button>
+          <button className="btn text-white !py-2 tracking-0.7">Batafsil</button>
         </div>
         <div className="h-full">
           <img src={poster1} className="h-full" alt="" />
