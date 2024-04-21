@@ -196,6 +196,9 @@ const OriginalCategoryProducts = () => {
                   <button className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7">
                     Saralash
                   </button>
+                  <button className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7">
+                    Filtrni o'chirish
+                  </button>
                 </div>
               </div>
             </div>
