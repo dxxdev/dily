@@ -192,6 +192,11 @@ const OriginalCategoryProducts = () => {
                     </ul>
                   )}
                 </div>
+                <div className="flex justify-center flex-col gap-5 items-center w-full">
+                  <button className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7">
+                    Saralash
+                  </button>
+                </div>
               </div>
             </div>
           </div>
