@@ -21,6 +21,9 @@ const OriginalCategoryProducts = () => {
       Math.min(...filteredPrice(filteredOriginalCategory(products, pathname)))
     );
   }, []);
+  const rangeStyle = {
+    trackStyle: { backgroundColor: "#00c65e" },
+  };
   return (
     <div className="my-container">
       <div className="flex flex-col justify-center items-start gap-30">
@@ -58,6 +61,7 @@ const OriginalCategoryProducts = () => {
                     className="w-full"
                     range
                     min={minPrice}
+                    {...rangeStyle}
                     max={maxPrice}
                     defaultValue={[minPrice, maxPrice]}
                   />
