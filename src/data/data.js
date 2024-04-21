@@ -753,9 +753,6 @@ export const products = [
   },
 ];
 
-console.log(filteredOriginalCategory(products, "Telefonlar"));
-console.log(randomNumbersArr(filteredOriginalCategory(products, "Telefonlar")));
-
 export const scrollTop = () => {
   window.scrollTo({
     top: 0,
