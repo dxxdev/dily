@@ -6,12 +6,14 @@ import filteredBrend from "../functions/filteredBrend";
 import { Checkbox, InputNumber, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
+import ProductCard from "../components/ProductCard";
 
 const OriginalCategoryProducts = () => {
   const location = useLocation();
   const pathname = location.pathname.split("/").slice(1).pop();
   const [brends, setBrends] = useState([]);
   const [memoryArr, setMemoryArr] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
   const [openBrend, setOpenBrend] = useState(true);
@@ -29,13 +31,14 @@ const OriginalCategoryProducts = () => {
     setMemoryArr(
       filteredProductMemory(filteredOriginalCategory(products, pathname))
     );
+    setFilteredProducts(filteredOriginalCategory(products, pathname));
   }, []);
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
   console.log(memoryArr);
   return (
-    <div className="my-container">
+    <div className="my-container flex justify-between items-start gap-30">
       <div className="flex flex-col justify-center items-start gap-30">
         <div className="flex flex-col justify-between items-start gap-5">
           <h2 className="text-3xl font-bold leading-120 text-dark-gray">
@@ -201,6 +204,20 @@ const OriginalCategoryProducts = () => {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="grow flex flex-col justify-start items-stretch gap-5">
+            <div className="flex justify-between items-center">
+              <p className="text-sm font-normal leading-120 text-medium-gray">
+                {filteredProducts.length}
+              </p>
+            </div>
+            <div className="grid grid-cols-4">
+              {filteredProducts &&
+                filteredProducts.length > 0 &&
+                filteredProducts.map((product) => {
+                  return <ProductCard key={product.id} product={product} />;
+                })}
             </div>
           </div>
         </div>
