@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 import filteredCategoryMenu from "../functions/filteredCategoryMenu";
 
-const CategoryMenu = ({ opened }) => {
+const CategoryMenu = ({ opened, setOpened }) => {
   const [hoverCategory, setHoverCategory] = useState(null);
   return (
     <ul
@@ -52,6 +52,9 @@ const CategoryMenu = ({ opened }) => {
                   className="group w-min h-min transition-all duration-300"
                 >
                   <Link
+                    onClick={() => {
+                      setOpened((prev) => !prev);
+                    }}
                     to={`/products/${hoverCategory}/${category.originalCategory}`}
                     className="group-hover:text-bright-green transition-all duration-300"
                   >

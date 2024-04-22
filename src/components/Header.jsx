@@ -94,7 +94,7 @@ const Header = () => {
             </ul>
           </nav>
           <div className="absolute z-[999] left-0 top-3">
-            <CategoryMenu opened={opened} />
+            <CategoryMenu opened={opened} setOpened={setOpened} />
           </div>
         </div>
       </div>

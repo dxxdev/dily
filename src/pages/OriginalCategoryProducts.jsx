@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 import { products } from "../data/data";
 import filteredBrend from "../functions/filteredBrend";
-import { Checkbox, InputNumber, Slider } from "antd";
+import { Checkbox, InputNumber, Select, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
 import ProductCard from "../components/ProductCard";
@@ -32,7 +32,7 @@ const OriginalCategoryProducts = () => {
       filteredProductMemory(filteredOriginalCategory(products, pathname))
     );
     setFilteredProducts(filteredOriginalCategory(products, pathname));
-  }, []);
+  }, [pathname]);
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
@@ -211,6 +211,24 @@ const OriginalCategoryProducts = () => {
               <p className="text-sm font-normal leading-120 text-medium-gray">
                 {filteredProducts.length}
               </p>
+              <div className="flex justify-center items-center gap-5">
+                <div className="flex justify-center items-center gap-2">
+                  <span>
+                    <p>Saralash</p>
+                  </span>
+                  <span>
+                    <Select
+                      defaultValue="Avval yangilari"
+                      options={[
+                        {
+                          value: "Avval yangilari",
+                          label: "Avval yangilari",
+                        },
+                      ]}
+                    />
+                  </span>
+                </div>
+              </div>
             </div>
             <div className="grid grid-cols-4">
               {filteredProducts &&
