@@ -16,11 +16,21 @@ const OriginalCategoryProducts = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
+  const [page, setPage] = useState(1);
   const [openBrend, setOpenBrend] = useState(true);
   const [openMemory, setOpenMemory] = useState(true);
-  const [viewType, setViewType] = useState("grid");
+  const [viewType, setViewType] = useState("list");
   let checkedBrends = [];
   let checkedMemory = [];
+  const gridViewed = 1,
+    listViewed = 8;
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(
+    viewType == "grid" ? gridViewed : listViewed
+  );
+  const pages = Math.ceil(
+    filteredProducts.length / (viewType == "grid" ? gridViewed : listViewed)
+  );
   useEffect(() => {
     setBrends(filteredBrend(filteredOriginalCategory(products, pathname)));
     setMaxPrice(
@@ -37,6 +47,7 @@ const OriginalCategoryProducts = () => {
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
+  const slicedProducts = filteredProducts.slice(startIndex, endIndex);
   return (
     <div className="my-container flex justify-between items-start gap-30">
       <div className="flex flex-col w-full justify-center items-start gap-30">
@@ -305,9 +316,9 @@ const OriginalCategoryProducts = () => {
                   : "flex flex-col w-full justify-start items-stretch gap-3"
               }`}
             >
-              {filteredProducts &&
-                filteredProducts.length > 0 &&
-                filteredProducts.map((product) => {
+              {slicedProducts &&
+                slicedProducts.length > 0 &&
+                slicedProducts.map((product) => {
                   return (
                     <CategoryProductCard
                       key={product.id}
@@ -316,6 +327,98 @@ const OriginalCategoryProducts = () => {
                     />
                   );
                 })}
+            </div>
+            <div className="flex space-x-5 justify-center items-center">
+              {/* prev page button */}
+              <button
+                onClick={() => {
+                  if (page == 1) {
+                    setPage(1);
+                    setStartIndex(0);
+                    setEndIndex(viewType == "grid" ? gridViewed : listViewed);
+                  } else {
+                    setPage(
+                      (prev) =>
+                        (prev -= viewType == "grid" ? gridViewed : listViewed)
+                    );
+                    setStartIndex(
+                      (prev) =>
+                        (prev -= viewType == "grid" ? gridViewed : listViewed)
+                    );
+                    setEndIndex(
+                      (prev) =>
+                        (prev -= viewType == "grid" ? gridViewed : listViewed)
+                    );
+                  }
+                }}
+                className="group w-30 h-30 shadow-product-card-shadow rounded-[10px] hover:bg-bright-green flex justify-center items-center transition-all"
+              >
+                <svg
+                  width="9"
+                  height="15"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M0.875443 4.25822L4.56921 0.43433C4.82423 0.170334 5.23772 0.170324 5.49274 0.434322C5.74776 0.698321 5.74775 1.12636 5.49273 1.39035L2.26067 4.73615L5.49306 8.0823C5.74809 8.34629 5.74808 8.77433 5.49305 9.03833C5.23803 9.30232 4.82455 9.30233 4.56952 9.03833L0.890448 5.22979C0.885282 5.22477 0.880481 5.21947 0.875436 5.21425C0.652616 4.98325 0.62452 4.62649 0.791778 4.36425C0.815704 4.32675 0.843555 4.29123 0.875443 4.25822Z"
+                    fill="currentColor"
+                    className="fill-dark-gray group-hover:fill-white"
+                  />
+                </svg>
+              </button>
+              <p className="text-sm font-medium leading-120 text-dark-gray flex justify-center items-center gap-2">
+                <span>{page}</span>
+                <span>/</span>
+                <span>{pages}</span>
+              </p>
+              {/* next page button */}
+              <button
+                onClick={() => {
+                  if (page == pages) {
+                    setPage(pages);
+                    setEndIndex(pages);
+                    setStartIndex(
+                      pages - (viewType == "grid" ? gridViewed : listViewed)
+                    );
+                  } else {
+                    setPage(
+                      (prev) =>
+                        (prev += viewType == "grid" ? gridViewed : listViewed)
+                    );
+                    setEndIndex(
+                      (prev) =>
+                        (prev += viewType == "grid" ? gridViewed : listViewed) +
+                        1
+                    );
+                    setStartIndex(
+                      (prev) =>
+                        (prev += viewType == "grid" ? gridViewed : listViewed)
+                    );
+                  }
+                  console.log(slicedProducts);
+                }}
+                className="group w-30 h-30 shadow-product-card-shadow rounded-[10px] hover:bg-bright-green flex justify-center items-center transition-all"
+              >
+                <svg
+                  width="9"
+                  height="15"
+                  viewBox="0 0 5 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M4.80888 4.97811L1.11512 8.802C0.860095 9.06599 0.44661 9.066 0.191586 8.80201C-0.0634387 8.53801 -0.0634287 8.10997 0.191593 7.84598L3.42366 4.50017L0.191263 1.15403C-0.0637612 0.890034 -0.0637511 0.461998 0.191271 0.198002C0.446293 -0.0659952 0.859777 -0.0660048 1.1148 0.197994L4.79388 4.00654C4.79904 4.01155 4.80385 4.01686 4.80889 4.02208C5.03171 4.25307 5.05981 4.60984 4.89255 4.87208C4.86862 4.90958 4.84077 4.9451 4.80888 4.97811Z"
+                    fill="currentColor"
+                    className="fill-dark-gray
+                group-hover:fill-white"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
