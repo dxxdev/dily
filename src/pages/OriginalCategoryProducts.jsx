@@ -6,7 +6,7 @@ import filteredBrend from "../functions/filteredBrend";
 import { Checkbox, InputNumber, Select, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
-import ProductCard from "../components/ProductCard";
+import CategoryProductCard from "../components/CategoryProductCard";
 
 const OriginalCategoryProducts = () => {
   const location = useLocation();
@@ -37,10 +37,9 @@ const OriginalCategoryProducts = () => {
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
-  console.log(memoryArr);
   return (
     <div className="my-container flex justify-between items-start gap-30">
-      <div className="flex flex-col justify-center items-start gap-30">
+      <div className="flex flex-col w-full justify-center items-start gap-30">
         <div className="flex flex-col justify-between items-start gap-5">
           <h2 className="text-3xl font-bold leading-120 text-dark-gray">
             {pathname}
@@ -59,7 +58,7 @@ const OriginalCategoryProducts = () => {
               })}
           </ul>
         </div>
-        <div className="flex justify-start items-start gap-30">
+        <div className="flex justify-start w-full items-start gap-30">
           <div className="flex flex-col justify-center shadow-product-card-shadow items-center w-full max-w-72 gap-30">
             <div className="flex flex-col justify-center items-start gap-30 px-30 py-6">
               <div className="flex flex-col justify-start items-start gap-4">
@@ -127,7 +126,6 @@ const OriginalCategoryProducts = () => {
                                       (item) => item != brend
                                     );
                                   }
-                                  console.log(checkedBrends);
                                 }}
                               >
                                 {brend}
@@ -185,7 +183,6 @@ const OriginalCategoryProducts = () => {
                                       (item) => item != memory
                                     );
                                   }
-                                  console.log(checkedMemory);
                                 }}
                               >
                                 {memory}
@@ -207,7 +204,7 @@ const OriginalCategoryProducts = () => {
               </div>
             </div>
           </div>
-          <div className="grow flex flex-col justify-start items-stretch gap-5">
+          <div className="w-full flex flex-col justify-start items-stretch gap-5">
             <div className="flex justify-between items-center">
               <p className="text-sm font-normal leading-120 text-medium-gray">
                 {filteredProducts.length}
@@ -301,11 +298,23 @@ const OriginalCategoryProducts = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-4">
+            <div
+              className={`${
+                viewType == "grid"
+                  ? "grid grid-cols-4 gap-3"
+                  : "flex flex-col w-full justify-start items-stretch gap-3"
+              }`}
+            >
               {filteredProducts &&
                 filteredProducts.length > 0 &&
                 filteredProducts.map((product) => {
-                  return <ProductCard key={product.id} product={product} />;
+                  return (
+                    <CategoryProductCard
+                      key={product.id}
+                      product={product}
+                      view={viewType}
+                    />
+                  );
                 })}
             </div>
           </div>
