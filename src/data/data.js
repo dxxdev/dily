@@ -69,6 +69,7 @@ export const products = [
       icon: computers,
       catalogIcon: computer,
       originalCategory: "Noutbuklar",
+      brend: "Asus",
     },
     descriptions: [
       "Vivobook Go 15 OLED noutbukida har qanday kontent rang-barang ko‘rinadi, chunki u benuqson tiniq tasvirlarni ishlab chiqaradigan yuqori sifatli OLED displey bilan jihozlangan. Yupqa ramka ekrandagi narsalarga botirishni kuchaytiradi va TÜV Rheinland ergonomik sertifikati uzoq vaqt foydalanishda ko'zingiz uchun qulay ekanligini anglatadi.",
@@ -203,6 +204,7 @@ export const products = [
       icon: computers,
       catalogIcon: computer,
       originalCategory: "Noutbuklar",
+      brend: "Asus",
     },
     descriptions: [
       "ASUS TUF GAMING G16 kuchli oʻyin noutbuki boʻlib, oʻyin stsenariylarida yuqori unumdorlik va ishonchlilikni qadrlaydiganlar uchun moʻljallangan.",
@@ -313,6 +315,7 @@ export const products = [
       icon: telephones,
       catalogIcon: telephoneAccessory,
       originalCategory: "Telefonlar",
+      brend: "Redmi",
     },
     descriptions: [
       "Yangi Xiaomi Redmi Note 12 Pro - bu haqiqatan ham ajoyib imkoniyatlarga ega smartfon. U super-kuchli flagman darajasidagi 108 MP kamerani, kuchli chipni birlashtiradi",
@@ -387,6 +390,7 @@ export const products = [
       icon: computers,
       catalogIcon: computer,
       originalCategory: "Noutbuklar",
+      brend: "HP",
     },
     descriptions: [
       "Model Full HD displey bilan jihozlangan, shuning uchun u ko'p formatli tasvirlarning ajoyib yorqinligini ta'minlaydi. O'rnatilgan Bang & Olufsen audio tizimi va ilg'or HP Audio Boost ovoz opsiyasi zerikarli shovqinsiz tiniq va chuqur ovozni ta'minlaydi.",
@@ -483,6 +487,7 @@ export const products = [
       icon: computers,
       catalogIcon: computer,
       originalCategory: "Noutbuklar",
+      brend: "Asus",
     },
     descriptions: [
       "ASUS Creator Laptop Q yo‘l-yo‘lakay unumli bo‘lishingizni ta’minlash uchun 70 Vt/soat quvvatga ega uzoq muddatli akkumulyatorga ega bo‘lib, u sizni ijodingiz kabi davom ettiradi. Shunday qilib, batareyangizni zaryad qilish haqida qayg'urmasdan, sevimli qahvaxonangizda yoki tabiat qo'ynida dam oling!",
@@ -582,6 +587,7 @@ export const products = [
       icon: telephones,
       catalogIcon: telephoneAccessory,
       originalCategory: "Telefonlar",
+      brend: "Apple",
     },
     descriptions: [
       "Titandan ishlangan korpus.",
@@ -654,6 +660,7 @@ export const products = [
       icon: computers,
       catalogIcon: computer,
       originalCategory: "Kompyuterlar",
+      brend: "Zalman",
     },
     descriptions: [
       "Kafolat - ShK yig'ilgan kundan boshlab olti oygacha, yig'ish sanasi korpusning muhrida belgilanadi, agar muhr buzilgan bo'lsa (yirtilgan, uzilgan,, buzilgan), u holda kafolat butunlay bekor qilinadi.",
@@ -752,7 +759,6 @@ export const products = [
     saved: false,
   },
 ];
-
 
 export const scrollTop = () => {
   window.scrollTo({

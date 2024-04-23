@@ -76,3 +76,11 @@ body::-webkit-scrollbar-thumb {
     background: #eee;
   }
 }
+
+.ant-checkbox-input:checked ~ .ant-checkbox-inner {
+  @apply !bg-bright-green;
+}
+
+.ant-checkbox-inner {
+  @apply hover:border-bright-green;
+}
