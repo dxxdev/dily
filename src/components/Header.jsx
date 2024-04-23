@@ -11,6 +11,7 @@ const Header = () => {
     <header className="bg-light-gray">
       <div className="my-container">
         <div className="flex w-full items-center justify-between">
+
           <Link>
             <h1 className="flex items-center gap-1 font-open-sans">
               <svg
@@ -34,6 +35,7 @@ const Header = () => {
               </span>
             </h1>
           </Link>
+          <Link to='/saved'>saved</Link>
           <div className="w-full max-w-xs rounded-full bg-white flex flex-col justify-start items-start">
             <div className="flex justify-between items-center w-full">
               <div className="flex w-full px-4 items-center gap-4">

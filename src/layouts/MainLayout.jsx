@@ -15,7 +15,7 @@ const MainLayout = () => {
   return (
     <div
       className={`flex ${
-        home ? "bg-light-gray" : "bg-white"
+        home ? "bg-light-gray" : "bg-light-gray"
       } flex-col justify-between min-h-screen`}
     >
       <Header />

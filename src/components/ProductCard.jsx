@@ -10,6 +10,7 @@ const ProductCard = ({ product, widthFixed, discount }) => {
   };
   return (
     <li
+    key={product.id}
       className={`rounded-lg group bg-white/90 flex flex-col relative shadow-product-card-shadow ${
         widthFixed ? "w-52" : ""
       }`}
