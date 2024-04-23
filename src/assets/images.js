@@ -34,6 +34,7 @@ import gamingPCZalman3 from "./img/gaming-pc-zalman-3.png";
 import gamingPCZalman4 from "./img/gaming-pc-zalman-4.png";
 import gamingPCZalman5 from "./img/gaming-pc-zalman-5.png";
 import avatar from "./img/avatar.png";
+import logo from "./logo/logo.png";
 
 export {
   asusVivoBook1,
@@ -72,4 +73,5 @@ export {
   gamingPCZalman4,
   gamingPCZalman5,
   avatar,
+  logo
 };
