@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetail from "./pages/ProductDetail";
 import Save from "./pages/Save";
+import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
+
 
 const App = () => {
   const router = createBrowserRouter(
@@ -17,6 +19,10 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/products/:categoryName" element={<CategoryProducts />} />
+        <Route
+          path="/products/:categoryName/:originalCategory"
+          element={<OriginalCategoryProducts />}
+        />
         <Route
           path="/products/:categoryName/:originalCategory/:id"
           element={<ProductDetail />}
