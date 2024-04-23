@@ -53,11 +53,11 @@ const Save = () => {
     setfilterCategor(categoty[e].filterCat)
   }
   const [minPrice, setMinPrice] = useState(10);
-  const [maxPrice, setMaxPrice] = useState(10000000)
+  const [maxPrice, setMaxPrice] = useState(100000000)
   const celarFilter = () => {
     setMaxPrice(0)
     setMinPrice(0)
-    setfilterCategor('')
+    setfilterCategor("")
   }
   return (
     <div className="bg-light-gray">
@@ -65,11 +65,17 @@ const Save = () => {
       <div className='my-container flex items-start gap-20 justify-between'>
         <div className="w-1/5 p-5 rounded-xl bg-white flex flex-col gap-10">
           <ul className='flex flex-col items-start justify-between gap-5'>
+
             {categoty.map((e, i) => {
+
               return <li key={e.id}>
+
                 <h3 onClick={() => change(i)} className={`${filterCategor.toLowerCase() === ((e.filterCat.toLowerCase())) ? "font-bold" : 'font-light'} first-letter:uppercase`}>{e.name}</h3>
+
               </li>
+
             })}
+
           </ul>
           <div className="flex items-center justify-between gap-2">
             <input value={minPrice} onChange={(r) => setMinPrice(r.target.value)} type="number" step={200} placeholder='min' className='w-full px-3 py-2 placeholder:text-center border-2 rounded-md' />
