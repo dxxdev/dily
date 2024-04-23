@@ -19,18 +19,14 @@ const OriginalCategoryProducts = () => {
   const [page, setPage] = useState(1);
   const [openBrend, setOpenBrend] = useState(true);
   const [openMemory, setOpenMemory] = useState(true);
-  const [viewType, setViewType] = useState("list");
+  const [viewType, setViewType] = useState("grid");
   let checkedBrends = [];
   let checkedMemory = [];
-  const gridViewed = 1,
-    listViewed = 8;
+  const viewed = 12;
   const [startIndex, setStartIndex] = useState(0);
-  const [endIndex, setEndIndex] = useState(
-    viewType == "grid" ? gridViewed : listViewed
-  );
-  const pages = Math.ceil(
-    filteredProducts.length / (viewType == "grid" ? gridViewed : listViewed)
-  );
+  const [endIndex, setEndIndex] = useState(viewed);
+  const pages = Math.ceil(filteredProducts.length / viewed);
+  let slicedProducts = filteredProducts.slice(startIndex, endIndex);
   useEffect(() => {
     setBrends(filteredBrend(filteredOriginalCategory(products, pathname)));
     setMaxPrice(
@@ -43,11 +39,10 @@ const OriginalCategoryProducts = () => {
       filteredProductMemory(filteredOriginalCategory(products, pathname))
     );
     setFilteredProducts(filteredOriginalCategory(products, pathname));
-  }, [pathname]);
+  }, [pathname, viewType]);
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
-  const slicedProducts = filteredProducts.slice(startIndex, endIndex);
   return (
     <div className="my-container flex justify-between items-start gap-30">
       <div className="flex flex-col w-full justify-center items-start gap-30">
@@ -238,9 +233,11 @@ const OriginalCategoryProducts = () => {
                   </span>
                 </div>
                 <div className="flex justify-center items-center gap-2.5">
+                  {/* change view grid */}
                   <button
                     onClick={() => {
                       setViewType("grid");
+                      slicedProducts = filteredProducts.slice(0, viewed);
                     }}
                   >
                     {viewType == "grid" ? (
@@ -272,9 +269,11 @@ const OriginalCategoryProducts = () => {
                       </svg>
                     )}
                   </button>
+                  {/* change view list */}
                   <button
                     onClick={() => {
                       setViewType("list");
+                      slicedProducts = filteredProducts.slice(0, viewed);
                     }}
                   >
                     {viewType == "list" ? (
@@ -332,23 +331,14 @@ const OriginalCategoryProducts = () => {
               {/* prev page button */}
               <button
                 onClick={() => {
-                  if (page == 1) {
+                  if (page <= pages) {
                     setPage(1);
                     setStartIndex(0);
-                    setEndIndex(viewType == "grid" ? gridViewed : listViewed);
+                    setEndIndex(viewed);
                   } else {
-                    setPage(
-                      (prev) =>
-                        (prev -= viewType == "grid" ? gridViewed : listViewed)
-                    );
-                    setStartIndex(
-                      (prev) =>
-                        (prev -= viewType == "grid" ? gridViewed : listViewed)
-                    );
-                    setEndIndex(
-                      (prev) =>
-                        (prev -= viewType == "grid" ? gridViewed : listViewed)
-                    );
+                    setPage((prev) => (prev -= viewed));
+                    setStartIndex((prev) => (prev -= viewed));
+                    setEndIndex((prev) => (prev -= viewed));
                   }
                 }}
                 className="group w-30 h-30 shadow-product-card-shadow rounded-[10px] hover:bg-bright-green flex justify-center items-center transition-all"
@@ -379,26 +369,13 @@ const OriginalCategoryProducts = () => {
                 onClick={() => {
                   if (page == pages) {
                     setPage(pages);
-                    setEndIndex(pages);
-                    setStartIndex(
-                      pages - (viewType == "grid" ? gridViewed : listViewed)
-                    );
+                    setEndIndex(page * viewed);
+                    setStartIndex(page - viewed - viewed);
                   } else {
-                    setPage(
-                      (prev) =>
-                        (prev += viewType == "grid" ? gridViewed : listViewed)
-                    );
-                    setEndIndex(
-                      (prev) =>
-                        (prev += viewType == "grid" ? gridViewed : listViewed) +
-                        1
-                    );
-                    setStartIndex(
-                      (prev) =>
-                        (prev += viewType == "grid" ? gridViewed : listViewed)
-                    );
+                    setPage((prev) => (prev += 1));
+                    setEndIndex((prev) => (prev += viewed));
+                    setStartIndex((prev) => (prev += viewed));
                   }
-                  console.log(slicedProducts);
                 }}
                 className="group w-30 h-30 shadow-product-card-shadow rounded-[10px] hover:bg-bright-green flex justify-center items-center transition-all"
               >
