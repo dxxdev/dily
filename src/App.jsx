@@ -9,9 +9,8 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetail from "./pages/ProductDetail";
-import Save from "./pages/Save";
 import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
-
+import Save from "./pages/Save";
 
 const App = () => {
   const router = createBrowserRouter(
