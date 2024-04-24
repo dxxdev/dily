@@ -7,7 +7,7 @@ import { Checkbox, InputNumber, Select, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
 import CategoryProductCard from "../components/CategoryProductCard";
-import filteredProductsByType from "../functions/filteredProductsByType";
+import filterProducts from "../functions/filterProducts";
 
 const OriginalCategoryProducts = () => {
   const location = useLocation();
@@ -27,6 +27,7 @@ const OriginalCategoryProducts = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(viewed);
   const pages = Math.ceil(filteredProducts.length / viewed);
+  const [sortingDisabled, setSortingDisabled] = useState(false);
   let slicedProducts = filteredProducts.slice(startIndex, endIndex);
   useEffect(() => {
     setBrends(filteredBrend(filteredOriginalCategory(products, pathname)));
@@ -133,6 +134,7 @@ const OriginalCategoryProducts = () => {
                                       (item) => item != brend
                                     );
                                   }
+                                  setSortingDisabled(false);
                                 }}
                               >
                                 {brend}
@@ -190,6 +192,7 @@ const OriginalCategoryProducts = () => {
                                       (item) => item != memory
                                     );
                                   }
+                                  setSortingDisabled(false);
                                 }}
                               >
                                 {memory}
@@ -202,17 +205,36 @@ const OriginalCategoryProducts = () => {
                 </div>
                 <div className="flex justify-center flex-col gap-5 items-center w-full">
                   <button
+                    disabled={sortingDisabled}
                     onClick={() => {
                       console.log(
-                        filteredProductsByType(filteredProducts, checkedBrends)
+                        filterProducts(
+                          filteredOriginalCategory(products, pathname),
+                          checkedBrends,
+                          checkedMemory
+                        )
                       );
-                      console.log(checkedBrends);
+                      setSortingDisabled(true);
+                      setFilteredProducts(
+                        filterProducts(
+                          filteredOriginalCategory(products, pathname),
+                          checkedBrends,
+                          checkedMemory
+                        )
+                      );
                     }}
                     className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7"
                   >
                     Saralash
                   </button>
-                  <button className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7">
+                  <button
+                    onClick={() => {
+                      checkedBrends = [];
+                      checkedMemory = [];
+                      setSortingDisabled(false);
+                    }}
+                    className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7"
+                  >
                     Filtrni o'chirish
                   </button>
                 </div>
