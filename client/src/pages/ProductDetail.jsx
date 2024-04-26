@@ -17,7 +17,7 @@ const ProductDetail = () => {
   const [rendered, setRendered] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-  const [tabId, setTabId] = useState(5);
+  const [tabId, setTabId] = useState(2);
   const tabs = [
     "Tavsifi",
     "Xususiyatlar",
@@ -276,6 +276,12 @@ const ProductDetail = () => {
                       );
                     })}
                   </ul>
+                </>
+              )}
+              {/* Accessories */}
+              {tabId == 2 && (
+                <>
+                  
                 </>
               )}
               {/* Product comments */}
