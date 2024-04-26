@@ -10,6 +10,7 @@ import randomNumbersArr from "../functions/randomNumbersArr";
 import ImageViewerModal from "../components/ImageViewerModal";
 import Comments from "../components/Comments";
 import DeliveryAndPayment from "../components/DeliveryAndPayment";
+import Accessories from "../components/Accessories";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -281,7 +282,7 @@ const ProductDetail = () => {
               {/* Accessories */}
               {tabId == 2 && (
                 <>
-                  
+                  <Accessories />
                 </>
               )}
               {/* Product comments */}
