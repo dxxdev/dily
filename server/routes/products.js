@@ -65,7 +65,6 @@ route.get("/", async (req, res) => {
 });
 
 // Crud mothods
-
 // Create mohod
 
 route.post("/", async (req, res) => {
@@ -105,7 +104,6 @@ route.post("/", async (req, res) => {
 });
 
 // cRud mothods
-
 // Read mothod
 
 route.get(":id", async (req, res) => {
@@ -125,5 +123,20 @@ route.get(":id", async (req, res) => {
 });
 
 // crUd mothods
-
 // Update mothod
+
+// cruD mothods
+// delete mothod
+route.delete(":id", async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const deleting = await Product.findByIdAndDelete({ _id: productId });
+
+    if (!deleting) {
+      res.status(404).send("Product is not defined...");
+      console.log("Product is not defined...");
+    }
+  } catch (error) {
+    console.log(`server bilan hatolik yuz berdi:${error}`);
+  }
+});
