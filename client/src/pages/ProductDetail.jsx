@@ -282,7 +282,18 @@ const ProductDetail = () => {
               {/* Accessories */}
               {tabId == 2 && (
                 <>
-                  <Accessories />
+                  {product.category.originalCategory == "Telefonlar" ||
+                  product.category.originalCategory == "Noutrbuklar" ? (
+                    <>
+                      <Accessories />
+                    </>
+                  ) : (
+                    <>
+                      <h2>
+                        Bu turkumdagi mahsulotlar uchun aksessuarlar mavjud emas
+                      </h2>
+                    </>
+                  )}
                 </>
               )}
               {/* Product comments */}
