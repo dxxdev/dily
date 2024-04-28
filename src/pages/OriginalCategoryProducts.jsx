@@ -8,7 +8,7 @@ import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
 import CategoryProductCard from "../components/CategoryProductCard";
 
-const OriginalCategoryProducts = () => {
+const OriginalCategoryProducts = ({ one, setone }) => {
   const location = useLocation();
   const pathname = location.pathname.split("/").slice(1).pop();
   const [brends, setBrends] = useState([]);
@@ -309,17 +309,18 @@ const OriginalCategoryProducts = () => {
               </div>
             </div>
             <div
-              className={`${
-                viewType == "grid"
-                  ? "grid grid-cols-4 gap-3"
-                  : "flex flex-col w-full justify-start items-stretch gap-3"
-              }`}
+              className={`${viewType == "grid"
+                ? "grid grid-cols-4 gap-3"
+                : "flex flex-col w-full justify-start items-stretch gap-3"
+                }`}
             >
               {slicedProducts &&
                 slicedProducts.length > 0 &&
                 slicedProducts.map((product) => {
                   return (
                     <CategoryProductCard
+                      one={one}
+                      setone={setone}
                       key={product.id}
                       product={product}
                       view={viewType}

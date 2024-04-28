@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { options } from "../data/data";
+import { options, saved } from "../data/data";
 
-const CategoryProductCard = ({ product, view }) => {
+const CategoryProductCard = ({ product, view, one, setone }) => {
   const [rendered, setRendered] = useState(false);
   const liked = (product) => {
     product.saved = !product.saved;
     setRendered((prev) => !prev);
+    if (!saved.includes(product) && product.saved === false) {
+      setone(one - 1)
+    } else {
+      setone(one + 1)
+    }
   };
   return (
     <li
-      className={`rounded-lg bg-white/90 ${
-        view == "grid" ? "flex flex-col" : "flex"
-      } relative shadow-product-card-shadow`}
+      className={`rounded-lg bg-white/90 ${view == "grid" ? "flex flex-col" : "flex"
+        } relative shadow-product-card-shadow`}
     >
       <button
         className="absolute top-3 right-3 z-[999]"
@@ -36,9 +40,8 @@ const CategoryProductCard = ({ product, view }) => {
       </button>
       <Link
         to={`/products/${product?.category?.name}/${product?.category?.originalCategory}/${product?.id}`}
-        className={`relative ${
-          view == "grid" ? "w-full" : "w-56"
-        } aspect-square flex justify-center items-center`}
+        className={`relative ${view == "grid" ? "w-full" : "w-56"
+          } aspect-square flex justify-center items-center`}
       >
         <img
           src={product?.images[0]}
@@ -48,17 +51,15 @@ const CategoryProductCard = ({ product, view }) => {
       </Link>
       <div className="px-4 py-2 flex w-full flex-col justify-between items-start gap-2.5">
         <h3
-          className={`${
-            view == "grid" ? "text-base" : "text-2xl"
-          } leading-152 text-dark-gray font-medium`}
+          className={`${view == "grid" ? "text-base" : "text-2xl"
+            } leading-152 text-dark-gray font-medium`}
         >
           {product?.productName}
         </h3>
         <div className={`flex justify-between items-center gap-4 w-full`}>
           <strong
-            className={`text-bright-green font-bold leading-normal tracking-0.5 ${
-              view == "grid" ? "text-base" : "text-xl"
-            }`}
+            className={`text-bright-green font-bold leading-normal tracking-0.5 ${view == "grid" ? "text-base" : "text-xl"
+              }`}
           >
             {product
               ?.price()
@@ -69,9 +70,8 @@ const CategoryProductCard = ({ product, view }) => {
           <div className="flex justify-center items-center gap-4">
             <div className="flex justify-center items-center gap-1">
               <p
-                className={`${
-                  view == "grid" ? "text-xs" : "text-base"
-                } leading-140 text-dark-gray font-medium`}
+                className={`${view == "grid" ? "text-xs" : "text-base"
+                  } leading-140 text-dark-gray font-medium`}
               >
                 {product?.rating}
               </p>
@@ -102,9 +102,8 @@ const CategoryProductCard = ({ product, view }) => {
                 />
               </svg>
               <p
-                className={`${
-                  view == "grid" ? "text-xs" : "text-base"
-                } leading-140 text-dark-gray font-medium`}
+                className={`${view == "grid" ? "text-xs" : "text-base"
+                  } leading-140 text-dark-gray font-medium`}
               >
                 {product?.comments.length}
               </p>
@@ -112,14 +111,12 @@ const CategoryProductCard = ({ product, view }) => {
           </div>
         </div>
         <div
-          className={`flex w-full ${
-            view == "grid" ? "justify-stretch" : "justify-end"
-          }`}
+          className={`flex w-full ${view == "grid" ? "justify-stretch" : "justify-end"
+            }`}
         >
           <button
-            className={`flex group transition-all rounded-[10px] justify-center bg-white hover:bg-bright-green text-dark-gray hover:text-white items-center gap-5 py-2 px-4 shadow-product-card-shadow ${
-              view == "grid" ? "w-full" : "w-max"
-            }`}
+            className={`flex group transition-all rounded-[10px] justify-center bg-white hover:bg-bright-green text-dark-gray hover:text-white items-center gap-5 py-2 px-4 shadow-product-card-shadow ${view == "grid" ? "w-full" : "w-max"
+              }`}
           >
             <span className={`${view == "grid" ? "block" : "hidden"}`}>
               Sotib olish
