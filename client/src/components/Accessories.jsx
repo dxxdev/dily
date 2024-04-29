@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 import { accesories } from "../data/accessories";
 import filteredCategory from "../functions/filteredCategory";
+import filterOriginalCategory from "../functions/filterOriginalCategory";
 
 function Accessories() {
   const [activeTab, setActiveTab] = useState("all");
@@ -20,21 +20,21 @@ function Accessories() {
         >
           Barchasi
         </button>
-        {filteredCategoryMenuItems(filteredCategory(accesories)).map(
+        {filterOriginalCategory(filteredCategory(accesories)).map(
           (category) => {
             return (
               <button
                 onClick={() => {
-                  setActiveTab(category.name);
+                  setActiveTab(category.originalCategory);
                 }}
                 key={category.id}
                 className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${
-                  activeTab == category.name
+                  activeTab == category.originalCategory
                     ? "bg-bright-green text-white"
                     : "bg-white text-black"
                 } font-medium text-xs leading-140`}
               >
-                {category.name}
+                {category.originalCategory}
               </button>
             );
           }
