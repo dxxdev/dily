@@ -53,7 +53,6 @@ const Save = ({ one, setone }) => {
     setMinPrice(0)
     setfilterCategor("")
   }
-
   return (
     <div className="bg-light-gray">
       <Breadcrumb />
