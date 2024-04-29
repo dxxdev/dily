@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 // middlewares system
 const route = express.Router();
 route.use(express.json());
+const commentsSchema = require("./Comments");
+const propertiesSchema = require("./ProductProperties");
 
 // schema
 const productSchema = mongoose.Schema({
@@ -16,10 +18,12 @@ const productSchema = mongoose.Schema({
     default: "product",
     required: true,
   },
+  properties: [propertiesSchema],
   price: {
     type: Number,
     required: true,
   },
+  comments: [commentsSchema],
   adress: {
     type: String,
     required: true,
@@ -56,8 +60,6 @@ const productSchema = mongoose.Schema({
 });
 
 const Product = mongoose.model("product", productSchema);
-
-module.exports = route;
 
 route.get("/", async (req, res) => {
   const products = await Product.find().sort({ name: 1 });
@@ -140,3 +142,5 @@ route.delete(":id", async (req, res) => {
     console.log(`server bilan hatolik yuz berdi:${error}`);
   }
 });
+
+module.exports = route;

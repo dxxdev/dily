@@ -1,9 +1,4 @@
-const express = require("express");
 const mongoose = require("mongoose");
-
-// middlewares system
-const route = express.Router();
-route.use(express.json());
 
 const propertiesSchema = mongoose.Schema({
   name: {
@@ -26,3 +21,5 @@ const propertiesSchema = mongoose.Schema({
     required: true,
   },
 });
+
+module.exports = propertiesSchema;
