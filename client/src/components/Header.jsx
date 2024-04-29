@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { products } from "../data/data";
+import { products, saved } from "../data/data";
 import filteredCategory from "../functions/filteredCategory";
 import CategoryMenu from "../additions/CategoryMenu";
 import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 import { logo } from "../assets/images";
+import bildrishnoma from "../functions/bildrishnoma";
 
-const Header = () => {
+const Header = ({ top, setTop, one }) => {
   const [opened, setOpened] = useState(false);
+  let finded = products.filter(e => { e.saved === true })
   return (
     <header className="bg-light-gray">
       <div className="my-container">
@@ -76,7 +78,8 @@ const Header = () => {
                 })}
             </ul>
           </nav>
-          <Link to={`/saved`}>
+          <Link to={`/saved`} className="transition-all relative hover:bg-light-green/50  p-1 rounded-sm">
+            <span className="absolute text-start bg-bright-green h-5 w-5 text-xs rounded-full flex items-center justify-center text-white font-open-sans -top-2 -right-2">{one}</span>
             <svg
               width="20"
               height="18"

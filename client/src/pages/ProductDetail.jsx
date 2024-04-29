@@ -11,7 +11,7 @@ import ImageViewerModal from "../components/ImageViewerModal";
 import Comments from "../components/Comments";
 import DeliveryAndPayment from "../components/DeliveryAndPayment";
 
-const ProductDetail = () => {
+const ProductDetail = ({ one, setone }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [rendered, setRendered] = useState(true);
@@ -135,17 +135,22 @@ const ProductDetail = () => {
                       {product?.price()} $
                     </b>
                   </div>
+
                   <div className="flex justify-start items-center">
+
                     <button
                       onClick={() => {
                         product.saved = !product.saved;
                         setRendered((prev) => !prev);
+                        product.saved ? setone(one + 1) : setone(one - 1)
+
                       }}
-                      className="flex justify-center items-center gap-2.5"
-                    >
+                      className="flex justify-center items-center gap-2.5">
+
                       <span className="text-sm font-normal text-dark-gray">
                         Sevimlilarga
                       </span>
+
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -227,11 +232,10 @@ const ProductDetail = () => {
                   <li className="w-full" key={index}>
                     <button
                       onClick={() => setTabId(index)}
-                      className={`px-12 py-3 w-full transition-all text-sm leading-140 font-medium tracking-0.7 ${
-                        tabId == index
-                          ? "bg-bright-green text-white hover:bg-green-600"
-                          : "bg-transparent text-dark-gray hover:bg-dark-gray/10"
-                      }`}
+                      className={`px-12 py-3 w-full transition-all text-sm leading-140 font-medium tracking-0.7 ${tabId == index
+                        ? "bg-bright-green text-white hover:bg-green-600"
+                        : "bg-transparent text-dark-gray hover:bg-dark-gray/10"
+                        }`}
                     >
                       {tab}
                     </button>
