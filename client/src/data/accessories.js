@@ -1,13 +1,13 @@
-import { v4 } from "uuid";
+import { v4 as randomId } from "uuid";
 import { telephoneAccessory, telephones } from "../assets/icons";
 import { avatar } from "../assets/images";
 
 const accesories = [
   {
-    id: v4(),
+    id: randomId(),
     ProductName: "Apple Air Pods Pro",
     category: {
-      id: v4(),
+      id: randomId(),
       name: "Telefon va aksessuarlar",
       icon: telephones,
       catalogIcon: telephoneAccessory,
@@ -46,3 +46,5 @@ const accesories = [
     saved: false,
   },
 ];
+
+export { accesories };
