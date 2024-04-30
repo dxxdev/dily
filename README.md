@@ -1,7 +1,7 @@
 
 # Dily.uz
 
-[dily.uz sayti](url(https://dily.uz))
+[dily.uz sayti](https://dily.uz)
 
 Elektronik qurilmalari sotiladigan O'zbekistondagi birinchi katta internet do'kon
 ## Contributors
