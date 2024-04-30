@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { options } from "../data/data";
+import { options, products, saved } from "../data/data";
+import { useSelector, useDispatch } from 'react-redux'
+// import { incrment, deincrment } from '
 
-const ProductCard = ({ product, widthFixed, discount }) => {
+const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
   const [rendered, setRendered] = useState(false);
   const liked = (product) => {
-    product.saved = !product.saved;
-    setRendered((prev) => !prev);
+    if (!saved.includes(product) && product.saved === false) {
+      product.saved = !product.saved;
+      setRendered((prev) => !prev);
+      setone(one + 1)
+    } else {
+      product.saved = !product.saved;
+      setRendered((prev) => !prev);
+      setone(one - 1)
+    }
   };
   return (
     <li
-    key={product.id}
-      className={`rounded-lg group bg-white/90 flex flex-col relative shadow-product-card-shadow ${
-        widthFixed ? "w-52" : ""
-      }`}
+      key={product.id}
+      className={`rounded-lg group bg-white/90 flex flex-col relative shadow-product-card-shadow ${widthFixed ? "w-52" : ""
+        }`}
     >
       <button
         className="absolute top-3 right-3 z-[999]"

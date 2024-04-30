@@ -5,7 +5,7 @@ import randomNumbersArr from "../functions/randomNumbersArr";
 import { Link } from "react-router-dom";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 
-const ForYouProducts = () => {
+const ForYouProducts = ({ one, setone }) => {
   return (
     <div className="my-container flex flex-col justify-start items-start gap-10">
       <div className="flex w-full justify-between items-center leading-120">
@@ -24,7 +24,7 @@ const ForYouProducts = () => {
           filteredOriginalCategory(products, "Telefonlar"),
           5
         ).map((num, index) => {
-          return <ProductCard key={index} product={products[num]} />;
+          return <ProductCard one={one} setone={setone} key={index} product={products[num]} />;
         })}
       </ul>
     </div>

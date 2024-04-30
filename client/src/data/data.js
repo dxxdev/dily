@@ -59,6 +59,8 @@ export let options = {
   maximumFractionDigits: 2,
 };
 
+export const saved = [];
+
 export const products = [
   {
     id: generateId(),
