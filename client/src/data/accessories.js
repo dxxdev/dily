@@ -1,13 +1,20 @@
-import { v4 } from "uuid";
+import { v4 as randomId } from "uuid";
 import { telephoneAccessory, telephones } from "../assets/icons";
-import { avatar } from "../assets/images";
+import {
+  appleAirPodsPro1,
+  appleAirPodsPro2,
+  appleAirPodsPro3,
+  appleAirPodsPro4,
+  appleAirPodsPro5,
+  avatar,
+} from "../assets/images";
 
 const accesories = [
   {
-    id: v4(),
+    id: randomId(),
     ProductName: "Apple Air Pods Pro",
     category: {
-      id: v4(),
+      id: randomId(),
       name: "Telefon va aksessuarlar",
       icon: telephones,
       catalogIcon: telephoneAccessory,
@@ -17,7 +24,13 @@ const accesories = [
     description: ["Simsiz quloqchinlar"],
     property: undefined,
     shortly: undefined,
-    images: [],
+    images: [
+      appleAirPodsPro1,
+      appleAirPodsPro2,
+      appleAirPodsPro3,
+      appleAirPodsPro4,
+      appleAirPodsPro5,
+    ],
     price: function () {
       return 35;
     },
@@ -46,3 +59,5 @@ const accesories = [
     saved: false,
   },
 ];
+
+export { accesories };

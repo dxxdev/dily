@@ -15,6 +15,9 @@ const CategoryProductCard = ({ product, view, one, setone }) => {
   };
   return (
     <li
+      className={`rounded-lg bg-white/90 ${
+        view == "grid" ? "flex flex-col w-52" : "flex"
+      } relative shadow-product-card-shadow`}
       className={`rounded-lg bg-white/90 ${view == "grid" ? "flex flex-col" : "flex"
         } relative shadow-product-card-shadow`}
     >

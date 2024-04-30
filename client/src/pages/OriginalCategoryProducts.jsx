@@ -359,6 +359,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                   );
                 })}
             </div>
+            {/* pagination */}
             <div className="flex space-x-5 justify-center items-center">
               {/* prev page button */}
               <button

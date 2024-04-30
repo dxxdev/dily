@@ -10,6 +10,7 @@ import randomNumbersArr from "../functions/randomNumbersArr";
 import ImageViewerModal from "../components/ImageViewerModal";
 import Comments from "../components/Comments";
 import DeliveryAndPayment from "../components/DeliveryAndPayment";
+import Accessories from "../components/Accessories";
 
 const ProductDetail = ({ one, setone }) => {
   const { id } = useParams();
@@ -285,7 +286,18 @@ const ProductDetail = ({ one, setone }) => {
               {/* Accessories */}
               {tabId == 2 && (
                 <>
-                  
+                  {product.category.originalCategory == "Telefonlar" ||
+                  product.category.originalCategory == "Noutrbuklar" ? (
+                    <>
+                      <Accessories />
+                    </>
+                  ) : (
+                    <>
+                      <h2>
+                        Bu turkumdagi mahsulotlar uchun aksessuarlar mavjud emas
+                      </h2>
+                    </>
+                  )}
                 </>
               )}
               {/* Product comments */}
