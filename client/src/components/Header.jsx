@@ -9,7 +9,9 @@ import bildrishnoma from "../functions/bildrishnoma";
 
 const Header = ({ top, setTop, one }) => {
   const [opened, setOpened] = useState(false);
-  let finded = products.filter(e => { e.saved === true })
+  let finded = products.filter((e) => {
+    e.saved === true;
+  });
   return (
     <header className="bg-light-gray">
       <div className="my-container">
@@ -43,23 +45,40 @@ const Header = ({ top, setTop, one }) => {
             onClick={() => {
               setOpened((prev) => !prev);
             }}
-            className="p-1 rounded transition-all hover:bg-light-green/50"
+            className="p-1 z-[99999] bg-light-gray rounded transition-all hover:bg-bright-green/30"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="15"
-              viewBox="0 0 14 15"
-              fill="none"
-              className="rotate-180"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M0.000270024 1.3C0.000270024 0.58203 0.5823 0 1.30027 0H12.7003C13.4182 0 14.0003 0.58203 14.0003 1.3C14.0003 2.01797 13.4182 2.6 12.7003 2.6H1.30027C0.582299 2.6 0.000270024 2.01797 0.000270024 1.3ZM0 7.49727C0 6.7793 0.58203 6.19727 1.3 6.19727H12.7C13.418 6.19727 14 6.7793 14 7.49727C14 8.21524 13.418 8.79727 12.7 8.79727H1.3C0.582029 8.79727 0 8.21524 0 7.49727ZM1.3 12.3945C0.58203 12.3945 0 12.9766 0 13.6945C0 14.4125 0.58203 14.9945 1.3 14.9945H6.7C7.41797 14.9945 8 14.4125 8 13.6945C8 12.9766 7.41797 12.3945 6.7 12.3945H1.3Z"
-                fill="#363A45"
-              />
-            </svg>
+            {opened ? (
+              <svg
+                width="14"
+                height="15"
+                viewBox="0 0 12 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M0.906152 8.60877C0.39847 9.11645 0.39847 9.93957 0.906152 10.4472C1.41383 10.9549 2.23695 10.9549 2.74463 10.4472L5.8559 7.33598L8.96717 10.4472C9.47485 10.9549 10.298 10.9549 10.8056 10.4472C11.3133 9.93957 11.3133 9.11645 10.8057 8.60877L7.69438 5.4975L10.8056 2.38623C11.3133 1.87855 11.3133 1.05544 10.8056 0.547754C10.298 0.0400722 9.47485 0.0400715 8.96717 0.547753L5.8559 3.65902L2.74463 0.547753C2.23695 0.0400715 1.41384 0.0400722 0.906156 0.547754C0.398474 1.05544 0.398474 1.87855 0.906155 2.38623L4.01742 5.4975L0.906152 8.60877Z"
+                  fill="#00C65E"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                className="rotate-180"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M0.000270024 1.3C0.000270024 0.58203 0.5823 0 1.30027 0H12.7003C13.4182 0 14.0003 0.58203 14.0003 1.3C14.0003 2.01797 13.4182 2.6 12.7003 2.6H1.30027C0.582299 2.6 0.000270024 2.01797 0.000270024 1.3ZM0 7.49727C0 6.7793 0.58203 6.19727 1.3 6.19727H12.7C13.418 6.19727 14 6.7793 14 7.49727C14 8.21524 13.418 8.79727 12.7 8.79727H1.3C0.582029 8.79727 0 8.21524 0 7.49727ZM1.3 12.3945C0.58203 12.3945 0 12.9766 0 13.6945C0 14.4125 0.58203 14.9945 1.3 14.9945H6.7C7.41797 14.9945 8 14.4125 8 13.6945C8 12.9766 7.41797 12.3945 6.7 12.3945H1.3Z"
+                  fill="#363A45"
+                />
+              </svg>
+            )}
           </button>
         </div>
         <div className="flex relative justify-between items-center py-3">
@@ -78,8 +97,13 @@ const Header = ({ top, setTop, one }) => {
                 })}
             </ul>
           </nav>
-          <Link to={`/saved`} className="transition-all relative hover:bg-light-green/50  p-1 rounded-sm">
-            <span className="absolute text-start bg-bright-green h-5 w-5 text-xs rounded-full flex items-center justify-center text-white font-open-sans -top-2 -right-2">{one}</span>
+          <Link
+            to={`/saved`}
+            className="transition-all relative hover:bg-light-green/50  p-1 rounded-sm"
+          >
+            <span className="absolute text-start bg-bright-green h-5 w-5 text-xs rounded-full flex items-center justify-center text-white font-open-sans -top-2 -right-2">
+              {one}
+            </span>
             <svg
               width="20"
               height="18"
@@ -94,9 +118,18 @@ const Header = ({ top, setTop, one }) => {
               />
             </svg>
           </Link>
-          <div className="absolute z-[999] left-0 top-3">
-            <CategoryMenu opened={opened} setOpened={setOpened} />
-          </div>
+          {opened && (
+            <div
+              onClick={() => {
+                setOpened(false);
+              }}
+              className="fixed top-0 left-0 w-full h-screen z-[9999] bg-black/10"
+            >
+              <div className="my-container">
+                <CategoryMenu opened={opened} setOpened={setOpened} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </header>
