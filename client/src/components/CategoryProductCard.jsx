@@ -18,8 +18,6 @@ const CategoryProductCard = ({ product, view, one, setone }) => {
       className={`rounded-lg bg-white/90 ${
         view == "grid" ? "flex flex-col w-52" : "flex"
       } relative shadow-product-card-shadow`}
-      className={`rounded-lg bg-white/90 ${view == "grid" ? "flex flex-col" : "flex"
-        } relative shadow-product-card-shadow`}
     >
       <button
         className="absolute top-3 right-3 z-[999]"
