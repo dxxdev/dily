@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { accesories } from "../data/accessories";
 import filteredCategory from "../functions/filteredCategory";
 import filterOriginalCategory from "../functions/filterOriginalCategory";
+import CategoryProductCard from "./CategoryProductCard";
 
 function Accessories() {
   const [activeTab, setActiveTab] = useState("all");
@@ -15,7 +16,7 @@ function Accessories() {
           className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${
             activeTab == "all"
               ? "bg-bright-green text-white"
-              : "bg-white text-black"
+              : "bg-transparent text-black"
           } font-medium text-xs leading-140`}
         >
           Barchasi
@@ -31,7 +32,7 @@ function Accessories() {
                 className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${
                   activeTab == category.originalCategory
                     ? "bg-bright-green text-white"
-                    : "bg-white text-black"
+                    : "bg-transparent text-black"
                 } font-medium text-xs leading-140`}
               >
                 {category.originalCategory}
@@ -40,6 +41,29 @@ function Accessories() {
           }
         )}
       </div>
+      <ul className="grid grid-cols-4 gap-3">
+        {accesories &&
+          accesories.length > 0 &&
+          accesories.map((product) => {
+            if (activeTab == "all") {
+              return (
+                <CategoryProductCard
+                  key={product.id}
+                  product={product}
+                  view={"grid"}
+                />
+              );
+            } else if (product.category.originalCategory == activeTab) {
+              return (
+                <CategoryProductCard
+                  key={product.id}
+                  product={product}
+                  view={"grid"}
+                />
+              );
+            }
+          })}
+      </ul>
     </div>
   );
 }
