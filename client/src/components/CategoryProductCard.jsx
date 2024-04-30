@@ -11,7 +11,7 @@ const CategoryProductCard = ({ product, view }) => {
   return (
     <li
       className={`rounded-lg bg-white/90 ${
-        view == "grid" ? "flex flex-col" : "flex"
+        view == "grid" ? "flex flex-col w-52" : "flex"
       } relative shadow-product-card-shadow`}
     >
       <button

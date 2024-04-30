@@ -33,6 +33,11 @@ import gamingPCZalman2 from "./img/gaming-pc-zalman-2.png";
 import gamingPCZalman3 from "./img/gaming-pc-zalman-3.png";
 import gamingPCZalman4 from "./img/gaming-pc-zalman-4.png";
 import gamingPCZalman5 from "./img/gaming-pc-zalman-5.png";
+import appleAirPodsPro1 from "./img/apple-air-pods-pro-1.png";
+import appleAirPodsPro2 from "./img/apple-air-pods-pro-2.png";
+import appleAirPodsPro3 from "./img/apple-air-pods-pro-3.png";
+import appleAirPodsPro4 from "./img/apple-air-pods-pro-4.png";
+import appleAirPodsPro5 from "./img/apple-air-pods-pro-5.png";
 import avatar from "./img/avatar.png";
 import logo from "./logo/logo.png";
 
@@ -72,6 +77,11 @@ export {
   gamingPCZalman3,
   gamingPCZalman4,
   gamingPCZalman5,
+  appleAirPodsPro1,
+  appleAirPodsPro2,
+  appleAirPodsPro3,
+  appleAirPodsPro4,
+  appleAirPodsPro5,
   avatar,
-  logo
+  logo,
 };
