@@ -1,8 +1,23 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Dily.uz
 
-Currently, two official plugins are available:
+[dily.uz sayti](url(https://dily.uz))
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Elektronik qurilmalari sotiladigan O'zbekistondagi birinchi katta internet do'kon
+## Contributors
+
+1. [@dxxdev](https://www.github.com/dxxdev)
+2. [@silvante](https://www.github.com/silvante)
+2. [@Boburov-Shukurillo](https://www.github.com/Boburov-Shukurillo)
+
+
+# Web site logo
+
+![Logo](https://dily.uz/assets/logo-oIr_PuGy.png)
+## Tech Stack
+
+**Client:** React, Redux, TailwindCSS
+
+**Server:** Node, Express, mongoDB
+
+
