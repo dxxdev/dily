@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { products, scrollTop } from "../data/data";
+import CategoryNavLinks from "../components/CategoryNavLinks";
 
 const MainLayout = ({ one }) => {
   const location = useLocation();
@@ -13,13 +14,19 @@ const MainLayout = ({ one }) => {
     scrollTop();
   }, [location.pathname]);
 
-  const [top, setTop] = useState(products.filter(e => { e.saved === true }))
+  const [top, setTop] = useState(
+    products.filter((e) => {
+      e.saved === true;
+    })
+  );
   return (
     <div
-      className={`flex ${home ? "bg-light-gray" : "bg-light-gray"
-        } flex-col justify-between min-h-screen`}
+      className={`flex ${
+        home ? "bg-light-gray" : "bg-light-gray"
+      } flex-col justify-between min-h-screen`}
     >
       <Header one={one} top={top} setTop={setTop} />
+      <CategoryNavLinks one={one} />
       <main className="grow">
         <Outlet />
       </main>
