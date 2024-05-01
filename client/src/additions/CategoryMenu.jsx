@@ -9,7 +9,7 @@ const CategoryMenu = ({ opened, setOpened }) => {
   const [hoverCategory, setHoverCategory] = useState(null);
   return (
     <ul
-      className={`rounded-[10px] absolute top-14 shadow-menu-shadow flex flex-col items-start gap-1 py-7 bg-light-gray ${
+      className={`rounded-[10px] absolute top-32 shadow-menu-shadow flex flex-col items-start gap-1 py-7 bg-light-gray ${
         opened ? "block" : "hidden"
       }`}
     >

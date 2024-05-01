@@ -84,3 +84,17 @@ body::-webkit-scrollbar-thumb {
 .ant-checkbox-inner {
   @apply hover:border-bright-green;
 }
+
+.jumping {
+  animation: 1s jump infinite alternate;
+}
+
+@keyframes jump {
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.nav .active {
+  color: green;
+}

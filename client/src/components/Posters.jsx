@@ -5,7 +5,7 @@ import { products } from "../data/data";
 import randomNumber from "../functions/randomNumber";
 import { useNavigate } from "react-router-dom";
 
-const Posters = () => {
+const Posters = ({ one, setone }) => {
   const navigate = useNavigate();
   const [randomProductId, setRandomProductId] = useState(0);
   useEffect(() => {
@@ -34,6 +34,7 @@ const Posters = () => {
         </h4>
         <div className="relative">
           <ProductCard
+            one={one} setone={setone}
             widthFixed={true}
             discount={true}
             product={products[randomProductId]}
