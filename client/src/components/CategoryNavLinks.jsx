@@ -95,7 +95,10 @@ const CategoryNavLinks = ({ one }) => {
           </label>
 
           <div className="flex space-x-3 items-center">
-            <Link className="bg-bright-green py-1 px-2 rounded-full flex space-x-3 text-white items-center">
+            <Link
+              to={"/dash"}
+              className="bg-bright-green py-1 px-2 rounded-full flex space-x-3 text-white items-center"
+            >
               <i className="bx bxs-dashboard text-2xl mr-1"></i> my dash
             </Link>
             <Link

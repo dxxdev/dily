@@ -12,29 +12,41 @@ import ProductDetail from "./pages/ProductDetail";
 import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
 import Save from "./pages/Save";
 import { products } from "./data/data";
+import Administration from "./pages/Administration";
 
 const App = () => {
-  const [one, setone] = useState(0)
-  let finder = one
-  const [saving, setSaving] = useState([])
+  const [one, setone] = useState(0);
+  let finder = one;
+  const [saving, setSaving] = useState([]);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout one={one} />}>
-        <Route index element={<Home setone={setone} one={one} finder={finder} saving={saving} setSaving={setSaving} />} />
-        <Route path="/products/:categoryName" element={<CategoryProducts one={one} setone={setone} />} />
+        <Route
+          index
+          element={
+            <Home
+              setone={setone}
+              one={one}
+              finder={finder}
+              saving={saving}
+              setSaving={setSaving}
+            />
+          }
+        />
+        <Route
+          path="/products/:categoryName"
+          element={<CategoryProducts one={one} setone={setone} />}
+        />
         <Route
           path="/products/:categoryName/:originalCategory"
           element={<OriginalCategoryProducts one={one} setone={setone} />}
         />
         <Route
           path="/products/:categoryName/:originalCategory/:id"
-          element={<ProductDetail
-            one={one} setone={setone} />}
+          element={<ProductDetail one={one} setone={setone} />}
         />
-        <Route
-          path="/saved"
-          element={<Save one={one} setone={setone} />}
-        />
+        <Route path="/saved" element={<Save one={one} setone={setone} />} />
+        <Route path="/dash" element={<Administration />} />
       </Route>
     )
   );

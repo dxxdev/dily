@@ -55,7 +55,6 @@ const Save = ({ one, setone }) => {
   }
   return (
     <div className="bg-light-gray">
-      <Breadcrumb />
       <div className='my-container flex items-start gap-20 justify-between'>
         <div className="w-1/5 p-5 rounded-xl bg-white flex flex-col gap-10">
           <ul className='flex flex-col items-start justify-between gap-5'>
