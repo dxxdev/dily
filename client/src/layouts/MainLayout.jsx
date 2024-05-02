@@ -33,7 +33,7 @@ const MainLayout = ({ one }) => {
       <main className="grow">
         <Outlet />
       </main>
-      <Footer />
+      {!dashboard_admins && <Footer />}
     </div>
   );
 };
