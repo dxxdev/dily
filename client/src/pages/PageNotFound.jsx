@@ -5,7 +5,7 @@ import greenLine from '../assets/other-icon/line-green.svg'
 import orangeLine from '../assets/other-icon/line-orange.svg'
 const PageNotFoun = ({ one }) => {
     return (
-        <div className='fixed w-full h-full bg-white top-40 z-[9999]'>
+        <div className='fixed w-full h-full bg-white top-0 z-[9999] pt-10'>
             <div className="my-container flex flex-col items-center justify-evenly gap-20 relative">
                 <img className='absolute bottom-0 right-0 w-32' src={greenLine} alt="" />
                 <img className='absolute top-0 left-20 w-40' src={orangeLine} alt="" />

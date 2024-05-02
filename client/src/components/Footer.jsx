@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/logo/logo.png'
+import logo from '../assets/logo/logo.svg'
 import { Link } from 'react-router-dom'
 import instagram_icon from '../assets/other-icon/instagram-icon.svg'
 import wkontakte_icon from '../assets/other-icon/wkontakte-icon.svg'

@@ -41,10 +41,7 @@ const Header = ({ top, setTop, one }) => {
               Ro'ihatdan o'tish
             </Link>
           </div>
-          <Link className=" bg-bright-green rounded-full text-white py-1 px-3 flex items-center">
-            <i className="bx bxs-user text-2xl mr-1"></i>
-            Ro'ihatdan o'tish
-          </Link>
+         
         </div>
       </div>
     </header>
