@@ -42,6 +42,7 @@ const MainLayout = ({ one }) => {
         <Outlet />
       </main>
       {!dashboard_admins && !login_location && !register_location && <Footer />}
+      {!dashboard_admins && <Footer />}
     </div>
   );
 };

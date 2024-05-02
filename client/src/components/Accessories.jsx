@@ -4,7 +4,7 @@ import filteredCategory from "../functions/filteredCategory";
 import filterOriginalCategory from "../functions/filterOriginalCategory";
 import CategoryProductCard from "./CategoryProductCard";
 
-function Accessories() {
+function Accessories({ one, setone }) {
   const [activeTab, setActiveTab] = useState("all");
   return (
     <div className="flex flex-col justify-start items-start gap-30">
@@ -13,11 +13,10 @@ function Accessories() {
           onClick={() => {
             setActiveTab("all");
           }}
-          className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${
-            activeTab == "all"
-              ? "bg-bright-green text-white"
-              : "bg-transparent text-black"
-          } font-medium text-xs leading-140`}
+          className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${activeTab == "all"
+            ? "bg-bright-green text-white"
+            : "bg-transparent text-black"
+            } font-medium text-xs leading-140`}
         >
           Barchasi
         </button>
@@ -29,11 +28,10 @@ function Accessories() {
                   setActiveTab(category.originalCategory);
                 }}
                 key={category.id}
-                className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${
-                  activeTab == category.originalCategory
-                    ? "bg-bright-green text-white"
-                    : "bg-transparent text-black"
-                } font-medium text-xs leading-140`}
+                className={`flex justify-center items-center rounded-[10px] px-4 py-3 shadow-product-card-shadow ${activeTab == category.originalCategory
+                  ? "bg-bright-green text-white"
+                  : "bg-transparent text-black"
+                  } font-medium text-xs leading-140`}
               >
                 {category.originalCategory}
               </button>
@@ -48,6 +46,8 @@ function Accessories() {
             if (activeTab == "all") {
               return (
                 <CategoryProductCard
+                  one={one}
+                  setone={setone}
                   key={product.id}
                   product={product}
                   view={"grid"}

@@ -287,9 +287,9 @@ const ProductDetail = ({ one, setone }) => {
               {tabId == 2 && (
                 <>
                   {product.category.originalCategory == "Telefonlar" ||
-                  product.category.originalCategory == "Noutrbuklar" ? (
+                    product.category.originalCategory == "Noutrbuklar" ? (
                     <>
-                      <Accessories />
+                      <Accessories one={one} setone={setone} />
                     </>
                   ) : (
                     <>
@@ -304,6 +304,8 @@ const ProductDetail = ({ one, setone }) => {
               {tabId == 3 && (
                 <>
                   <Comments
+                    one={one}
+                    setone={setone}
                     comments={product.comments}
                     productName={product.productName}
                   />
@@ -363,6 +365,8 @@ const ProductDetail = ({ one, setone }) => {
                   return (
                     <ProductCard
                       widthFixed={true}
+                      one={one}
+                      setone={setone}
                       key={product}
                       product={products[product]}
                     />

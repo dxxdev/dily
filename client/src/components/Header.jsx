@@ -11,14 +11,14 @@ const Header = ({ top, setTop, one }) => {
         <div className="flex w-full items-center justify-between">
           <Link>
             <h1 className="flex items-center gap-1 font-open-sans">
-              <img src={logo} alt="logo" className="h-full" width={"100px"} />
+              <img src={logo} alt="" className="h-full" width={"100px"} />
             </h1>
           </Link>
 
           <nav className="nav">
             <ul className="flex items-center justify-between gap-10">
               <li className="lowercase first-letter:uppercase">
-                <NavLink to="/">dily.uz</NavLink>
+                <NavLink to="/">Internet-magazin Dily.uz</NavLink>
               </li>
               <li className="lowercase first-letter:uppercase">
                 <NavLink to="/qaysidir_sahifaga_otishini_kimdir_yozib_qoyishi_kerak">
@@ -41,6 +41,10 @@ const Header = ({ top, setTop, one }) => {
               Ro'ihatdan o'tish
             </Link>
           </div>
+          <Link className=" bg-bright-green rounded-full text-white py-1 px-3 flex items-center">
+            <i className="bx bxs-user text-2xl mr-1"></i>
+            Ro'ihatdan o'tish
+          </Link>
         </div>
       </div>
     </header>
