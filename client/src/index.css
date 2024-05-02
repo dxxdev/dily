@@ -98,3 +98,7 @@ body::-webkit-scrollbar-thumb {
 .nav .active {
   color: green;
 }
+
+.leaflet-control-attribution {
+  display: none;
+}
