@@ -150,10 +150,10 @@ const Save = ({ one, setone }) => {
               )}
             </button>
           </div>
-          <ul className={`grid ${viewType === 'grid' ? "grid-cols-1" : "grid-cols-4"} gap-5 w-full`}>
+          <ul className={`grid ${viewType !== 'grid' ? "grid-cols-1" : "grid-cols-4"} gap-5 w-full`}>
             {filtered.map(element => {
               if (element.category.originalCategory.toLowerCase().includes(filterCategor.toLowerCase()) && element.price() <= maxPrice && element.price() >= minPrice) {
-                if (viewType === "grid") {
+                if (viewType !== "grid") {
                   return (
                     <CategoryProductCard one={one} setone={setone} product={element} key={element.id} />
                   )
