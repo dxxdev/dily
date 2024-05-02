@@ -3,7 +3,7 @@ import RatingBar from "./RatingBar";
 import SendCommentModal from "./SendCommentModal";
 import SendedCommentModal from "./SendedCommentModal";
 
-const Comments = ({ comments, productName }) => {
+const Comments = ({ comments, productName, }) => {
   const [commentModal, setCommentModal] = useState(false);
   const [sendedModal, setSendedModal] = useState(false);
   const openModal = () => {
