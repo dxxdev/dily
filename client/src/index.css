@@ -98,3 +98,11 @@ body::-webkit-scrollbar-thumb {
 .nav .active {
   color: green;
 }
+
+font{
+  font-family: sans-serif
+}
+
+.dashNav .active {
+  @apply bg-white text-black
+}

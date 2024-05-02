@@ -11,16 +11,23 @@ import Breadcrump from "../components/Breadcrumb";
 const MainLayout = ({ one }) => {
   const location = useLocation();
   const home = location.pathname == "/";
-  const dashboard_admins = location.pathname == "/dash";
   useEffect(() => {
     scrollTop();
   }, [location.pathname]);
-
+  
   const [top, setTop] = useState(
     products.filter((e) => {
       e.saved === true;
     })
   );
+  
+  const path = location.pathname.split("/");
+  const filterArr = path.filter(
+    (path) =>
+    path !== "" && path !== "sotib-olish" && path !== "sale" && path !== "car"
+  );
+  
+  const dashboard_admins = filterArr.includes('dash');
   return (
     <div
       className={`flex ${

@@ -13,6 +13,8 @@ import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
 import Save from "./pages/Save";
 import { products } from "./data/data";
 import Administration from "./pages/Administration";
+import DashLayouts from "./layouts/DashLayouts";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   const [one, setone] = useState(0);
@@ -46,7 +48,10 @@ const App = () => {
           element={<ProductDetail one={one} setone={setone} />}
         />
         <Route path="/saved" element={<Save one={one} setone={setone} />} />
-        <Route path="/dash" element={<Administration />} />
+        <Route path="/dash" element={<DashLayouts />}>
+          <Route path="/dash" index element={<Dashboard />} />
+          <Route path="/dash/administration" index element={<Administration />} />
+        </Route>
       </Route>
     )
   );
