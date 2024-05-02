@@ -47,6 +47,10 @@ body::-webkit-scrollbar-thumb {
   @apply rounded-[10px] py-3 px-14 bg-bright-green shadow-product-card-shadow flex justify-center items-center text-white;
 }
 
+.btn-dark {
+  @apply bg-green-600;
+}
+
 .icon-btn {
   @apply rounded-full w-30 h-30 bg-white/50 flex justify-center items-center;
 }
@@ -97,6 +101,14 @@ body::-webkit-scrollbar-thumb {
 
 .nav .active {
   color: green;
+}
+
+.login-bg {
+  background-color: #030;
+  background-image: url(./assets/website_img/login-bg.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
 }
 
 .leaflet-control-attribution {

@@ -11,9 +11,7 @@ import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetail from "./pages/ProductDetail";
 import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
 import Save from "./pages/Save";
-import { products } from "./data/data";
 import Administration from "./pages/Administration";
-import DilyMap from "./components/DilyMap";
 
 const App = () => {
   const [one, setone] = useState(0);
@@ -48,8 +46,6 @@ const App = () => {
         />
         <Route path="/saved" element={<Save one={one} setone={setone} />} />
         <Route path="/dash" element={<Administration />} />
-        <Route path="/map" element={<DilyMap />} />
-
       </Route>
     )
   );

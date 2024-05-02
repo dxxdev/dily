@@ -32,7 +32,15 @@ const Header = ({ top, setTop, one }) => {
               </li>
             </ul>
           </nav>
-
+          <div className="flex items-center space-x-3">
+            <Link
+              to={"/login"}
+              className="bg-bright-green py-1 px-2 rounded-full flex space-x-3 text-white items-center"
+            >
+              <i className="bx bxs-user-circle text-2xl mr-1"></i>
+              Ro'ihatdan o'tish
+            </Link>
+          </div>
           <Link className=" bg-bright-green rounded-full text-white py-1 px-3 flex items-center">
             <i className="bx bxs-user text-2xl mr-1"></i>
             Ro'ihatdan o'tish

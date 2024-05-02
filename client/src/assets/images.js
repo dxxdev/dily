@@ -39,7 +39,7 @@ import appleAirPodsPro3 from "./img/apple-air-pods-pro-3.png";
 import appleAirPodsPro4 from "./img/apple-air-pods-pro-4.png";
 import appleAirPodsPro5 from "./img/apple-air-pods-pro-5.png";
 import avatar from "./img/avatar.png";
-import logo from "./logo/logo.png";
+import logo from "./logo/logo.svg";
 
 export {
   asusVivoBook1,
