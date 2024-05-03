@@ -31,13 +31,13 @@ const DashLayouts = () => {
               Administration
             </NavLink>
             <NavLink
-              to={"/dash/admin"}
+              to={"/dash/security"}
               className="flex items-center py-1 px-2 hover:bg-white/5"
             >
               <i className="bx bx-shield-alt-2 text-2xl mr-1"></i> Security
             </NavLink>
             <NavLink
-              to={"/dash/admin"}
+              to={"/dash/reports"}
               className="flex items-center py-1 px-2 hover:bg-white/5"
             >
               <i className="bx bxs-report text-2xl mr-1"></i> reports
