@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { products, scrollTop } from "../data/data";
 import CategoryNavLinks from "../components/CategoryNavLinks";
 import Breadcrump from "../components/Breadcrumb";
+import SrollTo from "../components/SrollTo";
 
 const MainLayout = ({ one }) => {
   const location = useLocation();
@@ -25,9 +26,8 @@ const MainLayout = ({ one }) => {
   );
   return (
     <div
-      className={`flex ${
-        home ? "bg-light-gray" : "bg-light-gray"
-      } flex-col justify-between min-h-screen`}
+      className={`flex ${home ? "bg-light-gray" : "bg-light-gray"
+        } flex-col justify-between min-h-screen`}
     >
       {!dashboard_admins && !register_location && !login_location && (
         <Header one={one} top={top} setTop={setTop} />
@@ -38,6 +38,7 @@ const MainLayout = ({ one }) => {
       {!home && !dashboard_admins && !register_location && !login_location && (
         <Breadcrump />
       )}
+      <SrollTo />
       <main className="grow">
         <Outlet />
       </main>

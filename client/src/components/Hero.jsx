@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import heroImg from '../assets/website_img/home-hero-img.png'
 import { Link } from "react-router-dom";
 const Hero = () => {
+
   return (
     <div className="myHeroGradient py-20 bg-gradient-to-r from-transparent to-bright-green/30">
       <div className="my-container  flex justify-center w-max gap-8 items-center">
+   
         <div className="w-1/2 flex flex-col items-start justify-between gap-10">
           <h1
             className="text-5xl font-open-sans text-bright-green w-full leading-120 tracking-wide"
