@@ -12,7 +12,7 @@ const DilyMap = () => {
 
     return (
         <div className="w-full h-full">
-            <MapContainer className='border-2 overflow-' center={[40.873687608334365, 71.95770968922785]} zoom={15}>
+            <MapContainer className='border-2 w-full h-full' center={[40.873687608334365, 71.95770968922785]} zoom={15}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://api.maptiler.com/maps/streets-v2/?key=JG1L3M21TZYPRXmdbz52#1.0/0.00000/0.00000"
