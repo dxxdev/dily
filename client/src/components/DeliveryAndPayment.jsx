@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import cities from "../data/cities";
 import daties from "../data/daties";
 import times from "../data/times";
-
+import DilyMap from './DilyMap'
 const DeliveryAndPayment = () => {
   const [activeTab, setActiveTab] = useState("delivery");
   const filterCity = (input, option) =>
@@ -16,9 +16,8 @@ const DeliveryAndPayment = () => {
           onClick={() => {
             setActiveTab("delivery");
           }}
-          className={`btn font-medium ${
-            activeTab == "delivery" ? "" : "!bg-white !text-bright-green"
-          }`}
+          className={`btn font-medium ${activeTab == "delivery" ? "" : "!bg-white !text-bright-green"
+            }`}
         >
           Yetkazib berish
         </button>
@@ -26,13 +25,13 @@ const DeliveryAndPayment = () => {
           onClick={() => {
             setActiveTab("delivery-points");
           }}
-          className={`btn font-medium ${
-            activeTab == "delivery-points" ? "" : "!bg-white !text-bright-green"
-          }`}
+          className={`btn font-medium ${activeTab == "delivery-points" ? "" : "!bg-white !text-bright-green"
+            }`}
         >
           Topshirish punktlari
         </button>
       </div>
+
       {/* Tab body */}
       <div className="w-full">
         {activeTab == "delivery" && (
@@ -115,6 +114,7 @@ const DeliveryAndPayment = () => {
             </div>
           </>
         )}
+
         {activeTab == "delivery-points" && (
           <>
             <div className="flex flex-col justify-start items-stretch gap-5">
@@ -151,15 +151,8 @@ const DeliveryAndPayment = () => {
                     </p>
                   </a>
                 </div>
-                <div className="w-[670px] h-[405px] sceleton-animation">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.2151898393695!2d69.19256677757666!3d41.282420887019306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b684b728b05%3A0x447c755a6628d746!2sAuto%20Tuning%20Centre%20service!5e0!3m2!1suz!2s!4v1703741135199!5m2!1suz!2s"
-                    width="100%"
-                    height="100%"
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                <div className="w-[670px] h-[405px] ">
+                  <DilyMap />
                 </div>
               </div>
             </div>

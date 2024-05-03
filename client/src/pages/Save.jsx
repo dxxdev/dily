@@ -7,6 +7,7 @@ import CategoryProductCard from '../components/CategoryProductCard';
 const Save = ({ one, setone }) => {
   const filtered = products.filter(item => item.saved === true)
   const filterbyCategory = filteredCategory(filtered)
+
   const categoty = [
     {
       id: 0, isChaged: false, filterCat: "",
@@ -41,6 +42,7 @@ const Save = ({ one, setone }) => {
       name: 'Noutbuklar'
     },
   ]
+
   const [filterCategor, setfilterCategor] = useState('')
   const change = (e) => {
     setfilterCategor(categoty[e].filterCat)
@@ -81,7 +83,6 @@ const Save = ({ one, setone }) => {
             <button
               onClick={() => {
                 setViewType("grid");
-                slicedProducts = filteredProducts.slice(0, viewed);
               }}
             >
               {viewType == "grid" ? (
@@ -117,7 +118,6 @@ const Save = ({ one, setone }) => {
             <button
               onClick={() => {
                 setViewType("list");
-                slicedProducts = filteredProducts.slice(0, viewed);
               }}
             >
               {viewType == "list" ? (

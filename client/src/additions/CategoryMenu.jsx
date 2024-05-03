@@ -32,7 +32,7 @@ const CategoryMenu = ({ opened, setOpened }) => {
                     <img
                       className="w-5 opacity-90 group-hover:opacity-100"
                       src={category.catalogIcon}
-                      alt=""
+                      alt={category.name+" img"}
                     />
                   </span>
                   <span className="text-dark-gray group-hover:text-bright-green leading-152 font-medium text-base">

@@ -41,7 +41,7 @@ const ImageViewerModal = ({ images, setOpenModal, index, setImageIndex }) => {
             src={images[index]}
             onClick={setOpenModal}
             className="h-550"
-            alt=""
+            alt={images.className + ' img'}
           />
           <ul className="flex gap-2">
             {images.map((image, id) => {
@@ -51,7 +51,7 @@ const ImageViewerModal = ({ images, setOpenModal, index, setImageIndex }) => {
                   key={id}
                   className="cursor-pointer p-1 rounded-xl border-2 border-medium-gray"
                 >
-                  <img src={image} alt="" className="h-16" />
+                  <img src={image} alt={image + ' img'} className="h-16" />
                 </li>
               );
             })}
