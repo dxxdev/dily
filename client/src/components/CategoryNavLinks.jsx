@@ -79,6 +79,8 @@ const CategoryNavLinks = ({ one }) => {
               autoComplete="off"
               placeholder="Nima sotib olmoqchisiz ?"
               className="outline-none w-full h-full"
+              value={searching}
+              onChange={(e) => setSearching(e.target.value)}
               id="search"
             />
 
@@ -138,6 +140,20 @@ const CategoryNavLinks = ({ one }) => {
             </div>
           )}
         </div>
+
+        {searching.trim() !== "" && <div className="w-full h-full absolute bg-white left-0 z-[999]">
+          <div className="my-container grid grid-cols-4 gap-12 my-10">
+            {
+              products.map(product => {
+                if (product.productName.toLowerCase().includes(searching.toLowerCase())) {
+                  return <ProductCard product={product} />
+                }
+              }
+              )
+            }
+          </div>
+        </div>}
+
       </div>
     </>
   );

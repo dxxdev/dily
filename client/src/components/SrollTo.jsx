@@ -10,7 +10,7 @@ const SrollTo = () => {
     const [scrolCkeck, setscrolCkeck] = useState(false)
 
     setInterval(() => {
-        if (window.scrollY > 200) {
+        if (window.scrollY > 100) {
             setscrolCkeck(true)
         } else {
             setscrolCkeck(false)
@@ -20,11 +20,11 @@ const SrollTo = () => {
     return (
 
         <div>
-            <button onClick={scrolTo} className={`${!scrolCkeck ? "-left-40" : "left-20"} bg-bright-green fixed left-10 bottom-10 w-10 h-10 flex items-center justify-center rounded-full transition-all`}>
+            <button onClick={scrolTo} className={`${scrolCkeck ? "left-10" : "-left-10"} bg-bright-green fixed left-10 bottom-10 w-10 h-10 flex items-center justify-center rounded-full transition-all`}>
                 <img src={arrow_down} alt="arrow down" className='-rotate-180' />
             </button>
         </div>
     )
 }
 
-export default SrollTo
+export default SrollTo  
