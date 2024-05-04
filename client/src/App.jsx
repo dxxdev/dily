@@ -11,7 +11,6 @@ import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetail from "./pages/ProductDetail";
 import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
 import Save from "./pages/Save";
-import Administration from "./pages/Administration";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -48,7 +47,6 @@ const App = () => {
           element={<ProductDetail one={one} setone={setone} />}
         />
         <Route path="/saved" element={<Save one={one} setone={setone} />} />
-        <Route path="/dash" element={<Administration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/*" element={<PageNotFound one={one} />} />
