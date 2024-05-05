@@ -21,7 +21,7 @@ const Header = ({ top, setTop, one }) => {
                 <NavLink to="/">Internet-magazin Dily.uz</NavLink>
               </li>
               <li className="lowercase first-letter:uppercase">
-                <NavLink to="/qaysidir_sahifaga_otishini_kimdir_yozib_qoyishi_kerak">
+                <NavLink to="/Servises">
                   Markaziy Servis Hizmati
                 </NavLink>
               </li>
