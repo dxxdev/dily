@@ -15,6 +15,7 @@ export default {
         "light-green": "#CCEFDB",
         "dark-gray-2": "#9e9e9e",
         "dark-gray-3": "#262626",
+        "#00C65E":"#00C65E"
       },
       fontFamily: {
         "open-sans": ["Open Sans", "sans-serif"],
@@ -28,6 +29,7 @@ export default {
         152: "152%",
         120: "120%",
         140: "140%",
+        38:"38px"
       },
       letterSpacing: {
         0.5: "0.5px",
@@ -57,7 +59,15 @@ export default {
         30: "30px",
         60: "60px",
         70: "70px",
+        100:"100px",
+        68:"68px",
       },
+      borderRadius:{
+        10:"10px"
+      },
+      margin:{
+        30:"30px"
+      }
     },
   },
   plugins: [],
