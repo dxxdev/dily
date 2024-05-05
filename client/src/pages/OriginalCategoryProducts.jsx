@@ -28,6 +28,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
   const [endIndex, setEndIndex] = useState(viewed);
   const pages = Math.ceil(filteredProducts.length / viewed);
   const [sortingDisabled, setSortingDisabled] = useState(false);
+  const [removeFilter, setRemoveFilter] = useState(false);
   let slicedProducts = filteredProducts.slice(startIndex, endIndex);
   useEffect(() => {
     setBrends(filteredBrend(filteredOriginalCategory(products, pathname)));
@@ -40,8 +41,10 @@ const OriginalCategoryProducts = ({ one, setone }) => {
     setMemoryArr(
       filteredProductMemory(filteredOriginalCategory(products, pathname))
     );
-    setFilteredProducts(filteredOriginalCategory(products, pathname));
   }, [pathname, viewType]);
+  useEffect(() => {
+    setFilteredProducts(filteredOriginalCategory(products, pathname));
+  }, [pathname]);
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
@@ -126,6 +129,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                               key={index}
                             >
                               <Checkbox
+                                checked={checkedBrends.includes(brend)}
                                 onChange={() => {
                                   if (!checkedBrends.includes(brend)) {
                                     checkedBrends.push(brend);
@@ -135,6 +139,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                                     );
                                   }
                                   setSortingDisabled(false);
+                                  console.log(checkedBrends.includes(brend));
                                 }}
                               >
                                 {brend}
@@ -184,6 +189,9 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                               key={index}
                             >
                               <Checkbox
+                                checked={
+                                  checkedMemory.includes(memory) && removeFilter
+                                }
                                 onChange={() => {
                                   if (!checkedMemory.includes(memory)) {
                                     checkedMemory.push(memory);
@@ -223,7 +231,11 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                         )
                       );
                     }}
-                    className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7"
+                    className={`text-bright-green transition-all w-full flex justify-center items-center bg-white ${
+                      sortingDisabled
+                        ? "cursor-not-allowed opacity-80"
+                        : "hover:bg-bright-green hover:text-white"
+                    } py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7`}
                   >
                     Saralash
                   </button>
@@ -231,7 +243,11 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                     onClick={() => {
                       checkedBrends = [];
                       checkedMemory = [];
+                      setFilteredProducts(
+                        filteredOriginalCategory(products, pathname)
+                      );
                       setSortingDisabled(false);
+                      setRemoveFilter(true);
                     }}
                     className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7"
                   >
@@ -340,10 +356,11 @@ const OriginalCategoryProducts = ({ one, setone }) => {
               </div>
             </div>
             <div
-              className={`${viewType == "grid"
-                ? "grid grid-cols-4 gap-3"
-                : "flex flex-col w-full justify-start items-stretch gap-3"
-                }`}
+              className={`${
+                viewType == "grid"
+                  ? "grid grid-cols-4 gap-3"
+                  : "flex flex-col w-full justify-start items-stretch gap-3"
+              }`}
             >
               {slicedProducts &&
                 slicedProducts.length > 0 &&
