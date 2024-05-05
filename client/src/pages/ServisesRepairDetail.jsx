@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ServisesRepairData,
-  serviseMalfunctionsData,
-} from "../data/ServisesPageData";
+import { ServisesRepairData } from "../data/ServisesPageData";
 import { Link, useParams } from "react-router-dom";
 
 const ServisesRepairDetail = () => {
@@ -30,7 +27,7 @@ const ServisesRepairDetail = () => {
           />
         </div>
       </div>
-      <div className="my-container">
+      <div className="my-container !py-10">
         <h2 className="font-bold text-4xl leading-10 text-dark-gray text-center mb-30">
           Modellar
         </h2>
