@@ -41,8 +41,10 @@ const OriginalCategoryProducts = ({ one, setone }) => {
     setMemoryArr(
       filteredProductMemory(filteredOriginalCategory(products, pathname))
     );
-    setFilteredProducts(filteredOriginalCategory(products, pathname));
   }, [pathname, viewType]);
+  useEffect(() => {
+    setFilteredProducts(filteredOriginalCategory(products, pathname));
+  }, [pathname]);
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
