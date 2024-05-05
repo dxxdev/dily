@@ -18,7 +18,7 @@ const CategoryLinks = () => {
       className="w-8 h-8 bg-bright-green rounded-full flex justify-center items-center cursor-pointer top-1/2 right-0 absolute"
       onClick={props.onClick}
     >
-      <img className="rotate-180" src={arrow} alt="" />
+      <img className="rotate-180" src={arrow} alt="arrow icon" />
     </div>
   );
 
@@ -27,7 +27,7 @@ const CategoryLinks = () => {
       className="w-8 h-8 bg-bright-green rounded-full flex justify-center items-center cursor-pointer top-1/2 left-0 absolute"
       onClick={props.onClick}
     >
-      <img src={arrow} alt="" />
+      <img src={arrow} alt="arrow icon" />
     </div>
   );
   var settings = {
@@ -98,7 +98,7 @@ const CategoryLinks = () => {
                     className="!flex flex-col justify-center items-center"
                   >
                     <div className="w-95 h-95 rounded-full shadow-product-card-shadow p-3">
-                      <img src={category.icon} alt="" />
+                      <img src={category.icon} alt={category.name + ' img'} />
                     </div>
                     <h3 className="font-bold text-base text-center leading-normal tracking-0.5 text-dark-gray">
                       {category.name}

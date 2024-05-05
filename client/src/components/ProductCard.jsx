@@ -48,7 +48,7 @@ const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
         <img
           src={product?.images[0]}
           className="w-[calc(100%-40px)] group-hover:scale-110 transition-all"
-          alt=""
+          alt={product.name + ' img'}
         />
       </Link>
       <div className="px-4 py-2 flex flex-col items-start gap-1">
@@ -81,7 +81,7 @@ const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
         </address>
         <div className="rounded-full absolute bottom-3 right-3 cursor-pointer">
           <Link>
-            <img src={product?.avatar} alt="" />
+            <img src={product?.avatar} alt={product.productName + ' img'} />
           </Link>
         </div>
       </div>

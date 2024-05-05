@@ -66,7 +66,7 @@ const ProductDetail = ({ one, setone }) => {
       {product && (
         <div className="flex flex-col items-start p-0 gap-30">
           {/* Product overview section */}
-          <div className="flex flex-row w-full items-start p-0 gap-10">
+          <div  className="flex flex-row w-full items-start p-0 gap-10">
             {/* Product image view section */}
             <div className="flex flex-col sticky top-5 w-max h-max items-center justify-center p-0 gap-5">
               {/* Product images slider */}
@@ -84,7 +84,7 @@ const ProductDetail = ({ one, setone }) => {
                           key={index}
                           className="py-10 cursor-pointer"
                         >
-                          <img src={image} alt="" className="h-full" />
+                          <img src={image} alt={image.productName + ' img'} className="h-full" />
                         </div>
                       );
                     })}

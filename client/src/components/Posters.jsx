@@ -25,7 +25,7 @@ const Posters = ({ one, setone }) => {
           <button className="btn text-white !py-2 tracking-0.7">Batafsil</button>
         </div>
         <div className="h-full">
-          <img src={poster1} className="h-full" alt="" />
+          <img src={poster1} className="h-full" alt={poster1 + ' img'} />
         </div>
       </div>
       <div className="flex flex-col justify-between gap-3 items-center rounded-[10px] gradient py-5 px-9">

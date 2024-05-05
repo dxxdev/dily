@@ -15,9 +15,8 @@ const CategoryProductCard = ({ product, view, one, setone }) => {
   };
   return (
     <li
-      className={`rounded-lg bg-white/90 ${
-        view == "grid" ? "flex flex-col w-52" : "flex"
-      } relative shadow-product-card-shadow`}
+      className={`rounded-lg bg-white/90 ${view == "grid" ? "flex flex-col w-52" : "flex"
+        } relative shadow-product-card-shadow`}
     >
       <button
         className="absolute top-3 right-3 z-[999]"
@@ -47,7 +46,7 @@ const CategoryProductCard = ({ product, view, one, setone }) => {
         <img
           src={product?.images[0]}
           className="w-[calc(100%-40px)] hover:scale-110 transition-all"
-          alt=""
+          alt={product.name + ' img'}
         />
       </Link>
       <div className="px-4 py-2 flex w-full flex-col justify-between items-start gap-2.5">

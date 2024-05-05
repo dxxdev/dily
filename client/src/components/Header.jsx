@@ -10,8 +10,8 @@ const Header = ({ top, setTop, one }) => {
       <div className="my-container">
         <div className="flex w-full items-center justify-between">
           <Link>
-            <h1 className="flex items-center gap-1 h-30 font-open-sans">
-              <img src={logo} alt="" className="h-full" />
+            <h1 className="flex items-center gap-1 h-12 font-open-sans">
+              <img src={logo} alt="web site logo" className="h-full" />
             </h1>
           </Link>
 

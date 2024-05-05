@@ -11,10 +11,11 @@ import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetail from "./pages/ProductDetail";
 import OriginalCategoryProducts from "./pages/OriginalCategoryProducts";
 import Save from "./pages/Save";
-import Administration from "./pages/Administration";
 import PageNotFound from "./pages/PageNotFound";
 import ServisesPage from "./pages/ServisesPage";
 import ServisesRepairDetail from "./pages/ServisesRepairDetail";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
   const [one, setone] = useState(0);
@@ -50,6 +51,8 @@ const App = () => {
         <Route path="/saved" element={<Save one={one} setone={setone} />} />
         <Route path="/dash" element={<Administration />} />
         <Route path="/Servises" element={<ServisesPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/*" element={<PageNotFound one={one} />} />
         <Route path="/Servises/:title" element={<ServisesRepairDetail/>} />
       </Route>

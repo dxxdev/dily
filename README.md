@@ -13,7 +13,7 @@ Elektronik qurilmalari sotiladigan O'zbekistondagi birinchi katta internet do'ko
 
 # Web site logo
 
-![Logo](https://dily.uz/assets/logo-oIr_PuGy.png)
+![Logo](https://dily.uz/assets/logo-tWqKjLkr.svg)
 ## Tech Stack
 
 **Client:** React, Redux, TailwindCSS

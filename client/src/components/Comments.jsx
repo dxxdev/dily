@@ -31,7 +31,7 @@ const Comments = ({ comments, productName, }) => {
                       <div className="flex justify-between items-center">
                         <div className="flex justify-center items-center gap-4">
                           <div className="rounded-full w-6 aspect-square">
-                            <img src={comment.avatar} alt="" />
+                            <img src={comment.avatar} alt={comment.who + ' img'} />
                           </div>
                           <div>
                             <h5 className="text-base font-bold leading-normal text-dark-gray tracking-wide">
