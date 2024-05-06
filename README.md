@@ -8,12 +8,13 @@ Elektronik qurilmalari sotiladigan O'zbekistondagi birinchi katta internet do'ko
 
 1. [@dxxdev](https://www.github.com/dxxdev)
 2. [@silvante](https://www.github.com/silvante)
-2. [@Boburov-Shukurillo](https://www.github.com/Boburov-Shukurillo)
+3. [@Boburov-Shukurillo](https://www.github.com/Boburov-Shukurillo)
+4. [@Javohir0080703](https://www.github.com/Javohir0080703)
 
 
 # Web site logo
 
-![Logo](https://dily.uz/assets/logo-tWqKjLkr.svg)
+![Logo](./client/src/assets/logo/logo.svg)
 ## Tech Stack
 
 **Client:** React, Redux, TailwindCSS
