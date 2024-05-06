@@ -110,7 +110,17 @@ body::-webkit-scrollbar-thumb {
   background-position: center center;
   background-size: 100% 100%;
 }
+.serviseCoast-bg {
+  background-image: url(./assets/img/serviseCoast1.png);
+  background-repeat: no-repeat;
+  background-position:  center;
+  background-size: 100% 100%;
+}
 
 .leaflet-control-attribution {
   display: none;
+}
+
+.transition-slice{
+  transition: all 500ms ease;
 }
