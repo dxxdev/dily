@@ -41,6 +41,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
     setMemoryArr(
       filteredProductMemory(filteredOriginalCategory(products, pathname))
     );
+    setFilteredProducts(filteredOriginalCategory(products, pathname));
   }, [pathname, viewType]);
   useEffect(() => {
     setFilteredProducts(filteredOriginalCategory(products, pathname));
@@ -129,7 +130,6 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                               key={index}
                             >
                               <Checkbox
-                                checked={checkedBrends.includes(brend)}
                                 onChange={() => {
                                   if (!checkedBrends.includes(brend)) {
                                     checkedBrends.push(brend);
@@ -241,8 +241,6 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                   </button>
                   <button
                     onClick={() => {
-                      checkedBrends = [];
-                      checkedMemory = [];
                       setFilteredProducts(
                         filteredOriginalCategory(products, pathname)
                       );

@@ -16,25 +16,6 @@ const SrollTo = () => {
         setScrollCheck(false);
       }
     };
-
-<<<<<<< HEAD
-    setInterval(() => {
-        if (window.scrollY > 100) {
-            setscrolCkeck(true)
-        } else {
-            setscrolCkeck(false)
-        }
-    }, 1);
-    return (
-
-        <div>
-            <button onClick={scrolTo} className={`${scrolCkeck ? "left-10" : "-left-10"} bg-bright-green fixed  bottom-10 w-10 h-10 flex items-center justify-center rounded-full transition-all`}>
-                <img src={arrow_down} alt="arrow down" className='-rotate-180' />
-            </button>
-        </div>
-    )
-}
-=======
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -55,6 +36,5 @@ const SrollTo = () => {
     </div>
   );
 };
->>>>>>> 910e95bba6aab0b9f7334658abaf35ab60273666
 
 export default SrollTo;
