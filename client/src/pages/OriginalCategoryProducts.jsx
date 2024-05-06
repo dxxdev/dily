@@ -3,11 +3,10 @@ import { useLocation } from "react-router-dom";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 import { products } from "../data/data";
 import filteredBrend from "../functions/filteredBrend";
-import { Checkbox, InputNumber, Select, Slider } from "antd";
+import { InputNumber, Select, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
 import CategoryProductCard from "../components/CategoryProductCard";
-import filterProducts from "../functions/filterProducts";
 
 const OriginalCategoryProducts = ({ one, setone }) => {
   const location = useLocation();
@@ -21,14 +20,12 @@ const OriginalCategoryProducts = ({ one, setone }) => {
   const [openBrend, setOpenBrend] = useState(true);
   const [openMemory, setOpenMemory] = useState(true);
   const [viewType, setViewType] = useState("grid");
-  let checkedBrends = [];
-  let checkedMemory = [];
+  const [checkedBrends, setCheckedBrands] = useState("all");
+  const [checkedMemory, setCheckedMemory] = useState("all");
   const viewed = 12;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(viewed);
   const pages = Math.ceil(filteredProducts.length / viewed);
-  const [sortingDisabled, setSortingDisabled] = useState(false);
-  const [removeFilter, setRemoveFilter] = useState(false);
   let slicedProducts = filteredProducts.slice(startIndex, endIndex);
   useEffect(() => {
     setBrends(filteredBrend(filteredOriginalCategory(products, pathname)));
@@ -71,9 +68,9 @@ const OriginalCategoryProducts = ({ one, setone }) => {
           </ul>
         </div>
         <div className="flex justify-start w-full items-start gap-30">
-          <div className="flex flex-col justify-center shadow-product-card-shadow items-center w-full max-w-72 gap-30">
-            <div className="flex flex-col justify-center items-start gap-30 px-30 py-6">
-              <div className="flex flex-col justify-start items-start gap-4">
+          <div className="flex flex-col justify-center shadow-product-card-shadow items-center w-full max-w-80 gap-30">
+            <div className="flex flex-col justify-center items-stretch gap-30 px-30 py-6">
+              <div className="flex flex-col justify-start items-stretch gap-4">
                 <h6 className="text-base leading-152 font-medium text-dark-gray">
                   Narxi:
                 </h6>
@@ -91,7 +88,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                     defaultValue={[minPrice, maxPrice]}
                   />
                 </div>
-                <div className="flex flex-col justify-start items-start gap-4 w-full">
+                <div className="flex flex-col justify-start items-stretch gap-4 w-full">
                   <button
                     onClick={() => {
                       setOpenBrend((prev) => !prev);
@@ -120,37 +117,44 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                     </span>
                   </button>
                   {openBrend && (
-                    <ul className="flex flex-col justify-start items-start gap-2.5">
+                    <ul className="flex flex-col justify-start items-stretch gap-2.5">
                       {brends &&
                         brends.length > 0 &&
                         brends.map((brend, index) => {
                           return (
                             <li
-                              className="flex justify-start items-center gap-4"
+                              className="flex justify-center items-center gap-4"
                               key={index}
                             >
-                              <Checkbox
-                                onChange={() => {
-                                  if (!checkedBrends.includes(brend)) {
-                                    checkedBrends.push(brend);
-                                  } else {
-                                    checkedBrends = checkedBrends.filter(
-                                      (item) => item != brend
-                                    );
-                                  }
-                                  setSortingDisabled(false);
-                                  console.log(checkedBrends.includes(brend));
+                              <button
+                                className={`px-3 w-full flex justify-start py-0.5 hover:text-bright-green ${
+                                  checkedBrends == brend
+                                    ? "text-bright-green"
+                                    : ""
+                                }`}
+                                onClick={() => {
+                                  setFilteredProducts(
+                                    filteredOriginalCategory(
+                                      products,
+                                      pathname
+                                    ).filter(
+                                      (product) =>
+                                        product.category.brend == brend
+                                    )
+                                  );
+                                  setCheckedBrands(brend);
+                                  setCheckedMemory("all");
                                 }}
                               >
                                 {brend}
-                              </Checkbox>
+                              </button>
                             </li>
                           );
                         })}
                     </ul>
                   )}
                 </div>
-                <div className="flex flex-col justify-start items-start gap-4 w-full">
+                <div className="flex flex-col justify-start items-stretch gap-4 w-full">
                   <button
                     onClick={() => {
                       setOpenMemory((prev) => !prev);
@@ -179,7 +183,7 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                     </span>
                   </button>
                   {openMemory && (
-                    <ul className="flex flex-col justify-start items-start gap-2.5">
+                    <ul className="flex flex-col justify-start items-stretch gap-2.5">
                       {memoryArr &&
                         memoryArr.length > 0 &&
                         memoryArr.map((memory, index) => {
@@ -188,20 +192,29 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                               className="flex justify-start items-center gap-4"
                               key={index}
                             >
-                              <Checkbox
-                                onChange={() => {
-                                  if (!checkedMemory.includes(memory)) {
-                                    checkedMemory.push(memory);
-                                  } else {
-                                    checkedMemory = checkedMemory.filter(
-                                      (item) => item != memory
-                                    );
-                                  }
-                                  setSortingDisabled(false);
+                              <button
+                                className={`px-2 w-full flex justify-start py-0.5 hover:text-bright-green ${
+                                  checkedMemory == memory
+                                    ? "text-bright-green"
+                                    : ""
+                                }`}
+                                onClick={() => {
+                                  setFilteredProducts(
+                                    filteredOriginalCategory(
+                                      products,
+                                      pathname
+                                    ).filter((product) =>
+                                      product.property
+                                        .find((item) => item.name == "Xotira")
+                                        .types.includes(memory)
+                                    )
+                                  );
+                                  setCheckedMemory(memory);
+                                  setCheckedBrands("all");
                                 }}
                               >
                                 {memory}
-                              </Checkbox>
+                              </button>
                             </li>
                           );
                         })}
@@ -210,39 +223,12 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                 </div>
                 <div className="flex justify-center flex-col gap-5 items-center w-full">
                   <button
-                    disabled={sortingDisabled}
-                    onClick={() => {
-                      console.log(
-                        filterProducts(
-                          filteredOriginalCategory(products, pathname),
-                          checkedBrends,
-                          checkedMemory
-                        )
-                      );
-                      setSortingDisabled(true);
-                      setFilteredProducts(
-                        filterProducts(
-                          filteredOriginalCategory(products, pathname),
-                          checkedBrends,
-                          checkedMemory
-                        )
-                      );
-                    }}
-                    className={`text-bright-green transition-all w-full flex justify-center items-center bg-white ${
-                      sortingDisabled
-                        ? "cursor-not-allowed opacity-80"
-                        : "hover:bg-bright-green hover:text-white"
-                    } py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7`}
-                  >
-                    Saralash
-                  </button>
-                  <button
                     onClick={() => {
                       setFilteredProducts(
                         filteredOriginalCategory(products, pathname)
                       );
-                      setSortingDisabled(false);
-                      setRemoveFilter(true);
+                      setCheckedBrands("all");
+                      setCheckedMemory("all");
                     }}
                     className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7"
                   >
