@@ -129,7 +129,6 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                               key={index}
                             >
                               <Checkbox
-                                checked={checkedBrends.includes(brend)}
                                 onChange={() => {
                                   if (!checkedBrends.includes(brend)) {
                                     checkedBrends.push(brend);
@@ -189,9 +188,6 @@ const OriginalCategoryProducts = ({ one, setone }) => {
                               key={index}
                             >
                               <Checkbox
-                                checked={
-                                  checkedMemory.includes(memory) && removeFilter
-                                }
                                 onChange={() => {
                                   if (!checkedMemory.includes(memory)) {
                                     checkedMemory.push(memory);
