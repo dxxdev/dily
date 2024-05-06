@@ -16,11 +16,10 @@ const SrollTo = () => {
             setscrolCkeck(false)
         }
     }, 1);
-
     return (
 
         <div>
-            <button onClick={scrolTo} className={`${scrolCkeck ? "left-10" : "-left-10"} bg-bright-green fixed left-10 bottom-10 w-10 h-10 flex items-center justify-center rounded-full transition-all`}>
+            <button onClick={scrolTo} className={`${scrolCkeck ? "left-10" : "-left-10"} bg-bright-green fixed  bottom-10 w-10 h-10 flex items-center justify-center rounded-full transition-all`}>
                 <img src={arrow_down} alt="arrow down" className='-rotate-180' />
             </button>
         </div>
