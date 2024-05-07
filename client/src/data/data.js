@@ -585,7 +585,7 @@ export const products = [
     productName: "iPhone 15 Pro",
     category: {
       id: randomId(),
-      name: "Elektronika",
+      name: "Telefonlar va aksessuarlar",
       icon: telephones,
       catalogIcon: telephoneAccessory,
       originalCategory: "Telefonlar",
