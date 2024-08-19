@@ -40,7 +40,6 @@ const Header = ({ top, setTop, one }) => {
               Ro'ihatdan o'tish
             </Link>
           </div>
-         
         </div>
       </div>
     </header>

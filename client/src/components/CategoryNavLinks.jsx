@@ -4,15 +4,15 @@ import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 import filteredCategory from "../functions/filteredCategory";
 import { products } from "../data/data";
 import CategoryMenu from "../additions/CategoryMenu";
-import ProductCard from "./main-components/ProductCard";
+import searchingProducts from "../functions/searchedProducts";
 const CategoryNavLinks = ({ one }) => {
   const [opened, setOpened] = useState(false);
-  const [searching, setSearching] = useState("");
   return (
     <>
       <div className="my-container">
         <div className="flex relative justify-between items-center py-3">
           <div className="flex items-center gap-10">
+            {/* Button to open the menu of links of all categories */}
             <button
               onClick={() => {
                 setOpened((prev) => !prev);
@@ -53,7 +53,9 @@ const CategoryNavLinks = ({ one }) => {
                 </svg>
               )}
             </button>
+            {/* Button to open the menu of links of all categories */}
 
+            {/* Links of all categories */}
             <nav>
               <ul className="flex items-center gap-10">
                 {filteredCategoryMenuItems(filteredCategory(products))
@@ -69,22 +71,56 @@ const CategoryNavLinks = ({ one }) => {
                   })}
               </ul>
             </nav>
+            {/* Links of all categories */}
           </div>
           <label
             htmlFor="search"
             className="w-1/2 h-11 rounded-full bg-white flex items-center pl-5 justify-between overflow-hidden"
           >
+            {/* Search input */}
             <input
               type="text"
               autoComplete="off"
               placeholder="Nima sotib olmoqchisiz ?"
               className="outline-none w-full h-full"
-              value={searching}
-              onChange={(e) => setSearching(e.target.value)}
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  let searchedProducts = searchingProducts(e.target.value);
+                  if (searchedProducts) {
+                    console.log(searchedProducts);
+                    console.log(e.target.value);
+                  } else {
+                    console.log("Product not found");
+                  }
+                }
+              }}
               id="search"
             />
+            {/* Search input */}
 
-            <button className="w-1/4 bg-bright-green h-full flex items-center justify-center">
+            {/* Search button */}
+            <button
+              onClick={(e) => {
+                let target = e.target;
+                while (target.tagName !== "BUTTON") {
+                  target = target.parentElement;
+                }
+                console.log(target.parentElement.children[0].value);
+                let searchedProducts = searchingProducts(
+                  target.parentElement.children[0].value
+                );
+                if (searchedProducts) {
+                  console.log(searchedProducts);
+                  console.log(target.parentElement.children[0].value);
+                } else {
+                  console.log("Product not found");
+                }
+              }}
+              className="w-1/4 bg-bright-green h-full flex items-center justify-center"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 mx-7 h-5"
@@ -94,15 +130,19 @@ const CategoryNavLinks = ({ one }) => {
                 <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
               </svg>
             </button>
+            {/* Search button */}
           </label>
 
           <div className="flex space-x-3 items-center">
+            {/* Link of Admin Dashboard */}
             <Link
               to={"/dash"}
               className="bg-bright-green py-1 px-2 rounded-full flex space-x-3 text-white items-center"
             >
               <i className="bx bxs-dashboard text-2xl mr-1"></i> my dash
             </Link>
+            {/* Link of Admin Dashboard */}
+            {/* A link to the saved page */}
             <Link
               to={`/saved`}
               className="transition-all relative hover:bg-light-green/50  p-1 rounded-sm"
@@ -124,6 +164,7 @@ const CategoryNavLinks = ({ one }) => {
                 />
               </svg>
             </Link>
+            {/* A link to the saved page */}
           </div>
 
           {/* catalog menu item */}
@@ -140,20 +181,6 @@ const CategoryNavLinks = ({ one }) => {
             </div>
           )}
         </div>
-
-        {searching.trim() !== "" && <div className="w-full h-full absolute bg-white left-0 z-[999]">
-          <div className="my-container grid grid-cols-4 gap-12 my-10">
-            {
-              products.map(product => {
-                if (product.productName.toLowerCase().includes(searching.toLowerCase())) {
-                  return <ProductCard product={product} />
-                }
-              }
-              )
-            }
-          </div>
-        </div>}
-
       </div>
     </>
   );

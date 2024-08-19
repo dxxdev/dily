@@ -41,11 +41,7 @@ import {
   redmiNote12Pro6,
   redmiNote12Pro7,
 } from "../assets/images";
-import filteredCategory from "../functions/filteredCategory";
 import { v4 as randomId } from "uuid";
-import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
-import filteredOriginalCategory from "../functions/filteredOriginalCategory";
-import randomNumbersArr from "../functions/randomNumbersArr";
 
 let lastId = 1;
 function generateId() {
