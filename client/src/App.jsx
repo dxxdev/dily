@@ -16,6 +16,7 @@ import ServisesPage from "./pages/ServisesPage";
 import ServisesRepairDetail from "./pages/ServisesRepairDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Searched from "./pages/Searched";
 
 const App = () => {
   const [one, setone] = useState(0);
@@ -53,7 +54,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/*" element={<PageNotFound one={one} />} />
-        <Route path="/Servises/:title" element={<ServisesRepairDetail/>} />
+        <Route path="/Servises/:title" element={<ServisesRepairDetail />} />
+        <Route path="/search" element={<Searched />} />
       </Route>
     )
   );

@@ -95,6 +95,8 @@ const CategoryNavLinks = ({ one }) => {
                   } else {
                     console.log("Product not found");
                   }
+
+                  window.location.href = `/search?q=${e.target.value}`;
                 }
               }}
               id="search"
@@ -108,16 +110,16 @@ const CategoryNavLinks = ({ one }) => {
                 while (target.tagName !== "BUTTON") {
                   target = target.parentElement;
                 }
-                console.log(target.parentElement.children[0].value);
-                let searchedProducts = searchingProducts(
-                  target.parentElement.children[0].value
-                );
+                const inputValue = target.parentElement.children[0].value;
+                console.log(inputValue);
+                let searchedProducts = searchingProducts(inputValue);
                 if (searchedProducts) {
                   console.log(searchedProducts);
-                  console.log(target.parentElement.children[0].value);
+                  console.log(inputValue);
                 } else {
                   console.log("Product not found");
                 }
+                window.location.href = `/search?q=${inputValue}`;
               }}
               className="w-1/4 bg-bright-green h-full flex items-center justify-center"
             >
