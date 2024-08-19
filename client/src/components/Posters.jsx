@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { poster1 } from "../assets/svg";
-import ProductCard from "./ProductCard";
+import ProductCard from "./main-components/ProductCard";
 import { products } from "../data/data";
 import randomNumber from "../functions/randomNumber";
 import { useNavigate } from "react-router-dom";

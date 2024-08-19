@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { products } from '../data/data';
-import Breadcrumb from '../components/Breadcrumb'
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/main-components/ProductCard';
 import filteredCategory from '../functions/filteredCategory';
 import CategoryProductCard from '../components/CategoryProductCard';
 const Save = ({ one, setone }) => {

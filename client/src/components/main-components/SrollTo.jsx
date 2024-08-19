@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import arrow_down from "../assets/other-icon/arrow_down.svg";
+import arrow_down from "../../assets/other-icon/arrow_down.svg";
 
 const SrollTo = () => {
   const scrolTo = () => {

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { products, saved } from "../data/data";
-import CategoryMenu from "../additions/CategoryMenu";
-import { logo } from "../assets/images";
-import account_icon from "../assets/icons/profile-icon.svg";
+import { products, saved } from "../../data/data";
+import CategoryMenu from "../../additions/CategoryMenu";
+import { logo } from "../../assets/images";
 const Header = ({ top, setTop, one }) => {
   return (
     <header className="bg-light-gray/80 backdrop-blur-md shadow-sm sticky top-0 z-[9999] py-1">

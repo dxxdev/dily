@@ -1,6 +1,6 @@
 import React from "react";
 import { products } from "../data/data";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "./main-components/ProductCard";
 import randomNumbersArr from "../functions/randomNumbersArr";
 import { Link } from "react-router-dom";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";

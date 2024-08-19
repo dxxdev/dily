@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
+import Header from "../components/main-components/Header";
 import { Outlet, useLocation } from "react-router-dom";
-import Footer from "../components/Footer";
+import Footer from "../components/main-components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { products, scrollTop } from "../data/data";
 import CategoryNavLinks from "../components/CategoryNavLinks";
-import Breadcrump from "../components/Breadcrumb";
-import SrollTo from "../components/SrollTo";
+import Breadcrump from "../components/main-components/Breadcrumb";
+import SrollTo from "../components/main-components/SrollTo";
 
 const MainLayout = ({ one }) => {
   const location = useLocation();

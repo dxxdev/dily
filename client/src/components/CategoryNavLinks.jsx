@@ -4,7 +4,7 @@ import filteredCategoryMenuItems from "../functions/filteredCategoryMenuItems";
 import filteredCategory from "../functions/filteredCategory";
 import { products } from "../data/data";
 import CategoryMenu from "../additions/CategoryMenu";
-import ProductCard from "./ProductCard";
+import ProductCard from "./main-components/ProductCard";
 const CategoryNavLinks = ({ one }) => {
   const [opened, setOpened] = useState(false);
   const [searching, setSearching] = useState("");

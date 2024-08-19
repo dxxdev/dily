@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { options, products, saved } from "../data/data";
+import { options, products, saved } from "../../data/data";
 
 const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
   const [rendered, setRendered] = useState(false);

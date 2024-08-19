@@ -5,7 +5,7 @@ import { products } from "../data/data";
 import Slider from "react-slick";
 import { Select } from "antd";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/main-components/ProductCard";
 import randomNumbersArr from "../functions/randomNumbersArr";
 import ImageViewerModal from "../components/ImageViewerModal";
 import Comments from "../components/Comments";
