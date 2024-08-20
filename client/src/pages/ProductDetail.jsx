@@ -276,7 +276,7 @@ const ProductDetail = ({ one, setone }) => {
                     {product.property.map((prop, index) => {
                       return (
                         <li key={index}>
-                          {prop.name}: {prop.types[prop.typeIndex]}
+                          <span className="font-semibold">{prop.name}</span>: <span>{prop.types[prop.typeIndex]}</span>
                         </li>
                       );
                     })}
@@ -287,7 +287,7 @@ const ProductDetail = ({ one, setone }) => {
               {tabId == 2 && (
                 <>
                   {product.category.originalCategory == "Telefonlar" ||
-                    product.category.originalCategory == "Noutrbuklar" ? (
+                    product.category.originalCategory == "Noutbuklar" ? (
                     <>
                       <Accessories one={one} setone={setone} />
                     </>
