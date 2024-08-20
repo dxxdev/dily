@@ -1,10 +1,11 @@
 import { Input } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
+import { logo } from "../assets/images";
 
 const Register = () => {
   return (
-    <div className="w-full h-screen login-bg flex justify-center items-center">
+    <div className="w-full h-screen login-bg flex justify-center relative items-center">
       <div className="w-full max-w-md flex flex-col justify-center items-stretch gap-8 rounded-3xl py-12 px-16 bg-white">
         <h5 className="font-semibold text-center text-3xl text-dark-gray leading-normal">
           Hisob yaratish
@@ -43,6 +44,11 @@ const Register = () => {
           </span>
         </p>
       </div>
+      <Link to={"/"}>
+        <h2 className="h-12 absolute top-10 left-10 hover:opacity-80">
+          <img src={logo} className="h-full" alt="" />
+        </h2>
+      </Link>
     </div>
   );
 };
