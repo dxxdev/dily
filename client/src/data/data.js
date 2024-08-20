@@ -754,7 +754,7 @@ export const products = [
     reservation: 5,
     countProduct: 1,
     inTheCart: false,
-    saved: false,
+    saved: true,
   },
 ];
 
