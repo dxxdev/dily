@@ -18,9 +18,7 @@ const Header = () => {
                 <NavLink to="/">Internet-magazin Dily.uz</NavLink>
               </li>
               <li className="lowercase first-letter:uppercase">
-                <NavLink to="/Servises">
-                  Markaziy Servis Hizmati
-                </NavLink>
+                <NavLink to="/Servises">Markaziy Servis Hizmati</NavLink>
               </li>
               <li className="lowercase first-letter:uppercase">
                 <NavLink to="/qaysidir_sahifaga_otishini_kimdir_yozib_qoyishi_kerak">
@@ -34,7 +32,9 @@ const Header = () => {
               to={"/login"}
               className="bg-bright-green py-1 px-2 rounded-full flex space-x-3 text-white items-center"
             >
-              <i className="bx bxs-user-circle text-2xl mr-1"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" className="mr-3 ml-1" viewBox="0 0 448 512">
+                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="#fff" />
+              </svg>
               Ro'ihatdan o'tish
             </Link>
           </div>
