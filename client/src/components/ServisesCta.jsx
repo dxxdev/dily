@@ -4,7 +4,7 @@ const ServisesCta = () => {
   return (
     <section className="py-20">
       <div className="my-container">
-        <ul className="flex items-center justify-center space-x-14">
+        <ul className="flex items-center justify-center gap-10 flex-wrap">
           {serviseData.map((e, index) => {
             return (
               <li className="flex items-center" key={index}>
