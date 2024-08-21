@@ -6,7 +6,7 @@ import ServisesRepair from "../components/ServisesRepair";
 
 const ServisesPage = () => {
   return (
-    <div className="bg-white">
+    <div>
       <ServisesCta />
       <ServisesRepair />
       <ServisesCosts />

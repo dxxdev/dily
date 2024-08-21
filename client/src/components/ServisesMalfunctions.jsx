@@ -17,7 +17,7 @@ const ServisesMalfunctions = () => {
           <h2 className="font-bold text-[32px] leading-38 text-dark-gray mb-11 text-center">
             Tuzata olamiz
           </h2>
-          <ul className="grid grid-cols-3 gap-x-[110px] gap-y-[15px] mb-10 ">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-14 lg:grid-cols-3 gap-y-[15px] mb-10 ">
             {serviseMalfunctionsData.slice(0, sliceNumber).map((e, index) => {
               return (
                 <li key={index} className="flex items-center space-x-3.5">

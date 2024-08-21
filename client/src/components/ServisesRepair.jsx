@@ -17,10 +17,13 @@ const ServisesRepair = () => {
         <h2 className="font-bold text-[32px] leading-38 text-dark-gray mb-30 text-center">
           Biz ta'mirlaymiz
         </h2>
-        <ul className="grid grid-cols-6 gap-x-30 gap-y-[45px] mb-30">
+        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-30 gap-y-[45px] mb-30">
           {ServisesRepairData.slice(0, sliceNumber).map((e, index) => {
             return (
-              <li key={index} className="py-3.5 px-3 shadow-product-card-shadow rounded-10 w-full max-w-[170px]">
+              <li
+                key={index}
+                className="py-3.5 px-3 shadow-product-card-shadow rounded-10 w-full max-w-[170px]"
+              >
                 <Link to={`/Servises/${e.title}`}>
                   <img className="mb-4" src={e.img} alt={e.title} />
                   <p className="font-bold text-base leading-6 text-dark-gray text-center">
@@ -39,7 +42,11 @@ const ServisesRepair = () => {
             } items-center font-bold text-sm leading-5`}
           >
             Ortga
-            <img className="ml-2.5 transform rotate-180" src={union} alt="union" />
+            <img
+              className="ml-2.5 transform rotate-180"
+              src={union}
+              alt="union"
+            />
           </button>
           <button
             onClick={closeFunctions}
