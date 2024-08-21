@@ -28,7 +28,7 @@ const SrollTo = () => {
       <button
         onClick={scrolTo}
         className={`${
-          scrollCheck ? "block" : "hidden"
+          scrollCheck ? "hidden sm:block" : "hidden sm:block"
         } bg-bright-green fixed right-10 bottom-10 w-10 h-10 flex items-center justify-center rounded-full transition-all shadow-md z-[9999]`}
       >
         <img src={arrow_down} alt="arrow down" className="-rotate-180" />
