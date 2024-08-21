@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { logo } from "../../assets/images";
-const Header = () => {
+const Header = ({one}) => {
   return (
     <header className="bg-light-gray/80 backdrop-blur-md shadow-sm sticky top-0 z-[9999] py-1">
       <div className="my-container">
