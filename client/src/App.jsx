@@ -18,13 +18,19 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Searched from "./pages/Searched";
 
+// Admin Imports
+import AdminLayout from "./layouts/AdminLayout";
+import DashboardOverview from "./pages/admin/DashboardOverview";
+import AdminProducts from "./pages/admin/AdminProducts";
+
 const App = () => {
   const [one, setone] = useState(0);
   let finder = one;
   const [saving, setSaving] = useState([]);
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<MainLayout one={one} />}>
+      <Route>
+        <Route path="/" element={<MainLayout one={one} />}>
         <Route
           index
           element={
@@ -56,6 +62,11 @@ const App = () => {
         <Route path="/*" element={<PageNotFound one={one} />} />
         <Route path="/Servises/:title" element={<ServisesRepairDetail />} />
         <Route path="/search" element={<Searched />} />
+      </Route>,
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<DashboardOverview />} />
+        <Route path="products" element={<AdminProducts />} />
+      </Route>
       </Route>
     )
   );
