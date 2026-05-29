@@ -1,9 +1,18 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useLayoutEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminHeader from "../components/AdminHeader";
 
 const AdminLayout = () => {
+  const navigate = useNavigate();
+
+  useLayoutEffect(() => {
+    const isAdmin = localStorage.getItem("isAdmin");
+    if (!isAdmin) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   return (
     <div className="flex h-screen bg-light-gray font-open-sans overflow-hidden">
       <AdminSidebar />

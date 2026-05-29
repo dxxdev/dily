@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   Package,
@@ -7,9 +7,17 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
+import { message } from "antd";
 
 const AdminSidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    message.success("Tizimdan chiqdingiz");
+    navigate("/login");
+  };
 
   const navItems = [
     { name: "Dashboard", path: "/admin", icon: <LayoutDashboard size={20} /> },
@@ -50,7 +58,10 @@ const AdminSidebar = () => {
 
       {/* Bottom Actions */}
       <div className="p-4 border-t border-light-gray">
-        <button className="flex items-center gap-3 px-4 py-3 rounded-10 text-dark-gray hover:bg-red-50 hover:text-red-500 w-full transition-slice">
+        <button 
+          onClick={handleLogout}
+          className="flex items-center gap-3 px-4 py-3 rounded-10 text-dark-gray hover:bg-red-50 hover:text-red-500 w-full transition-slice"
+        >
           <LogOut size={20} />
           <span className="font-semibold">Logout</span>
         </button>

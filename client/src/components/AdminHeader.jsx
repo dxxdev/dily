@@ -1,7 +1,17 @@
 import React from "react";
-import { Bell, Search, User } from "lucide-react";
+import { Bell, Search, User, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const AdminHeader = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    message.success("Tizimdan chiqdingiz");
+    navigate("/login");
+  };
+
   return (
     <header className="h-20 bg-white/80 backdrop-blur-md shadow-sm flex items-center justify-between px-8 sticky top-0 z-50">
       {/* Search */}
@@ -32,6 +42,14 @@ const AdminHeader = () => {
             <span className="text-xs text-address-gray">Super Admin</span>
           </div>
         </div>
+        <div className="h-10 w-[1px] bg-medium-gray"></div>
+        <button 
+          onClick={handleLogout}
+          className="flex items-center gap-2 text-dark-gray hover:text-red-500 transition-slice font-semibold"
+        >
+          <LogOut size={20} />
+          <span>Chiqish</span>
+        </button>
       </div>
     </header>
   );
