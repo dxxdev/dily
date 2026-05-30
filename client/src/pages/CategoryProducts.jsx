@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { products } from "../data/data";
 import filteredBrend from "../functions/filteredBrend";
 import { InputNumber, Select, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
 import filteredProductMemory from "../functions/filteredProductMemory";
 import CategoryProductCard from "../components/CategoryProductCard";
-import filteredProductByCategory from "../functions/filteredProductByCategory.js";
+import filteredProductByCategory from "../functions/filteredProductByCategory";
+import filteredCategoryMenu from "../functions/filteredCategoryMenu";
+import { Link } from "react-router-dom";
 
 const CategoryProducts = ({ one, setone }) => {
-  const location = useLocation();
-  const pathname = location.pathname.split("/").slice(1).pop();
+  const { categoryName } = useParams();
+  const pathname = decodeURIComponent(categoryName);
+  const subCategories = filteredCategoryMenu(pathname);
   const [brends, setBrends] = useState([]);
   const [memoryArr, setMemoryArr] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -48,25 +51,29 @@ const CategoryProducts = ({ one, setone }) => {
   };
   return (
     <div className="my-container flex justify-between items-start gap-30">
-      <div className="flex flex-col w-full justify-center items-start gap-30">
-        <div className="flex flex-col justify-between items-start gap-5">
-          <h2 className="text-3xl font-bold leading-120 text-dark-gray">
-            {pathname}
-          </h2>
-          <ul className="flex justify-start items-center gap-4">
-            {brends &&
-              brends.length > 0 &&
-              brends.map((brend, index) => {
-                return (
-                  <button key={index}>
-                    <li className="py-3 px-4 rounded-[10px] shadow-product-card-shadow">
-                      {brend}
-                    </li>
-                  </button>
-                );
-              })}
-          </ul>
+      <div className="flex flex-col w-full justify-start items-start gap-5">
+        {/* Left Sidebar */}
+        <div className="flex flex-col justify-start items-stretch gap-4">
+          <div className="flex justify-between items-center w-full">
+            <h2 className="text-3xl font-bold leading-120 text-dark-gray">
+              {pathname}
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-3 w-full justify-start">
+            {subCategories &&
+              subCategories.length > 0 &&
+              subCategories.map((sub, index) => (
+                <Link
+                  key={index}
+                  to={`/products/${pathname}/${sub.originalCategory}`}
+                  className="py-2 px-4 rounded-[10px] shadow-product-card-shadow bg-white text-dark-gray hover:text-bright-green transition-all text-sm font-medium"
+                >
+                  {sub.originalCategory}
+                </Link>
+              ))}
+          </div>
         </div>
+        {/* Main Content */}
         <div className="flex justify-start w-full items-start gap-30">
           <div className="flex flex-col justify-center shadow-product-card-shadow items-center w-full max-w-80 gap-30 sticky top-[72px]">
             <div className="flex flex-col justify-center items-stretch gap-30 px-30 py-6">

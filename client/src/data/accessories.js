@@ -15,7 +15,7 @@ const accesories = [
     ProductName: "Apple Air Pods Pro",
     category: {
       id: randomId(),
-      name: "Telefon va aksessuarlar",
+      name: "Telefonlar va aksessuarlar",
       icon: telephones,
       catalogIcon: telephoneAccessory,
       originalCategory: "Quloqchinlar",

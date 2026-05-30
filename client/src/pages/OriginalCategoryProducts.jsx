@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import filteredOriginalCategory from "../functions/filteredOriginalCategory";
 import { products } from "../data/data";
 import filteredBrend from "../functions/filteredBrend";
@@ -9,8 +9,8 @@ import filteredProductMemory from "../functions/filteredProductMemory";
 import CategoryProductCard from "../components/CategoryProductCard";
 
 const OriginalCategoryProducts = ({ one, setone }) => {
-  const location = useLocation();
-  const pathname = location.pathname.split("/").slice(1).pop();
+  const { originalCategory } = useParams();
+  const pathname = decodeURIComponent(originalCategory);
   const [brends, setBrends] = useState([]);
   const [memoryArr, setMemoryArr] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);

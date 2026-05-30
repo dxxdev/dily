@@ -62,7 +62,7 @@ const App = () => {
         <Route path="/*" element={<PageNotFound one={one} />} />
         <Route path="/Servises/:title" element={<ServisesRepairDetail />} />
         <Route path="/search" element={<Searched />} />
-      </Route>,
+      </Route>
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<DashboardOverview />} />
         <Route path="products" element={<AdminProducts />} />
