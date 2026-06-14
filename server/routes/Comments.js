@@ -13,8 +13,8 @@ const commentsSchema = mongoose.Schema({
   rating: {
     type: Number,
     default: 1,
-    minlength: 1,
-    maxlength: 5,
+    min: 1,
+    max: 5,
   },
   comment: {
     type: String,

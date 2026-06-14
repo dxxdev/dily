@@ -108,7 +108,7 @@ route.post("/", async (req, res) => {
 // cRud mothods
 // Read mothod
 
-route.get(":id", async (req, res) => {
+route.get("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
     if (!productId) {
@@ -129,7 +129,7 @@ route.get(":id", async (req, res) => {
 
 // cruD mothods
 // delete mothod
-route.delete(":id", async (req, res) => {
+route.delete("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
     const deleting = await Product.findByIdAndDelete({ _id: productId });

@@ -38,6 +38,25 @@ import appleAirPodsPro2 from "./img/apple-air-pods-pro-2.png";
 import appleAirPodsPro3 from "./img/apple-air-pods-pro-3.png";
 import appleAirPodsPro4 from "./img/apple-air-pods-pro-4.png";
 import appleAirPodsPro5 from "./img/apple-air-pods-pro-5.png";
+import samsungGalaxyS261 from "./img/samsung-galaxy-s26-1.png";
+import samsungGalaxyS262 from "./img/samsung-galaxy-s26-2.png";
+import samsungGalaxyS263 from "./img/samsung-galaxy-s26-3.png";
+import samsungGalaxyS264 from "./img/samsung-galaxy-s26-4.png";
+import samsungGalaxyS265 from "./img/samsung-galaxy-s26-5.png";
+import samsungGalaxyS266 from "./img/samsung-galaxy-s26-6.png";
+import phoneCooler1 from "./img/phone-cooler-1.png";
+import phoneCooler2 from "./img/phone-cooler-2.png";
+import powerBank20000mah1 from "./img/power-bank-20000-mah-1.png";
+import powerBank20000mah2 from "./img/power-bank-20000-mah-2.png";
+import powerBank20000mah3 from "./img/power-bank-20000-mah-3.png";
+import hpVictus151 from "./img/victus-15-1.png";
+import hpVictus152 from "./img/victus-15-2.png";
+import hpVictus153 from "./img/victus-15-3.png";
+import hpVictus154 from "./img/victus-15-4.png";
+import hpVictus155 from "./img/victus-15-5.png";
+import asusRogStrix1 from "./img/asus-rog-strix-g16-1.png";
+import asusRogStrix2 from "./img/asus-rog-strix-g16-2.png";
+import asusRogStrix3 from "./img/asus-rog-strix-g16-3.png";
 import avatar from "./img/avatar.png";
 import logo from "./logo/logo.svg";
 
@@ -60,6 +79,11 @@ export {
   hpEmvyX3601,
   hpEmvyX3602,
   hpEmvyX3603,
+  hpVictus151,
+  hpVictus152,
+  hpVictus153,
+  hpVictus154,
+  hpVictus155,
   iPhone15Pro1,
   iPhone15Pro2,
   iPhone15Pro3,
@@ -82,6 +106,20 @@ export {
   appleAirPodsPro3,
   appleAirPodsPro4,
   appleAirPodsPro5,
+  samsungGalaxyS261,
+  samsungGalaxyS262,
+  samsungGalaxyS263,
+  samsungGalaxyS264,
+  samsungGalaxyS265,
+  samsungGalaxyS266,
+  phoneCooler1,
+  phoneCooler2,
+  powerBank20000mah1,
+  powerBank20000mah2,
+  powerBank20000mah3,
+  asusRogStrix1,
+  asusRogStrix2,
+  asusRogStrix3,
   avatar,
   logo,
 };

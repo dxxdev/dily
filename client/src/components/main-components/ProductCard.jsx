@@ -8,18 +8,19 @@ const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
     if (!saved.includes(product) && product.saved === false) {
       product.saved = !product.saved;
       setRendered((prev) => !prev);
-      setone(one + 1)
+      setone(one + 1);
     } else {
       product.saved = !product.saved;
       setRendered((prev) => !prev);
-      setone(one - 1)
+      setone(one - 1);
     }
   };
   return (
     <li
       key={product.id}
-      className={`rounded-lg group bg-white/90 flex flex-col relative shadow-product-card-shadow ${widthFixed ? "w-52" : ""
-        }`}
+      className={`rounded-lg group bg-white/90 flex flex-col relative shadow-product-card-shadow ${
+        widthFixed ? "w-52" : ""
+      }`}
     >
       <button
         className="absolute top-3 right-3 z-[999]"
@@ -48,7 +49,7 @@ const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
         <img
           src={product?.images[0]}
           className="w-[calc(100%-40px)] group-hover:scale-110 transition-all"
-          alt={product.name + ' img'}
+          alt={product.name + " img"}
         />
       </Link>
       <div className="px-4 py-2 flex flex-col items-start gap-1">
@@ -66,7 +67,6 @@ const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
               ?.discountPrice()
               .toLocaleString("uz-UZ", options)
               .replaceAll(",", " ")}{" "}
-          ${" "}
           <del className={`${discount ? "text-dark-gray-2" : ""}`}>
             {discount &&
               product
@@ -81,7 +81,7 @@ const ProductCard = ({ product, widthFixed, discount, one, setone }) => {
         </address>
         <div className="rounded-full absolute bottom-3 right-3 cursor-pointer">
           <Link>
-            <img src={product?.avatar} alt={product.productName + ' img'} />
+            <img src={product?.avatar} alt={product.productName + " img"} />
           </Link>
         </div>
       </div>

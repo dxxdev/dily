@@ -10,7 +10,6 @@ import randomNumbersArr from "../functions/randomNumbersArr";
 import ImageViewerModal from "../components/ImageViewerModal";
 import Comments from "../components/Comments";
 import DeliveryAndPayment from "../components/DeliveryAndPayment";
-import Accessories from "../components/Accessories";
 
 const ProductDetail = ({ one, setone }) => {
   const { id } = useParams();
@@ -60,13 +59,13 @@ const ProductDetail = ({ one, setone }) => {
       {product && (
         <h2 className="font-bold text-3xl leading-120">
           {product.productName}{" "}
-          {product.property[2].types[product.property[2].typeIndex]}
+          {product.property?.[2]?.types?.[product.property?.[2]?.typeIndex]}
         </h2>
       )}
       {product && (
         <div className="flex flex-col items-start p-0 gap-30">
           {/* Product overview section */}
-          <div  className="flex flex-row w-full items-start p-0 gap-10">
+          <div className="flex flex-row w-full items-start p-0 gap-10">
             {/* Product image view section */}
             <div className="flex flex-col sticky top-5 w-max h-max items-center justify-center p-0 gap-5">
               {/* Product images slider */}
@@ -84,7 +83,11 @@ const ProductDetail = ({ one, setone }) => {
                           key={index}
                           className="py-10 cursor-pointer"
                         >
-                          <img src={image} alt={image.productName + ' img'} className="h-full" />
+                          <img
+                            src={image}
+                            alt={product.productName + " img"}
+                            className="h-full"
+                          />
                         </div>
                       );
                     })}
@@ -103,14 +106,14 @@ const ProductDetail = ({ one, setone }) => {
                         <h4 className="text-base">{prop.name}</h4>
                         <ul className="flex flex-wrap gap-4">
                           <Select
-                            defaultValue={prop.types[prop.typeIndex]}
+                            defaultValue={prop.types?.[prop.typeIndex]}
                             size="large"
                             className="w-full !bg-medium-gray"
                             onChange={(value) => {
                               prop.typeIndex = value;
                               setRendered((prev) => !prev);
                             }}
-                            options={prop.types.map((type, index) => {
+                            options={prop.types?.map((type, index) => {
                               return {
                                 value: index,
                                 label: type,
@@ -138,16 +141,14 @@ const ProductDetail = ({ one, setone }) => {
                   </div>
 
                   <div className="flex justify-start items-center">
-
                     <button
                       onClick={() => {
                         product.saved = !product.saved;
                         setRendered((prev) => !prev);
-                        product.saved ? setone(one + 1) : setone(one - 1)
-
+                        product.saved ? setone(one + 1) : setone(one - 1);
                       }}
-                      className="flex justify-center items-center gap-2.5">
-
+                      className="flex justify-center items-center gap-2.5"
+                    >
                       <span className="text-sm font-normal text-dark-gray">
                         Sevimlilarga
                       </span>
@@ -233,10 +234,11 @@ const ProductDetail = ({ one, setone }) => {
                   <li className="w-full" key={index}>
                     <button
                       onClick={() => setTabId(index)}
-                      className={`px-12 py-3 w-full transition-all text-sm leading-140 font-medium tracking-0.7 ${tabId == index
-                        ? "bg-bright-green text-white hover:bg-green-600"
-                        : "bg-transparent text-dark-gray hover:bg-dark-gray/10"
-                        }`}
+                      className={`px-12 py-3 w-full transition-all text-sm leading-140 font-medium tracking-0.7 ${
+                        tabId == index
+                          ? "bg-bright-green text-white hover:bg-green-600"
+                          : "bg-transparent text-dark-gray hover:bg-dark-gray/10"
+                      }`}
                     >
                       {tab}
                     </button>
@@ -276,28 +278,12 @@ const ProductDetail = ({ one, setone }) => {
                     {product.property.map((prop, index) => {
                       return (
                         <li key={index}>
-                          <span className="font-semibold">{prop.name}</span>: <span>{prop.types[prop.typeIndex]}</span>
+                          <span className="font-semibold">{prop.name}</span>:{" "}
+                          <span>{prop.types[prop.typeIndex]}</span>
                         </li>
                       );
                     })}
                   </ul>
-                </>
-              )}
-              {/* Accessories */}
-              {tabId == 2 && (
-                <>
-                  {product.category.originalCategory == "Telefonlar" ||
-                    product.category.originalCategory == "Noutbuklar" ? (
-                    <>
-                      <Accessories one={one} setone={setone} />
-                    </>
-                  ) : (
-                    <>
-                      <h2>
-                        Bu turkumdagi mahsulotlar uchun aksessuarlar mavjud emas
-                      </h2>
-                    </>
-                  )}
                 </>
               )}
               {/* Product comments */}
@@ -343,6 +329,29 @@ const ProductDetail = ({ one, setone }) => {
                   <DeliveryAndPayment />
                 </>
               )}
+              {/* Product accessories */}
+              {tabId == 2 && (
+                <>
+                  <h3 className="text-2xl font-bold leading-normal text-dark-gray">
+                    Aksessuarlar
+                  </h3>
+                  <ul className="flex flex-wrap gap-5">
+                    {filteredOriginalCategory(products, "Aksessuarlar").map(
+                      (product, index) => {
+                        return (
+                          <ProductCard
+                            widthFixed={true}
+                            one={one}
+                            setone={setone}
+                            key={index}
+                            product={product}
+                          />
+                        );
+                      },
+                    )}
+                  </ul>
+                </>
+              )}
             </div>
           </div>
           {/* Smilar product section */}
@@ -353,14 +362,14 @@ const ProductDetail = ({ one, setone }) => {
             <ul className="flex gap-5">
               {filteredOriginalCategory(
                 products,
-                product.category.originalCategory
+                product.category?.originalCategory,
               ) &&
                 randomNumbersArr(
                   filteredOriginalCategory(
                     products,
-                    product.category.originalCategory
+                    product.category?.originalCategory,
                   ),
-                  5
+                  5,
                 ).map((product) => {
                   return (
                     <ProductCard

@@ -40,6 +40,31 @@ import {
   redmiNote12Pro5,
   redmiNote12Pro6,
   redmiNote12Pro7,
+  samsungGalaxyS261,
+  samsungGalaxyS262,
+  samsungGalaxyS263,
+  samsungGalaxyS264,
+  samsungGalaxyS265,
+  samsungGalaxyS266,
+  appleAirPodsPro1,
+  appleAirPodsPro2,
+  appleAirPodsPro3,
+  appleAirPodsPro4,
+  appleAirPodsPro5,
+  phoneCooler1,
+  phoneCooler2,
+  powerBank20000mah1,
+  powerBank20000mah2,
+  powerBank20000mah3,
+  hpVictus151,
+  hpVictus152,
+  hpVictus153,
+  hpVictus154,
+  hpVictus155,
+  asusRogStrix1,
+  asusRogStrix2,
+  asusRogStrix3,
+
 } from "../assets/images";
 import { v4 as randomId } from "uuid";
 
@@ -58,6 +83,7 @@ export let options = {
 export const saved = [];
 
 export const products = [
+  // Asus VivoBook 15
   {
     id: generateId(),
     productName: "Asus VivoBook 15",
@@ -92,10 +118,9 @@ export const products = [
         name: "Video karta",
         types: [
           "AMD Radeon Graphics",
-          "AMD RX 230 graphics",
-          "Intel UHD graphics 630",
-          "Intel Iris graphics",
-          "Intel Iris Xe graphics",
+          "AMD RX 230 Graphics",
+          "Intel UHD Graphics 630",
+          "Intel Iris Xe Graphics",
           "Nvidia Geforce MX350",
           "Nvidia Geforce GTX1050",
         ],
@@ -114,9 +139,6 @@ export const products = [
           "256 GB M.2 NVMe Gen 3.0 SSD",
           "512 GB M.2 NVMe Gen 3.0 SSD",
           "1 TB M.2 NVMe Gen 3.0 SSD",
-          "256 GB M.2 NVMe Gen 4.0 SSD",
-          "512 GB M.2 NVMe Gen 4.0 SSD",
-          "1 TB M.2 NVMe Gen 4.0 SSD",
         ],
         prices: [30, 50, 65, 32, 52, 70],
         typeIndex: 0,
@@ -193,6 +215,7 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  // Asus TUF GAMING G16
   {
     id: generateId(),
     productName: "Asus TUF GAMING G16",
@@ -225,7 +248,7 @@ export const products = [
         name: "Video karta",
         types: [
           "AMD Radeon Graphics",
-          "AMD RX 230 graphics",
+          "AMD RX 230 Graphics",
           "Nvidia Geforce GTX1050",
           "Nvidia Geforce RTX2060",
           "Nvidia Geforce RTX3060",
@@ -304,6 +327,7 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  // Redmi Note 12 Pro
   {
     id: generateId(),
     productName: "Redmi Note 12 Pro",
@@ -379,6 +403,7 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  // HP ENVY x360
   {
     id: generateId(),
     productName: "HP ENVY x360",
@@ -412,7 +437,6 @@ export const products = [
           "AMD Radeon Graphics",
           "AMD RX 230 Graphics",
           "Intel Iris Xe Graphics",
-          "Intel Iris Graphics",
           "Intel UHD Graphics",
         ],
         prices: [60, 75, 50, 40, 100],
@@ -476,6 +500,7 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  // Asus Creator Q53
   {
     id: generateId(),
     productName: "Asus Creator Q53",
@@ -576,6 +601,7 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  // iPhone 15 Pro
   {
     id: generateId(),
     productName: "iPhone 15 Pro",
@@ -649,6 +675,7 @@ export const products = [
     inTheCart: false,
     saved: false,
   },
+  // Gaming PC Zalman
   {
     id: generateId(),
     productName: "Gaming PC Zalman",
@@ -670,14 +697,13 @@ export const products = [
         name: "Protsessor",
         types: [
           "Intel Core i5 12400F",
-          "Intel Core i5 13800F",
-          "Intel Core i7 11240F",
-          "Intel Core i7 12400F",
+          "Intel Core i5 13500H",
+          "Intel Core i7 12400H",
           "Intel Core i7 14500F",
           "Intel Core i9 11650F",
           "Intel Core i9 12400F",
         ],
-        prices: [300, 320, 400, 430, 480, 600, 700],
+        prices: [300, 320, 430, 480, 600, 700],
         typeIndex: 1,
       },
       {
@@ -701,9 +727,9 @@ export const products = [
       {
         name: "Xotira",
         types: [
-          "512 GB Nvme m.2 SSD Gen 4",
-          "1 TB Nvme m.2 SSD Gen 4",
-          "2 TB Nvme m.2 SSD Gen 4",
+          "512 GB M.2 NVMe Gen 4.0 SSD",
+          "1 TB M.2 NVMe Gen 4.0 SSD",
+          "2 TB M.2 NVMe Gen 4.0 SSD",
         ],
         prices: [100, 150, 170],
         typeIndex: 0,
@@ -716,6 +742,475 @@ export const products = [
       gamingPCZalman3,
       gamingPCZalman4,
       gamingPCZalman5,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  // Samsung Galaxy S26
+  {
+    id: generateId(),
+    productName: "Samsung Galaxy S26",
+    category: {
+      id: randomId(),
+      name: "Telefonlar va aksessuarlar",
+      icon: telephones,
+      catalogIcon: telephoneAccessory,
+      originalCategory: "Telefonlar",
+      brend: "Samsung",
+    },
+    descriptions: [
+      "Samsung Galaxy S26 - bu Samsung kompaniyasining yangi flagman smartfoni bo'lib, ilg'or texnologiyalar va ajoyib dizaynni birlashtiradi. U yuqori sifatli kamera, kuchli protsessor va uzun batareya muddati bilan ta'minlangan, bu esa foydalanuvchilarga mukammal tajriba taqdim etadi.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: ["Exynos 2200", "Snapdragon 8 Gen 1", "Snapdragon 8 Gen 2"],
+        prices: [500, 550, 600],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["8 GB", "12 GB", "16 GB"],
+        prices: [30, 50, 70],
+        typeIndex: 0,
+      },
+      {
+        name: "Xotira",
+        types: ["128 GB", "256 GB", "512 GB", "1 TB"],
+        prices: [100, 150, 170],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      samsungGalaxyS261,
+      samsungGalaxyS262,
+      samsungGalaxyS263,
+      samsungGalaxyS264,
+      samsungGalaxyS265,
+      samsungGalaxyS266,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  // Apple AirPods Pro
+  {
+    id: generateId(),
+    productName: "Apple AirPods Pro",
+    category: {
+      id: randomId(),
+      name: "Telefonlar va aksessuarlar",
+      icon: telephones,
+      catalogIcon: telephoneAccessory,
+      originalCategory: "Aksessuarlar",
+      brend: "Apple",
+    },
+    descriptions: [
+      "Apple AirPods Pro - bu Apple kompaniyasining yuqori sifatli simsiz quloqchinlari bo'lib, ilg'or texnologiyalar va ajoyib dizaynni birlashtiradi. Ular yuqori sifatli ovoz, faol shovqinni bekor qilish va qulay moslashuvchanlik bilan ta'minlangan, bu esa foydalanuvchilarga mukammal tajriba taqdim etadi.",
+    ],
+    property: [
+      {
+        name: "Rang",
+        types: ["Oq", "Qora", "Qizil", "Yashil"],
+        prices: [0, 0, 20, 20],
+        typeIndex: 0,
+      },
+      {
+        name: "Bluetooth",
+        types: ["Bluetooth 5.0", "Bluetooth 5.1"],
+        prices: [0, 10],
+        typeIndex: 0,
+      },
+      {
+        name: "Batareya",
+        types: ["24 soat", "30 soat"],
+        prices: [0, 20],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      appleAirPodsPro1,
+      appleAirPodsPro2,
+      appleAirPodsPro3,
+      appleAirPodsPro4,
+      appleAirPodsPro5,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  // Telefon uchun Cooler
+  {
+    id: generateId(),
+    productName: "Telefon uchun Cooler",
+    category: {
+      id: randomId(),
+      name: "Telefonlar va aksessuarlar",
+      icon: telephones,
+      catalogIcon: telephoneAccessory,
+      originalCategory: "Aksessuarlar",
+      brend: "LDNIO",
+    },
+    descriptions: [
+      "Telefon uchun Cooler - bu telefoningizni o'yin seanslari yoki uzoq vaqt davomida ishlatish paytida haddan tashqari qizib ketishdan himoya qilish uchun mo'ljallangan aksessuar. U telefonning orqasiga o'rnatiladi va ichidagi fan yordamida havo oqimini ta'minlaydi, bu esa qurilmaning samarali sovishini ta'minlaydi.",
+    ],
+    property: [
+      {
+        name: "Rang",
+        types: ["Qora", "Qizil", "Yashil"],
+        prices: [0, 20, 20],
+        typeIndex: 0,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      phoneCooler1,
+      phoneCooler2,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  // Telefon uchun Power Bank
+  {
+    id: generateId(),
+    productName: "Telefon uchun Power Bank",
+    category: {
+      id: randomId(),
+      name: "Telefonlar va aksessuarlar",
+      icon: telephones,
+      catalogIcon: telephoneAccessory,
+      originalCategory: "Aksessuarlar",
+      brend: "LADONG",
+    },
+    descriptions: [
+      "Telefon uchun Power Bank - bu mobil qurilmalaringizni, xususan, telefoningizni zaryad qilish uchun mo'ljallangan portativ quvvat manbai. U o'yin seanslari, sayohatlar yoki uzoq vaqt davomida elektr manbaiga ulanmagan joylarda juda foydali bo'lishi mumkin. Power Bank ichida batareya mavjud bo'lib, u USB kabeli orqali telefoningizga quvvat beradi.",
+    ],
+    property: [
+      {
+        name: "Rang",
+        types: ["Qora", "Qizil", "Yashil"],
+        prices: [0, 20, 20],
+        typeIndex: 1,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      powerBank20000mah1,
+      powerBank20000mah2,
+      powerBank20000mah3,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  // HP Victus 15
+  {
+    id: generateId(),
+    productName: "HP Victus 15",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Noutbuklar",
+      brend: "HP",
+    },
+    descriptions: [
+      "HP Victus 15 - bu HP kompaniyasining o'yin noutbuki bo'lib, kuchli ishlash va ajoyib dizaynni birlashtiradi. U yuqori sifatli displey, kuchli protsessor va uzun batareya muddati bilan ta'minlangan, bu esa foydalanuvchilarga mukammal o'yin tajribasini taqdim etadi.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: ["Intel Core i5 13500H", "Intel Core i7 12400H", "Intel Core i9 13900H"],
+        prices: [0, 50, 100],
+        typeIndex: 1,
+      },
+      {
+        name: "Video karta",
+        types: ["Nvidia Geforce RTX3060", "Nvidia Geforce RTX3070", "Nvidia Geforce RTX3080"],
+        prices: [0, 100, 200],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["8 GB DDR4", "16 GB DDR4", "32 GB DDR4"],
+        prices: [0, 50, 100],
+        typeIndex: 1,
+      },
+    ],
+    shortly: undefined,
+    images: [
+      hpVictus151,
+      hpVictus152,
+      hpVictus153,
+      hpVictus154,
+      hpVictus155,
+    ],
+    price: function () {
+      let totalPrice = 0 + 100;
+      this.property.map((item) => {
+        totalPrice += item.prices[item.typeIndex];
+      });
+      return totalPrice;
+    },
+    discount: 10, // eng: the discount percentage is entered in the number  uzb: chegirma foizi raqamda kiritiladi
+    discountPrice: function () {
+      let lastPrices = this.price() - (this.price() / 100) * this.discount;
+      return Math.floor(lastPrices);
+    },
+    comments: [
+      {
+        id: randomId(),
+        who: "Sobirjon",
+        avatar: avatar,
+        rating: 5,
+        date: "18.04.2024",
+        comment:
+          "Tizimdan foydalanganimga xursandman. Tizimning ishida muvaffaqiyat tilayman. Raxmat!!!",
+      },
+      {
+        id: randomId(),
+        who: "Shohjahon",
+        avatar: avatar,
+        rating: 5,
+        date: "12.04.2024",
+        comment: "👍",
+      },
+    ],
+    avatar: avatar,
+    address: "Toshkent",
+    rating: 5,
+    reservation: 5,
+    countProduct: 1,
+    inTheCart: false,
+    saved: false,
+  },
+  // ASUS ROG Strix G16
+  {
+    id: generateId(),
+    productName: "ASUS ROG Strix G16",
+    category: {
+      id: randomId(),
+      name: "Elektronika",
+      icon: computers,
+      catalogIcon: computer,
+      originalCategory: "Noutbuklar",
+      brend: "Asus",
+    },
+    descriptions: [
+      "ASUS ROG Strix G16 - bu ASUS kompaniyasining o'yin noutbuki bo'lib, kuchli ishlash va ajoyib dizaynni birlashtiradi. U yuqori sifatli displey, kuchli protsessor va uzun batareya muddati bilan ta'minlangan, bu esa foydalanuvchilarga mukammal o'yin tajribasini taqdim etadi.",
+    ],
+    property: [
+      {
+        name: "Protsessor",
+        types: ["Intel Core i5 13500H", "Intel Core i7 12400H", "Intel Core i9 13900H"],
+        prices: [0, 50, 100],
+        typeIndex: 1,
+      },
+      {
+        name: "Video karta",
+        types: ["Nvidia Geforce RTX3060", "Nvidia Geforce RTX3070", "Nvidia Geforce RTX3080"],
+        prices: [0, 100, 200],
+        typeIndex: 1,
+      },
+      {
+        name: "Operativ xotira",
+        types: ["8 GB DDR5", "16 GB DDR5", "32 GB DDR5"],
+        prices: [0, 50, 100],
+        typeIndex: 1,
+      },
+      // xotira qismi uchun property qo'shish
+      {
+        name: "Xotira",
+        types: ["512 GB M.2 NVMe Gen 4.0 SSD", "1 TB M.2 NVMe Gen 3.0 SSD", "2 TB M.2 NVMe Gen 3.0 SSD"],
+        prices: [0, 50, 100],
+        typeIndex: 1,
+      }
+    ],
+    shortly: undefined,
+    images: [
+      asusRogStrix1,
+      asusRogStrix2,
+      asusRogStrix3,
     ],
     price: function () {
       let totalPrice = 0 + 100;

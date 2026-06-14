@@ -1,51 +1,71 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../data/data";
-import filteredBrend from "../functions/filteredBrend";
 import { InputNumber, Select, Slider } from "antd";
 import filteredPrice from "../functions/filteredPrice";
-import filteredProductMemory from "../functions/filteredProductMemory";
 import CategoryProductCard from "../components/CategoryProductCard";
 import filteredProductByCategory from "../functions/filteredProductByCategory";
 import filteredCategoryMenu from "../functions/filteredCategoryMenu";
+import getAvailableFilters from "../functions/getAvailableFilters";
 import { Link } from "react-router-dom";
 
 const CategoryProducts = ({ one, setone }) => {
   const { categoryName } = useParams();
   const pathname = decodeURIComponent(categoryName);
   const subCategories = filteredCategoryMenu(pathname);
-  const [brends, setBrends] = useState([]);
-  const [memoryArr, setMemoryArr] = useState([]);
+  const [availableFilters, setAvailableFilters] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
   const [page, setPage] = useState(1);
-  const [openBrend, setOpenBrend] = useState(true);
-  const [openMemory, setOpenMemory] = useState(true);
+  const [openFilters, setOpenFilters] = useState({});
   const [viewType, setViewType] = useState("grid");
-  const [checkedBrends, setCheckedBrands] = useState("all");
-  const [checkedMemory, setCheckedMemory] = useState("all");
+  const [activeFilter, setActiveFilter] = useState({ name: "all", value: "all" });
   const viewed = 12;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(viewed);
   const pages = Math.ceil(filteredProducts.length / viewed);
   let slicedProducts = filteredProducts.slice(startIndex, endIndex);
+
   useEffect(() => {
-    setBrends(filteredBrend(filteredProductByCategory(products, pathname)));
-    setMaxPrice(
-      Math.max(...filteredPrice(filteredProductByCategory(products, pathname)))
-    );
-    setMinPrice(
-      Math.min(...filteredPrice(filteredProductByCategory(products, pathname)))
-    );
-    setMemoryArr(
-      filteredProductMemory(filteredProductByCategory(products, pathname))
-    );
-    setFilteredProducts(filteredProductByCategory(products, pathname));
-  }, [pathname, viewType]);
-  useEffect(() => {
-    setFilteredProducts(filteredProductByCategory(products, pathname));
+    const productsInCat = filteredProductByCategory(products, pathname);
+    const filters = getAvailableFilters(productsInCat);
+    setAvailableFilters(filters);
+    
+    // Initialize all filters as open
+    const initialOpen = {};
+    filters.forEach(f => initialOpen[f.name] = true);
+    setOpenFilters(initialOpen);
+
+    setMaxPrice(Math.max(...filteredPrice(productsInCat), 0));
+    setMinPrice(Math.min(...filteredPrice(productsInCat), 0));
+    setFilteredProducts(productsInCat);
+    setActiveFilter({ name: "all", value: "all" });
   }, [pathname]);
+
+  const handleFilter = (filterName, value) => {
+    const productsInCat = filteredProductByCategory(products, pathname);
+    if (value === "all") {
+      setFilteredProducts(productsInCat);
+      setActiveFilter({ name: "all", value: "all" });
+    } else {
+      const filtered = productsInCat.filter((product) => {
+        if (filterName === "Brend") {
+          return product.category.brend === value;
+        } else {
+          const prop = product.property.find((item) => {
+            const trimmedName = item.name.trim();
+            const normalizedName = trimmedName.charAt(0).toUpperCase() + trimmedName.slice(1).toLowerCase();
+            return normalizedName === filterName;
+          });
+          return prop && prop.types.some(t => t.trim() === value);
+        }
+      });
+      setFilteredProducts(filtered);
+      setActiveFilter({ name: filterName, value: value });
+    }
+  };
+
   const rangeStyle = {
     trackStyle: { backgroundColor: "#00c65e" },
   };
@@ -95,147 +115,59 @@ const CategoryProducts = ({ one, setone }) => {
                     defaultValue={[minPrice, maxPrice]}
                   />
                 </div>
-                <div className="flex flex-col justify-start items-stretch gap-4 w-full">
-                  <button
-                    onClick={() => {
-                      setOpenBrend((prev) => !prev);
-                    }}
-                    className="flex justify-between items-center w-full"
-                  >
-                    <span className="text-base font-medium text-dark-gray leading-152">
-                      Brend
-                    </span>
-                    <span>
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        className={`${openBrend ? "rotate-180" : "rotate-0"}`}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.29728 0.689164L0.473393 4.38293C0.209396 4.63795 0.209386 5.05144 0.473385 5.30646C0.737384 5.56149 1.16542 5.56148 1.42942 5.30645L4.77522 2.07439L8.12136 5.30678C8.38536 5.56181 8.81339 5.5618 9.07739 5.30678C9.34139 5.05175 9.3414 4.63827 9.0774 4.38324L5.26885 0.704169C5.26384 0.699003 5.25853 0.694201 5.25331 0.689157C5.02232 0.466337 4.66555 0.438241 4.40331 0.605499C4.36581 0.629425 4.33029 0.657276 4.29728 0.689164Z"
-                          fill="#363A45"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                  {openBrend && (
-                    <ul className="flex flex-col justify-start items-stretch gap-2.5">
-                      {brends &&
-                        brends.length > 0 &&
-                        brends.map((brend, index) => {
-                          return (
-                            <li
-                              className="flex justify-center items-center gap-4"
-                              key={index}
+                {availableFilters.map((filter, index) => (
+                  <div key={index} className="flex flex-col justify-start items-stretch gap-4 w-full">
+                    <button
+                      onClick={() => {
+                        setOpenFilters(prev => ({ ...prev, [filter.name]: !prev[filter.name] }));
+                      }}
+                      className="flex justify-between items-center w-full"
+                    >
+                      <span className="text-base font-medium text-dark-gray leading-152">
+                        {filter.name}
+                      </span>
+                      <span>
+                        <svg
+                          width="10"
+                          height="6"
+                          viewBox="0 0 10 6"
+                          fill="none"
+                          className={`${openFilters[filter.name] ? "rotate-180" : "rotate-0"}`}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.29728 0.689164L0.473393 4.38293C0.209396 4.63795 0.209386 5.05144 0.473385 5.30646C0.737384 5.56149 1.16542 5.56148 1.42942 5.30645L4.77522 2.07439L8.12136 5.30678C8.38536 5.56181 8.81339 5.5618 9.07739 5.30678C9.34139 5.05175 9.3414 4.63827 9.0774 4.38324L5.26885 0.704169C5.26384 0.699003 5.25853 0.694201 5.25331 0.689157C5.02232 0.466337 4.66555 0.438241 4.40331 0.605499C4.36581 0.629425 4.33029 0.657276 4.29728 0.689164Z"
+                            fill="#363A45"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                    {openFilters[filter.name] && (
+                      <ul className="flex flex-col justify-start items-stretch gap-2.5">
+                        {filter.values.map((val, i) => (
+                          <li className="flex justify-center items-center gap-4" key={i}>
+                            <button
+                              className={`px-3 w-full flex justify-start py-0.5 hover:text-bright-green ${
+                                activeFilter.name === filter.name && activeFilter.value === val
+                                  ? "text-bright-green"
+                                  : ""
+                              }`}
+                              onClick={() => handleFilter(filter.name, val)}
                             >
-                              <button
-                                className={`px-3 w-full flex justify-start py-0.5 hover:text-bright-green ${
-                                  checkedBrends == brend
-                                    ? "text-bright-green"
-                                    : ""
-                                }`}
-                                onClick={() => {
-                                  setFilteredProducts(
-                                    filteredProductByCategory(
-                                      products,
-                                      pathname
-                                    ).filter(
-                                      (product) =>
-                                        product.category.brend == brend
-                                    )
-                                  );
-                                  setCheckedBrands(brend);
-                                  setCheckedMemory("all");
-                                }}
-                              >
-                                {brend}
-                              </button>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  )}
-                </div>
-                <div className="flex flex-col justify-start items-stretch gap-4 w-full">
-                  <button
-                    onClick={() => {
-                      setOpenMemory((prev) => !prev);
-                    }}
-                    className="flex justify-between items-center w-full"
-                  >
-                    <span className="text-base font-medium text-dark-gray leading-152">
-                      Xotira
-                    </span>
-                    <span>
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        className={`${openMemory ? "rotate-180" : "rotate-0"}`}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.29728 0.689164L0.473393 4.38293C0.209396 4.63795 0.209386 5.05144 0.473385 5.30646C0.737384 5.56149 1.16542 5.56148 1.42942 5.30645L4.77522 2.07439L8.12136 5.30678C8.38536 5.56181 8.81339 5.5618 9.07739 5.30678C9.34139 5.05175 9.3414 4.63827 9.0774 4.38324L5.26885 0.704169C5.26384 0.699003 5.25853 0.694201 5.25331 0.689157C5.02232 0.466337 4.66555 0.438241 4.40331 0.605499C4.36581 0.629425 4.33029 0.657276 4.29728 0.689164Z"
-                          fill="#363A45"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                  {openMemory && (
-                    <ul className="flex flex-col justify-start items-stretch gap-2.5">
-                      {memoryArr &&
-                        memoryArr.length > 0 &&
-                        memoryArr.map((memory, index) => {
-                          return (
-                            <li
-                              className="flex justify-start items-center gap-4"
-                              key={index}
-                            >
-                              <button
-                                className={`px-2 w-full flex justify-start py-0.5 hover:text-bright-green ${
-                                  checkedMemory == memory
-                                    ? "text-bright-green"
-                                    : ""
-                                }`}
-                                onClick={() => {
-                                  setFilteredProducts(
-                                    filteredProductByCategory(
-                                      products,
-                                      pathname
-                                    ).filter((product) =>
-                                      product.property
-                                        .find((item) => item.name == "Xotira")
-                                        .types.includes(memory)
-                                    )
-                                  );
-                                  setCheckedMemory(memory);
-                                  setCheckedBrands("all");
-                                }}
-                              >
-                                {memory}
-                              </button>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  )}
-                </div>
+                              {val}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
                 <div className="flex justify-center flex-col gap-5 items-center w-full">
                   <button
                     onClick={() => {
-                      setFilteredProducts(
-                        filteredProductByCategory(products, pathname)
-                      );
-                      setCheckedBrands("all");
-                      setCheckedMemory("all");
+                      handleFilter("all", "all");
                     }}
                     className="text-bright-green transition-all w-full flex justify-center items-center hover:text-white bg-white hover:bg-bright-green py-3 rounded-[10px] border-2 border-bright-green text-sm leading-120 font-medium tracking-0.7"
                   >
