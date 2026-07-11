@@ -62,8 +62,13 @@ const productSchema = mongoose.Schema({
 const Product = mongoose.model("product", productSchema);
 
 route.get("/", async (req, res) => {
-  const products = await Product.find().sort({ name: 1 });
-  res.send(products);
+  try {
+    const products = await Product.find().sort({ name: 1 });
+    res.send(products);
+  } catch (error) {
+    console.error(`server bilan hatolik yuz berdi: ${error}`);
+    res.status(500).send("Serverda ichki xatolik yuz berdi...");
+  }
 });
 
 // Crud mothods
@@ -72,16 +77,16 @@ route.get("/", async (req, res) => {
 route.post("/", async (req, res) => {
   try {
     if (!req.body.name) {
-      res.send(`"name" is required...`);
+      return res.status(400).send(`"name" is required...`);
     }
     if (!req.body.category) {
-      res.send(`"category" is required...`);
+      return res.status(400).send(`"category" is required...`);
     }
     if (!req.body.price) {
-      res.send(`"price" is required...`);
+      return res.status(400).send(`"price" is required...`);
     }
     if (!req.body.adress) {
-      res.send(`"adress" is required...`);
+      return res.status(400).send(`"adress" is required...`);
     }
 
     let product = new Product({
@@ -101,7 +106,8 @@ route.post("/", async (req, res) => {
     product = await product.save();
     res.status(201).send(product);
   } catch (error) {
-    console.log(`server bilan hatolik yuz berdi: ${error}`);
+    console.error(`server bilan hatolik yuz berdi: ${error}`);
+    res.status(500).send("Serverda ichki xatolik yuz berdi...");
   }
 });
 
@@ -112,15 +118,16 @@ route.get("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
     if (!productId) {
-      res.status(400).send(`"id" is required...`);
+      return res.status(400).send(`"id" is required...`);
     }
-    const found = await Product.find({ _id: productId });
+    const found = await Product.findById(productId);
     if (!found) {
-      res.status(404).send("product is not found...");
+      return res.status(404).send("product is not found...");
     }
     res.status(200).send(found);
   } catch (error) {
-    console.log(`hatolik yuz berdi:${error}`);
+    console.error(`hatolik yuz berdi: ${error}`);
+    res.status(500).send("Serverda ichki xatolik yuz berdi yoki ID formati noto'g'ri.");
   }
 });
 
@@ -132,14 +139,15 @@ route.get("/:id", async (req, res) => {
 route.delete("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
-    const deleting = await Product.findByIdAndDelete({ _id: productId });
+    const deleting = await Product.findByIdAndDelete(productId);
 
     if (!deleting) {
-      res.status(404).send("Product is not defined...");
-      console.log("Product is not defined...");
+      return res.status(404).send("Product is not defined...");
     }
+    res.status(200).send(deleting);
   } catch (error) {
-    console.log(`server bilan hatolik yuz berdi:${error}`);
+    console.error(`server bilan hatolik yuz berdi: ${error}`);
+    res.status(500).send("Serverda ichki xatolik yuz berdi.");
   }
 });
 
